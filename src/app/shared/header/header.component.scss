@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1990px;
+  color: #f8f9fa;
+  margin-top: 20px;
+  width: 100%;
+  position: absolute;
+}
+
+app-header {
+  max-width: 1990px;
+}
+
+
+.h-btn-wrap{
+    position:relative;
+    >img{
+        position:absolute;
+        top:5px;
+        right:-12px;
+        width:100px;
+        height:auto;
+    }
+}
+
+.projects{
+    img{
+        right:-16px;
+        top:7px;
+    }
+}
+
+.skills{
+    img{
+        right:-28px;
+        top:5px;
+    }
+}
+
+.contact{
+    img{
+        right:-20px;
+        top:5px;
+    }
+}
