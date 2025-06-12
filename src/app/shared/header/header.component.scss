@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   max-width: 1990px;
   color: #f8f9fa;
@@ -12,35 +13,134 @@ app-header {
   max-width: 1990px;
 }
 
-
-.h-btn-wrap{
-    position:relative;
-    >img{
-        position:absolute;
-        top:5px;
-        right:-12px;
-        width:100px;
-        height:auto;
-    }
+.h-btn-wrap {
+  > img {
+    position: absolute;
+    top: 5px;
+    right: -12px;
+    width: 100px;
+    height: auto;
+    z-index: 0;
+    clip-path: inset(100% 0% 0% 0%); // initially hidden
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.projects{
-    img{
-        right:-16px;
-        top:7px;
-    }
+.h-btn-wrap {
+  position: relative;
+
+  > p.h-btn {
+    position: relative;
+    z-index: 999; // always on top
+  }
+
+  .aboutDrawnLine {
+    position: absolute;
+    top: 6px;
+    right: -8px;
+    width: 90px;
+    height: auto;
+    z-index: 1;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 0%,
+      0% 0%
+    ); // completely hidden from top
+    // transition: clip-path 0.1s ease-in; // fallback if GSAP fails
+  }
 }
 
-.skills{
-    img{
-        right:-28px;
-        top:5px;
-    }
+.about-me {
+  max-height: 300px;
+  transition: height 0.3s ease;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.contact{
-    img{
-        right:-20px;
-        top:5px;
+.projects {
+  .projectDrawnLine {
+    right: -16px;
+    top: 7px;
+    z-index: 999;
+    // clip-path: inset(100% 0% 0% 0%);
+  }
+}
+
+.skills {
+  .skillsDrawnLine {
+    position: absolute;
+    right: -28px;
+    top: 5px;
+    z-index: 999;
+    // clip-path: inset(100% 0% 0% 0%);
+  }
+}
+
+.contact {
+  .contactDrawnLine {
+    right: -20px;
+    top: 5px;
+    z-index: 999;
+    // clip-path: inset(100% 0% 0% 0%);
+  }
+}
+
+.t-switch {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  position: relative;
+  > .en,
+  .de {
+    position: relative;
+    > img {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      top: 10px;
+      right: -7px;
+      height: auto;
+      z-index: 1;
+      // clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%);
     }
+  }
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+}
+
+// .img-en {
+//   position: absolute;
+//   top: 36px;
+//   right: -8px;
+//   width: 90px;
+// }
+
+.en {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// .img-de {
+//   position: absolute;
+//   top: 6px;
+//   right: -8px;
+//   width: 90px;
+//   height: auto;
+//   z-index: 1;
+//   clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%);
+// }
+
+.de {
+  &:hover {
+    cursor: pointer;
+  }
 }

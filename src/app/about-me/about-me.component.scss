@@ -1,0 +1,39 @@
+@mixin dFlex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+app-about-me {
+  background-color: F8F9FA;
+}
+
+.a-m-wrap {
+  display: flex;
+  > .location-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.ripped-paper {
+  width: 500px;
+  height: auto;
+}
+
+.talk {
+  @include dFlex();
+  border: 1px solid black;
+  border-radius: 100px;
+  // padding: 12px 24px 12px 24px;
+  font-size: 18px;
+  width: 154px;
+  height: 40px;
+  box-shadow: 2px 4px 0 0 black;
+  transition: all 100ms ease-in-out;
+  &:hover {
+    background-color: #f87a55;
+    transform: translate(2px, 4px);
+    box-shadow: none;
+    cursor: pointer;
+  }
+}

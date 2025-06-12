@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
-
 import { CustomEase } from 'gsap/CustomEase';
 // CustomBounce requires CustomEase
 import { CustomBounce } from 'gsap/CustomBounce';
@@ -19,8 +18,30 @@ CustomBounce.create('myBounce', {
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
-export class HeroComponent {
+export class HeroComponent implements AfterViewInit {
+  @ViewChild('bgFillGithub') bgFillGithub!: ElementRef;
+  @ViewChild('bgFillLinkedin') bgFillLinkedin!: ElementRef;
+  @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
   hovered = false;
+
+  ngAfterViewInit() {
+    // Initialize clip-paths to hidden using GSAP
+    gsap.set(this.bgFillGithub.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+    gsap.set(this.bgFillLinkedin.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+    gsap.set(this.bgFillEmail.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+  }
 
   putHover() {
     this.hovered = true;
@@ -42,5 +63,38 @@ export class HeroComponent {
     );
     gsap.to('.name-welc', { opacity: 0, duration: 0.4 });
     gsap.to('.world-welc', { opacity: 1, duration: 0.4 });
+  }
+
+  fillBackground(type: string) {
+    const lineMap: { [key: string]: ElementRef } = {
+      bgFillGithub: this.bgFillGithub,
+      bgFillLinkedin: this.bgFillLinkedin,
+      bgFillEmail: this.bgFillEmail,
+    };
+
+    const element = lineMap[type];
+    if (!element) return;
+    gsap.to(element.nativeElement, {
+      scaleX: 1,
+      height: '100%',
+      duration: 0.2,
+      ease: 'power2.out',
+    });
+  }
+  unfillBackground(type: string) {
+    const lineMap: { [key: string]: ElementRef } = {
+      bgFillGithub: this.bgFillGithub,
+      bgFillLinkedin: this.bgFillLinkedin,
+      bgFillEmail: this.bgFillEmail,
+    };
+
+    const element = lineMap[type];
+    if (!element) return;
+    gsap.to(element.nativeElement, {
+      scaleX: 0,
+      height: '0%',
+      duration: 0.2,
+      ease: 'power2.in',
+    });
   }
 }

@@ -1,20 +1,96 @@
 <div class="header">
   <img src="assets/icon/logo.svg" alt="logo" />
-  <div class="h-btn-wrap about-me">
+
+  <div
+    class="h-btn-wrap about-me"
+    (mouseenter)="putHoverAbout()"
+    (mouseleave)="deleteHoverAbout()"
+  >
     <p class="h-btn">About me</p>
-    <img src="assets/drawn-lines/1.png" alt="" />
+    <img
+      class="aboutDrawnLine"
+      #aboutDrawnLine
+      src="assets/drawn-lines/1.png"
+      alt=""
+    />
   </div>
-  <div class="h-btn-wrap skills">
+
+  <div
+    class="h-btn-wrap skills"
+    (mouseenter)="putHover('skillsDrawnLine')"
+    (mouseleave)="deleteHover('skillsDrawnLine')"
+  >
     <p class="h-btn">Skills</p>
-    <img src="assets/drawn-lines/2.png" alt="" />
+    <img
+      class="skillsDrawnLine"
+      #skillsDrawnLine
+      src="assets/drawn-lines/2.png"
+      alt=""
+    />
   </div>
-  <div class="h-btn-wrap projects">
+  <div
+    class="h-btn-wrap projects"
+    (mouseenter)="putHover('projectDrawnLine')"
+    (mouseleave)="deleteHover('projectDrawnLine')"
+  >
     <p class="h-btn">Projects</p>
-    <img src="assets/drawn-lines/4.png" alt="" />
+    <img
+      class="projectDrawnLine"
+      #projectDrawnLine
+      src="assets/drawn-lines/4.png"
+      alt=""
+    />
   </div>
-  <div class="h-btn-wrap contact">
+  <div
+    class="h-btn-wrap contact"
+    (mouseenter)="putHover('contactDrawnLine')"
+    (mouseleave)="deleteHover('contactDrawnLine')"
+  >
     <p class="h-btn">Contact</p>
-    <img src="assets/drawn-lines/3.png" alt="" />
+    <img
+      class="contactDrawnLine"
+      #contactDrawnLine
+      src="assets/drawn-lines/3.png"
+      alt=""
+    />
   </div>
-  <p class="h-btn t-switch">Toggle Switch</p>
+  <div class="h-btn t-switch">
+    <span
+      (mouseenter)="putHoverEnglish()"
+      (mouseleave)="deleteHoverEnglish()"
+      (click)="switchToEnglish()"
+      class="en"
+    >
+      <p
+        class="text-en"
+        [ngStyle]="{ color: this.status == 'german' ? '#f8f9fa' : '#F87A55' }"
+      >
+        EN
+      </p>
+      <img class="img-en" #en src="assets/img/Toggle.png" alt="" />
+    </span>
+    <span class="toggle">
+      <img
+        class="toggle-btn"
+        #toggleBtn
+        src="assets/img/toggle-btn.png"
+        alt=""
+      />
+      <img src="assets/img/toggle-bar.png" alt="" />
+    </span>
+    <span
+      (mouseenter)="putHoverGerman()"
+      (mouseleave)="deleteHoverGerman()"
+      (click)="switchToGerman()"
+      class="de"
+    >
+      <p
+        class="text-de"
+        [ngStyle]="{ color: this.status == 'english' ? '#f8f9fa' : '#F87A55' }"
+      >
+        DE
+      </p>
+      <img class="img-de" #de src="assets/img/Toggle.png" alt=""
+    /></span>
+  </div>
 </div>
