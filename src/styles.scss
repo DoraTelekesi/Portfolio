@@ -10,15 +10,24 @@
 
 @font-face {
   font-family: "Kalam";
-  src: url(assets/fonts/Kalam/Kalam-Bold.ttf);
+  src: url(assets/fonts/Kalam/Kalam-Regular.ttf);
+}
+@font-face {
+  font-family: "Kalam";
+  src: url(assets/fonts/Kalam/Kalam-Light.ttf);
 }
 
 body {
   margin: 0;
   font-family: "Bricolage Grotesque", sans-serif;
+  background-color: #f8f9fa;
 }
 
 app-header {
   display: flex;
   justify-content: center;
+}
+
+app-hero {
+  z-index: 999;
 }

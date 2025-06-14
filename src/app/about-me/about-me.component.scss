@@ -3,15 +3,20 @@
   justify-content: center;
   align-items: center;
 }
-app-about-me {
-  background-color: F8F9FA;
-}
 
 .a-m-wrap {
   display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1990px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  margin-top:100px;
+
   > .location-section {
     display: flex;
     flex-direction: column;
+    width: 560px;
   }
 }
 
@@ -20,11 +25,61 @@ app-about-me {
   height: auto;
 }
 
-.talk {
+.green {
+  top: 100px;
+  transform: rotate(-7deg);
+  z-index: 3;
+}
+.blue {
+  top: 190px;
+  transform: rotate(-3deg);
+}
+.turqoise {
+  top: 280px;
+  transform: rotate(3deg);
+}
+
+.ripped-paper {
+  position: absolute;
+}
+
+.loc,
+.reloc,
+.rem {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  color: #f8f9fa;
+  z-index: 5;
+  font-size: 20px;
+}
+
+.loc {
+  top: 120px;
+  right: 200px;
+  transform: rotate(-7deg);
+}
+
+.reloc {
+  top: 225px;
+  right: 200px;
+  transform: rotate(-3deg);
+}
+
+.rem {
+  top: 315px;
+  right: 180px;
+  transform: rotate(5deg);
+}
+
+.location-section {
+  position: relative;
+}
+
+.a-m-btn {
   @include dFlex();
   border: 1px solid black;
   border-radius: 100px;
-  // padding: 12px 24px 12px 24px;
   font-size: 18px;
   width: 154px;
   height: 40px;
@@ -36,4 +91,25 @@ app-about-me {
     box-shadow: none;
     cursor: pointer;
   }
+}
+
+.a-m-title-wrap {
+  position: relative;
+  > h1 {
+    font-size: 75px;
+  }
+  > img {
+    width: 350px;
+    position: absolute;
+    top: 80px;
+  }
+}
+
+.a-m-section-right {
+  width: 560px;
+}
+.btn-wrap{
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
 }
