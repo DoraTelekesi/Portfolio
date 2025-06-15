@@ -1,27 +1,37 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
 export class SkillsComponent implements AfterViewInit {
   lineRotated = false;
   currentImage = 0;
-  imageCache: {} = {};
+  imageCache: { [key: string]: HTMLImageElement } = {};
+  img!: HTMLImageElement;
+  showImage1: boolean = true;
+  revealed = false;
+  @ViewChildren('stickerImages') stickerImages!: QueryList<
+    ElementRef<HTMLImageElement>
+  >;
+
   peelOffImagesOpen = [
     'assets/img/sticker-1.png',
     'assets/img/sticker-2.png',
     'assets/img/sticker-3.png',
   ];
-  peelOffImagesClose = [
-    'assets/img/sticker-3.png',
-    'assets/img/sticker-2.png',
-    'assets/img/sticker-1.png',
-  ];
+
   ngAfterViewInit(): void {
     gsap.set('.skill-title-line', {
       rotation: 0,
@@ -55,11 +65,36 @@ export class SkillsComponent implements AfterViewInit {
     }, 2000);
   }
 
-  // loadImages(arr: []) {
-  //   arr.forEach((path: any) => {
-  //     let img = new Image();
-  //     img.src = path;
-  //     this.imageCache[path] = img;
-  //   });
-  // }
+  revealImages() {
+
+    const images = this.stickerImages.toArray().map((el) => el.nativeElement);
+
+    if (!this.revealed) {
+      // Reveal: show image 2, then 3
+      gsap.to(images[1], {
+        opacity: 1,
+        duration: 0.2,
+        onComplete: () => {
+          gsap.to(images[2], {
+            opacity: 1,
+            duration: 0.2,
+          });
+        },
+      });
+      this.revealed = true;
+    } else {
+      // Un-reveal: hide image 3, then image 2
+      gsap.to(images[2], {
+        opacity: 0,
+        duration: 0.2,
+        onComplete: () => {
+          gsap.to(images[1], {
+            opacity: 0,
+            duration: 0.2,
+          });
+        },
+      });
+      this.revealed = false;
+    }
+  }
 }

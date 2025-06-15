@@ -42,11 +42,47 @@
           />
         </div>
       </div>
-      <div class="sticker">
-        <img src="assets/img/sticker-1.png" alt="" />
-        <div class="sticker-text">
+      <div class="sticker" (click)="revealImages()">
+        <img
+          #stickerImages
+          [src]="peelOffImagesOpen[0]"
+          class="sticker-img img-1"
+          alt=""
+        />
+        <img
+          #stickerImages
+          [src]="peelOffImagesOpen[1]"
+          class="sticker-img img-2"
+          alt=""
+        />
+        <img
+          #stickerImages
+          [src]="peelOffImagesOpen[2]"
+          class="sticker-img img-3"
+          alt=""
+        />
+
+        <div
+          [class.hide]="revealed"
+          [class.show]="!revealed"
+          class="sticker-text"
+        >
           <img src="assets/img/arrow-white.png" alt="" />
           <p>Pull to peel</p>
+        </div>
+
+        <div class="opened-sticker-text"  [class.show]="revealed"[class.hide]="!revealed">
+          <div>Also, I'm interested in diving into:</div>
+          <div class="extra-icons">
+            <div>
+              <img src="assets/icon/React.png" alt="" />
+              <p>React</p>
+            </div>
+            <div>
+              <img src="assets/icon/Vue Js.png" alt="" />
+              <p>Vue Js</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

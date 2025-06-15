@@ -97,4 +97,5 @@ export class HeroComponent implements AfterViewInit {
       ease: 'power2.in',
     });
   }
+
 }
