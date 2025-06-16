@@ -1,0 +1,27 @@
+<div class="project-section">
+  <div
+    class="img-wrap"
+    (mouseenter)="applyHover(imageExtraClass)"
+    (mouseleave)="removeHover(imageExtraClass)"
+  >
+    <img
+      class="pr-img"
+      [src]="imageUrl"
+      [alt]="imageAlt"
+      [ngClass]="imageExtraClass"
+    />
+    @if (hovered===true){
+    <div
+      class="btn-wrap"
+      (mouseenter)="hovered = true; onEvent($event)"
+      (mouseleave)="hovered = true; onEvent($event)"
+    >
+      <div class="btn-cont btn">Project Details</div>
+    </div>
+    }
+  </div>
+  <h4>{{ title }}</h4>
+  <p>
+    {{ description }}
+  </p>
+</div>

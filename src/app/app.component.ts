@@ -6,14 +6,23 @@ import { HeaderComponent } from './shared/header/header.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
-
+import { ProjectsOverviewComponent } from './projects-overview/projects-overview.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeroComponent, HeaderComponent, AboutMeComponent, SkillsComponent, ProjectsComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeroComponent,
+    HeaderComponent,
+    AboutMeComponent,
+    SkillsComponent,
+    ProjectsOverviewComponent,
+    ProjectsComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'Portfolio';

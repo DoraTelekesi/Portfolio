@@ -19,7 +19,22 @@
       </p>
     </div>
     <div class="spooky-town section">
-      <img class="pr-img" src="assets/img/SpookyTown.png" alt="" />
+      <div class="img-wrap">
+        <img
+          (mouseenter)="applyHoverSpooky()"
+          (mouseleave)="removeHoverSpooky()"
+          class="pr-img spooky-img"
+          src="assets/img/pollo.jpg"
+          alt=""
+        />
+        <div
+          class="btn-wrap"
+          [class.hidden]="!spookyHovered"
+          [class.show]="spookyHovered"
+        >
+          <div class="btn-cont btn">Get in Touch</div>
+        </div>
+      </div>
       <h4>Spooky Town</h4>
       <p>
         Jump, tun and throw game based on object-orientated approach. Help
@@ -30,8 +45,25 @@
   <div class="col-2">
     <div class="join section">
       <div class="img-wrap">
-        <img class="pr-img join-img" src="assets/img/Join.png" alt="" />
+        <img
+          class="pr-img join-img"
+          (mouseover)="applyHover()"
+          (mouseleave)="removeHover()"
+          src="assets/img/Join.png"
+          alt=""
+        />
+        <div class="btn-wrap">
+          <div
+            class="btn-cont btn"
+            [class.hidden]="!hovered"
+            [class.show]="hovered"
+            (mouseenter)="hoverBtnJoin()"
+          >
+            Get in Touch
+          </div>
+        </div>
       </div>
+
       <h4>Join</h4>
       <p>
         Task manager inspired by the Kanban System. Create and organize tasks,
@@ -39,7 +71,26 @@
       </p>
     </div>
     <div class="dabubble section">
-      <img class="pr-img" src="assets/img/SpookyTown.png" alt="" />
+      <div class="img-wrap">
+        <img
+          (mouseenter)="applyHoverDabubble()"
+          (mouseleave)="removeHoverDabubble()"
+          class="pr-img dabubble-img"
+          src="assets/img/SpookyTown.png"
+          alt=""
+        />
+        <div class="btn-wrap">
+          <div
+            class="btn-cont btn"
+            [class.hidden]="!spookyHovered"
+            [class.show]="spookyHovered"
+            (mouseenter)="hoverBtnSpooky()"
+          >
+            Get in Touch
+          </div>
+        </div>
+      </div>
+
       <h4>Spooky Town</h4>
       <p>
         Jump, tun and throw game based on object-orientated approach. Help

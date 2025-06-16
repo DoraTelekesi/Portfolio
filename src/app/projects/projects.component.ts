@@ -11,45 +11,51 @@ import { gsap } from 'gsap';
 export class ProjectsComponent implements AfterViewInit {
   isUnderlined = false;
   isFloated = false;
+  hovered = false;
+  spookyHovered = false;
+  dabubbleHovered = false;
+  private floatIntervalId: any;
+  private floatTween: gsap.core.Tween | null = null;
+  joinBtnHovered: boolean = false;
+  spookyBtnHovered: boolean = false;
+  dabubbleBtnHovered: boolean = false;
+
   ngAfterViewInit(): void {
     gsap.set('.title-underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
     });
     this.animateUnderline();
-    gsap.set('.join-img', {
-      y: 0,
-      duration: 0,
-    });
+    gsap.set('.pr-img', { y: 0, x: 0 });
     this.floatingAnimation();
   }
 
   floatingAnimation() {
-    setInterval(() => {
-      if (this.isFloated === false) {
-        this.isFloated = true;
-        this.floatUp();
-      } else if (this.isFloated === true) {
-        this.isFloated = false;
-        this.floatDown();
-      }
-    }, 2000);
+    this.floatUp();
+  }
+
+  stopFloatingAnimation() {
+    clearInterval(this.floatIntervalId);
+    if (this.floatTween) {
+      this.floatTween.kill();
+    }
+    gsap.set('.join-img', {
+      y: 0,
+      x: 0,
+      duration: 0.5,
+      ease: 'power0.out',
+    });
   }
 
   floatUp() {
-    gsap.to('.join-img', {
-      y: 50,
-      duration: 6,
-      ease: 'power2.out',
+    this.floatTween = gsap.to('.join-img', {
+      y: 40,
+      duration: 2,
+      ease: 'back.inOut',
+      yoyo: true,
+      repeat: -1,
     });
   }
 
-  floatDown() {
-    gsap.to('.join-img', {
-      y: -20,
-      duration: 6,
-      ease: 'expo.out',
-    });
-  }
   animateUnderline() {
     setInterval(() => {
       if (this.isUnderlined == false) {
@@ -76,4 +82,83 @@ export class ProjectsComponent implements AfterViewInit {
     });
     this.isUnderlined = false;
   }
+
+  //Join image
+  applyHover() {
+    this.hovered = true;
+    if (this.floatTween) {
+      this.floatTween.kill();
+      this.floatTween = null;
+    }
+    gsap.set('.join-img', { y: 50, x: 0 });
+    gsap.to('.join-img', {
+      scale: 1.2,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  }
+
+  removeHover() {
+    this.hovered = false;
+    gsap.set('.join-img', { y: 0, x: 0 });
+    gsap.to('.join-img', {
+      scale: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+    this.floatingAnimation();
+  }
+  // Dabubble img
+  applyHoverDabubble() {
+    this.dabubbleHovered = true;
+    gsap.to('.dabubble-img', {
+      scale: 1.2,
+      duration: 0,
+    });
+  }
+
+  removeHoverDabubble() {
+    this.dabubbleHovered = false;
+    gsap.to('.dabubble-img', {
+      scale: 1,
+      duration: 0,
+    });
+  }
+  // Spooky image
+  applyHoverSpooky() {
+    this.spookyHovered = true;
+    gsap.to('.spooky-img', {
+      scale: 1.2,
+      duration: 0,
+    });
+  }
+  removeHoverSpooky() {
+    this.spookyHovered = false;
+    gsap.to('.spooky-img', {
+      scale: 1,
+      duration: 0,
+    });
+  }
+  //Project detail buttons
+
+  hoverBtnJoin() {
+    this.joinBtnHovered = true;
+    this.stopFloatingAnimation();
+    this.applyHover();
+  }
+
+  hoverBtnSpooky() {
+    if (this.spookyBtnHovered === false) {
+      this.spookyBtnHovered = true;
+      this.applyHoverSpooky();
+    } else {
+      this.spookyBtnHovered = false;
+      this.removeHoverSpooky();
+    }
+  }
+
+  // hoverBtnDabubble() {
+  //   this.dabubbleBtnHovered = true;
+  //   this.removeHoverDabubble();
+  // }
 }
