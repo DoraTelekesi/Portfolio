@@ -5,6 +5,8 @@ import {
   Input,
   ViewChild,
   ElementRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { gsap } from 'gsap';
 @Component({
@@ -20,21 +22,69 @@ export class ProjectItemComponent implements AfterViewInit {
   @Input() imageUrl: string = '';
   @Input() imageAlt: string = '';
   @Input() imageExtraClass: string = '';
+  @Input() specialId!: string;
 
   isUnderlined = false;
   isFloated = false;
-  hovered: boolean = false;
-  private floatIntervalId: any;
-  private floatTween: gsap.core.Tween | null = null;
+  hoveredImg: boolean = false;
+  public floatIntervalId: any;
+  public floatTween: gsap.core.Tween | null = null;
 
+  @ViewChild('imageElement', { static: true })
+  imageElement!: ElementRef<HTMLImageElement>;
 
   ngAfterViewInit(): void {
     gsap.set('.title-underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
     });
     this.animateUnderline();
-    gsap.set('.join-img', { y: 0, x: 0 });
     this.floatingAnimation();
+  }
+
+  onImageEnter() {
+    this.hoveredImg = true;
+    const el = this.imageElement.nativeElement;
+    gsap.killTweensOf(el); // Kill any existing scale tweens on this element
+    let scaleValue = 1.1; // Apply custom scale based on ID
+    let duration = 0.2;
+    if (this.specialId === 'spooky-img') {
+      scaleValue = 1.15;
+      duration = 0.25;
+    } else if (this.specialId === 'dabubble-img') {
+      scaleValue = 1.2;
+      duration = 0.3;
+    } else if (this.specialId === 'join-img') {
+      this.stopFloatingAnimation();
+      scaleValue = 1.1;
+      duration = 0.2;
+    }
+    this.animateHover(el, scaleValue, duration);
+  }
+
+  animateHover(el: HTMLImageElement, sV: number, d: number) {
+    gsap.to(el, {
+      scale: sV,
+      d,
+      ease: 'power2.out',
+    });
+  }
+
+  onImageLeave() {
+    this.hoveredImg = false;
+    const el = this.imageElement.nativeElement;
+    gsap.killTweensOf(el); // Stop any current scale tweens
+    gsap.to(el, {
+      scale: 1,
+      duration: 0.2,
+      ease: 'power2.inOut',
+    });
+    if (this.specialId === 'join-img') {
+      this.floatingAnimation();
+    }
+  }
+
+  getImageElement(): HTMLImageElement {
+    return this.imageElement.nativeElement;
   }
 
   floatingAnimation() {
@@ -46,18 +96,18 @@ export class ProjectItemComponent implements AfterViewInit {
     if (this.floatTween) {
       this.floatTween.kill();
     }
-    gsap.set('.join-img', {
+    gsap.to('.join-img', {
       y: 0,
       x: 0,
-      duration: 0.5,
+      duration: 0.1,
       ease: 'power0.out',
     });
   }
 
   floatUp() {
     this.floatTween = gsap.to('.join-img', {
-      y: 90,
-      duration: 1,
+      y: 80,
+      duration: 2,
       ease: 'back.inOut',
       yoyo: true,
       repeat: -1,
@@ -74,6 +124,7 @@ export class ProjectItemComponent implements AfterViewInit {
       }
     }, 3000);
   }
+
   lineVisible() {
     gsap.to('.title-underline', {
       clipPath: 'inset(0% 0% 0% 0%)',
@@ -89,65 +140,6 @@ export class ProjectItemComponent implements AfterViewInit {
       ease: 'power2.out',
     });
     this.isUnderlined = false;
-  }
-
-  applyHover(type: string) {
-    if (type === 'spooky-img') {
-      this.hovered = true;
-      gsap.set('.spooky-img', {
-        scale: 1.2,
-        duration: 0.5,
-      });
-    } else if (type === 'dabubble-img') {
-      this.hovered = true;
-      gsap.set('.dabubble-img', {
-        scale: 1.2,
-        duration: 0.5,
-      });
-    } else if (type === 'join-img') {
-      this.hovered = true;
-      if (this.floatTween) {
-        this.floatTween.kill();
-        this.floatTween = null;
-      }
-
-      // gsap.set('.join-img', { y: 50, x: 0 });
-      gsap.set('.join-img', {
-        y: 50,
-        scale: 1.2,
-        duration: 0.5,
-        ease: 'power2.out',
-        overwrite: 'auto', // avoids conflicts with floatTween
-        immediateRender: false, // makes GSAP wait before rendering
-      });
-    }
-  }
-  removeHover(type: string) {
-    if (type === 'spooky-img') {
-      this.hovered = false;
-      gsap.set('.spooky-img', {
-        scale: 1,
-        duration: 0.5,
-      });
-    } else if (type === 'dabubble-img') {
-      this.hovered = false;
-      gsap.set('.dabubble-img', {
-        scale: 1,
-        duration: 0.5,
-      });
-    } else if (type === 'join-img') {
-      this.hovered = false;
-      // gsap.set('.join-img', { y: 0, x: 0 });
-      gsap.set('.join-img', {
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: 'power2.out',
-        overwrite: 'auto',
-        immediateRender: false,
-      });
-      this.floatingAnimation();
-    }
   }
 
   onEvent(event: any) {

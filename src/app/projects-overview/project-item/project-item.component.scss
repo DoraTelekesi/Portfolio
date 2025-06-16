@@ -9,9 +9,13 @@
   height: 400px;
   border-radius: 20px;
   object-fit: cover;
-  transition:all 1s ease;
 }
-
+.hidden {
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
 .img-wrap {
   position: relative;
   width: 560px;

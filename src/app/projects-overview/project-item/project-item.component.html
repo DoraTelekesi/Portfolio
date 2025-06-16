@@ -1,20 +1,22 @@
 <div class="project-section">
   <div
     class="img-wrap"
-    (mouseenter)="applyHover(imageExtraClass)"
-    (mouseleave)="removeHover(imageExtraClass)"
+    (mouseenter)="onImageEnter()"
+    (mouseleave)="onImageLeave()"
   >
     <img
+      #imageElement
+      [id]="specialId"
       class="pr-img"
       [src]="imageUrl"
       [alt]="imageAlt"
       [ngClass]="imageExtraClass"
     />
-    @if (hovered===true){
+    @if (hoveredImg===true){
     <div
       class="btn-wrap"
-      (mouseenter)="hovered = true; onEvent($event)"
-      (mouseleave)="hovered = true; onEvent($event)"
+      (mouseenter)="hoveredImg = true; onEvent($event)"
+      (mouseleave)="hoveredImg = true; onEvent($event)"
     >
       <div class="btn-cont btn">Project Details</div>
     </div>
