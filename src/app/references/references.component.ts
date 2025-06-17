@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ReferenceItemComponent } from './reference-item/reference-item.component';
 
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [],
+  imports: [ReferenceItemComponent],
   templateUrl: './references.component.html',
-  styleUrl: './references.component.scss'
+  styleUrl: './references.component.scss',
 })
-export class ReferencesComponent {
-
-}
+export class ReferencesComponent {}
