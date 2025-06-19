@@ -1,0 +1,37 @@
+<div class="projects-content-grid">
+  <div class="grid-item title-section section">
+    <h4>MY CRAFT</h4>
+    <div class="main-title">
+      <h1>Projects</h1>
+      <img
+        class="title-underline"
+        src="assets/drawn-lines/portfolio-title.png"
+        alt=""
+      />
+    </div>
+    <p>
+      I encourage you to check out my projects and interact with them! When
+      creating responsive and user-friendly applications, I focus on efficient
+      code. My goal is to combine intuitive design with optimal performance,
+      ensuring users have a smooth experience. Feel free to explore my work and
+      share your feedback!
+    </p>
+  </div>
+
+  @if(projectlist.length > 1){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[1]"
+  ></app-project-item>
+  } @if(projectlist.length > 0){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[0]"
+  ></app-project-item>
+  } @if(projectlist.length > 2){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[2]"
+  ></app-project-item>
+  }
+</div>

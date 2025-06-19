@@ -1,0 +1,116 @@
+<div class="content-wrap">
+  <div class="content">
+    <div class="col-1">
+      <h3>CONTACT ME</h3>
+      <h1>Ready to work?</h1>
+      <p>
+        I warmly invite you to reach out to me! I am particularly interested in
+        roles that allow me to apply my front-end skills to innovative projects.
+        With my expertise and passion for continuous learning, I am confident
+        that I can make a valuable contribution.
+      </p>
+      <p>
+        I bring not only technical knowledge but also creativity and teamwork.
+        Let’s collaborate on exciting challenges and achieve extraordinary
+        results together!
+      </p>
+      <div class="img-wrap">
+        <img
+          class="arrow"
+          src="assets/drawn-lines/contact.png"
+          alt="Arrow Image"
+        />
+      </div>
+    </div>
+    <div class="col-2">
+      <form class="form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi" />
+        </mat-form-field>
+      </form>
+      <div class="privacy-checkbox">
+        <div class="checkbox-wrap">
+          <img class="checkbox" src="assets/img/checkbox.png" alt="Checkbox" />
+          <img class="check" src="assets/img/check.png" alt="Check" />
+        </div>
+        <p>
+          I've read the <span>privacy policy</span> and agree to the processing
+          of my data as outlined.
+        </p>
+      </div>
+      <div class="btn-wrap">
+        <div class="btn-cont btn">Send</div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <img src="assets/icon/logo.svg" alt="" />
+    <p>© Dora Telekesi 2025</p>
+    <div class="links">
+      <div
+        class="h-btn-wrap legal"
+        (mouseenter)="putHover()"
+        (mouseleave)="deleteHover()"
+      >
+        <p>Legal Notice</p>
+        <img
+          class="legalDrawnLine"
+          #legalDrawnLine
+          src="assets/drawn-lines/3.png"
+          alt="drawn-line"
+        />
+      </div>
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverGitHub()"
+        (mouseleave)="removeHoverGitHub()"
+      >
+        <img
+          class="github-icon"
+          src="assets/icon/Github.svg"
+          alt="github icon"
+        />
+        <div class="icon-box github">
+          <p>GitHub</p>
+        </div>
+      </div>
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverLinkedin()"
+        (mouseleave)="removeHoverLinkedin()"
+      >
+        <img
+          class="linkedin-icon"
+          src="assets/icon/Linkedin.svg"
+          alt="linkedin icon"
+        />
+        <div class="icon-box linkedin">
+          <p>LinkedIn</p>
+        </div>
+      </div>
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverEmail()"
+        (mouseleave)="removeHoverEmail()"
+      >
+        <img
+          class="email-icon"
+          src="assets/icon/Email.svg"
+          alt="email icon"
+        />
+        <div class="icon-box email">
+          <p>Email</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

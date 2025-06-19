@@ -1,0 +1,48 @@
+<div *ngIf="project?.id">
+  <div class="content-wrap">
+    <div class="content">
+      <div class="description">
+        <div (click)="goBack()" class="go-back">
+          <img src="assets/drawn-lines/go-back.png" alt="" />
+          <p>Go Back</p>
+        </div>
+        <h1 #titleRef>{{ project?.title }}</h1>
+        <div class="img-wrap">
+          <img
+            [style.width.px]="width"
+            [style.height.px]="height"
+            class="title-underline"
+            src="assets/drawn-lines/project-title.png"
+            alt=""
+          />
+        </div>
+        <h3>Description</h3>
+        <p>
+          {{ project?.description }}
+        </p>
+        <h3>Implementation Details</h3>
+        <p>
+          {{ project?.implementation }}
+        </p>
+        <p><span>Duration:</span> 3 weeks</p>
+        <div class="tools">
+          @for(tool of project?.tools; track tool){
+          <img src="{{ tool.img }}" alt="" />
+          <p>{{ tool.name }}</p>
+          }
+        </div>
+      </div>
+      <div class="col-2">
+        <img src="{{ project?.imageUrl }}" alt="" />
+        <div class="links">
+          <a href="{{ project?.repoLink }}"><div class="btn">GitHub</div></a>
+          <a href="{{ project?.liveLink }}"><div class="btn">Live Test</div></a>
+        </div>
+        <div (click)="nextProject()" class="next-project">
+          <p>Next Project</p>
+          <img src="assets/drawn-lines/next-project.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

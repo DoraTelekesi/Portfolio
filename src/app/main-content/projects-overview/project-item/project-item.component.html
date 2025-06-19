@@ -1,0 +1,31 @@
+<div class="project-section">
+  <div
+    class="img-wrap"
+    (mouseenter)="onImageEnter()"
+    (mouseleave)="onImageLeave()"
+  >
+    <img
+      #imageElement
+      id="{{ project.imgId }}"
+      class="pr-img"
+      src="{{ project.img }}"
+      alt="Project Image {{ project.title }}"
+      ngClass="{{ project.imgClass }}"
+    />
+    @if (hoveredImg===true){
+    <a [routerLink]="['/Projects', project.id]">
+      <div
+        class="btn-wrap"
+        (mouseenter)="hoveredImg = true; onEvent($event)"
+        (mouseleave)="hoveredImg = true; onEvent($event)"
+      >
+        <div class="btn-cont btn">Project Details</div>
+      </div>
+    </a>
+    }
+  </div>
+  <h4>{{ project.title }}</h4>
+  <p>
+    {{ project.description }}
+  </p>
+</div>

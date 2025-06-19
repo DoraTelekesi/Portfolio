@@ -1,0 +1,18 @@
+app-references {
+  margin-bottom: 500px;
+}
+
+app-hero {
+  z-index: 999;
+}
+
+app-references {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+app-contact {
+  display: flex;
+  justify-content: center;
+  background-image: url("/assets/img/contact-bg.png");
+}
