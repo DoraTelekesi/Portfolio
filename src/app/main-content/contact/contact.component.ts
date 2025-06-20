@@ -1,46 +1,20 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ThemePalette } from '@angular/material/core';
 import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
-import { CustomBounce } from 'gsap/CustomBounce';
 
-gsap.registerPlugin(CustomEase, CustomBounce);
-CustomBounce.create('myBounce', {
-  strength: 0.3,
-  squash: 0.2,
-  squashID: 'myBounce-squash',
-});
-
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
-}
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatCheckboxModule],
+  imports: [FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-  task: Task = {
-    name: 'Indeterminate',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      { name: 'Primary', completed: false, color: 'primary' },
-      { name: 'Accent', completed: false, color: 'accent' },
-      { name: 'Warn', completed: false, color: 'warn' },
-    ],
-  };
   hovered = false;
-  allComplete: boolean = false;
+  hoveredSectionName = false;
+  hoveredSectionEmail = false;
+  hoveredSectionDescription = false;
+  isPpChecked = false;
 
   @ViewChild('legalDrawnLine')
   legalDrawnLine!: ElementRef<HTMLImageElement>;
@@ -54,13 +28,22 @@ export class ContactComponent {
       clipPath: 'inset(0% 100% 0% 0%)',
     });
   }
+
   putHover() {
     this.hovered = true;
-
     gsap.to(this.legalDrawnLine.nativeElement, {
-      clipPath: 'inset(0% 0% 0% 0%)', // fully visible
+      clipPath: 'inset(0% 0% 0% 0%)',
       duration: 0.2,
       ease: 'power2.out',
+    });
+  }
+
+  deleteHover() {
+    this.hovered = false;
+    gsap.to(this.legalDrawnLine.nativeElement, {
+      clipPath: 'inset(0% 100% 0% 0%)', // hide from top
+      duration: 0.2,
+      ease: 'power2.in',
     });
   }
 
@@ -110,36 +93,33 @@ export class ContactComponent {
     );
   }
 
-  deleteHover() {
-    this.hovered = false;
-    gsap.to(this.legalDrawnLine.nativeElement, {
-      clipPath: 'inset(0% 100% 0% 0%)', // hide from top
-      duration: 0.2,
-      ease: 'power2.in',
-    });
+  sectionHovered(section: string) {
+    switch (section) {
+      case 'name':
+        this.hoveredSectionName = true;
+        break;
+      case 'email':
+        this.hoveredSectionEmail = true;
+        break;
+      case 'description':
+        this.hoveredSectionDescription = true;
+        break;
+    }
   }
 
-  // putHover() {
-  //   this.hovered = true;
-  //   // gsap.fromTo(
-  //   //   '.wav-hand',
-  //   //   { x: 154, duration: 0.6, rotation: 0, opacity: 0 },
-  //   //   { rotation: 360, x: 210, duration: 0.6, opacity: 1, ease: 'myBounce' }
-  //   // );
-  //   gsap.to('.legal', { opacity: 0, duration: 0.4 });
-  //   gsap.to('.name-welc', { opacity: 1, duration: 0.4 });
-  // }
-
-  // deleteHover() {
-  //   this.hovered = false;
-  //   // gsap.fromTo(
-  //   //   '.wav-hand',
-  //   //   { x: 220, duration: 0.6, rotation: 0, opacity: 1 },
-  //   //   { rotation: -360, x: 128, duration: 0.6, opacity: 0 }
-  //   // );
-  //   gsap.to('.name-welc', { opacity: 0, duration: 0.4 });
-  //   gsap.to('.world-welc', { opacity: 1, duration: 0.4 });
-  // }
+  removeSectionHover(section: string) {
+    switch (section) {
+      case 'name':
+        this.hoveredSectionName = false;
+        break;
+      case 'email':
+        this.hoveredSectionEmail = false;
+        break;
+      case 'description':
+        this.hoveredSectionDescription = false;
+        break;
+    }
+  }
 
   animateArrow() {
     gsap.to('.arrow', {
@@ -151,27 +131,11 @@ export class ContactComponent {
     });
   }
 
-  updateAllComplete() {
-    this.allComplete =
-      this.task.subtasks != null &&
-      this.task.subtasks.every((t) => t.completed);
-  }
-
-  someComplete(): boolean {
-    if (this.task.subtasks == null) {
-      return false;
+  checkPP() {
+    if (!this.isPpChecked) {
+      this.isPpChecked = true;
+    } else {
+      this.isPpChecked = false;
     }
-    return (
-      this.task.subtasks.filter((t) => t.completed).length > 0 &&
-      !this.allComplete
-    );
-  }
-
-  setAll(completed: boolean) {
-    this.allComplete = completed;
-    if (this.task.subtasks == null) {
-      return;
-    }
-    this.task.subtasks.forEach((t) => (t.completed = completed));
   }
 }

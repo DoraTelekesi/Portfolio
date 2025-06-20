@@ -12,7 +12,9 @@ app-references {
   margin-top: 100px;
 }
 app-contact {
+  // height:100vh;
   display: flex;
   justify-content: center;
   background-image: url("/assets/img/contact-bg.png");
+  background-size: cover;
 }
