@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import {
   AfterViewInit,
   Component,
@@ -22,6 +23,9 @@ export class SkillsComponent implements AfterViewInit {
   img!: HTMLImageElement;
   showImage1: boolean = true;
   revealed = false;
+
+  constructor(private route: ActivatedRoute) {}
+
   @ViewChildren('stickerImages') stickerImages!: QueryList<
     ElementRef<HTMLImageElement>
   >;
@@ -39,6 +43,16 @@ export class SkillsComponent implements AfterViewInit {
       opacity: 1,
     });
     this.rotateDrawnLine();
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        const element = document.getElementById(fragment);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100); // short delay ensures DOM is ready
+        }
+      }
+    });
   }
 
   rotateDrawnLine() {

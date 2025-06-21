@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
 
 @Component({
@@ -7,7 +9,7 @@ import { gsap } from 'gsap';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
 })
 export class HeaderComponent implements AfterViewInit {
   @ViewChild('aboutDrawnLine') aboutDrawnLine!: ElementRef<HTMLImageElement>;
@@ -23,6 +25,7 @@ export class HeaderComponent implements AfterViewInit {
   language: string = 'en';
   status: 'english' | 'german' = 'english';
 
+  constructor(private route: ActivatedRoute) {}
   ngAfterViewInit() {
     // Initialize clip-paths to hidden using GSAP
     gsap.set(this.aboutDrawnLine.nativeElement, {
@@ -42,6 +45,17 @@ export class HeaderComponent implements AfterViewInit {
     });
     gsap.set(this.de.nativeElement, {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+    });
+
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        const element = document.getElementById(fragment);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100); // short delay ensures DOM is ready
+        }
+      }
     });
   }
   putHoverAbout() {
@@ -69,7 +83,6 @@ export class HeaderComponent implements AfterViewInit {
 
     const element = lineMap[type];
     if (!element) return;
-    console.log(element.nativeElement);
     gsap.to(element.nativeElement, {
       clipPath: 'inset(0% 0% 0% 0%)', // fully visible
       duration: 0.3,

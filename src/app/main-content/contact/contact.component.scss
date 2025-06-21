@@ -2,13 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // margin-top: 250px;
   > .content {
     display: flex;
     color: #f8f9fa;
     gap: 150px;
     justify-content: center;
-    // flex-direction: column;
+
     align-items: center;
     max-width: 1220px;
     width: 100%;
@@ -21,7 +20,6 @@
   flex-direction: column;
   justify-content: center;
   width: 560px;
-  // height: 560px;
   gap: 20px;
   > h1 {
     font-size: 70px;
@@ -29,7 +27,7 @@
   }
 }
 .col-2 {
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 .btn-wrap {
@@ -39,15 +37,18 @@
 
 .btn {
   border: 1px solid #f8f9fa;
+  background-color: transparent;
   box-shadow: 2px 4px 0 0 #f8f9fa;
+  color: #f8f9fa;
   display: flex;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   border-radius: 100px;
   font-size: 18px;
   width: 154px;
   height: 40px;
-  transition: all 100ms ease-in-out;
+  z-index: 10;
   &:hover {
     background-color: #f87a55;
     transform: translate(2px, 4px);
@@ -90,38 +91,61 @@ footer {
     width: 300px;
   }
 }
-.privacy-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+
+/* Native checkbox hidden */
+.custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.checkbox-wrap {
+/* Label styling */
+.custom-checkbox {
   position: relative;
+  padding-left: 50px;
+  cursor: pointer;
+  display: inline-block;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  > .check {
-    position: absolute;
-    top: 2;
-    right: 1;
-    width: 20px;
-    height: 20px;
-  }
-  > .checkbox {
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    background-color: rgba(48, 79, 234, 0.438);
-    cursor: pointer;
+  > p {
+    margin: 0;
   }
 }
 
-span {
+/* Checkbox box (unchecked background) */
+.custom-checkbox::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url("/assets/img/checkbox.png");
+  background-size: cover;
+  transition: all 0.2s ease;
+}
+
+/* Tick mark - starts hidden */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url("/assets/img/check.png");
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* ✅ This works: use :has() (if supported), or move logic to JS or wrap in span if you want to style based on input */
+.custom-checkbox:has(input[type="checkbox"]:checked)::after {
+  opacity: 1;
+}
+
+.highlight {
   color: rgb(48, 79, 234);
   &:hover {
     color: rgb(246, 196, 24);
@@ -212,7 +236,7 @@ span {
 
 .form {
   height: 300px;
-  // gap: 30px;
+  gap: 30px;
 }
 .separator-line {
   width: 100%;
@@ -222,6 +246,7 @@ span {
 
 .custom-input {
   background-color: transparent !important;
+  resize: vertical;
   border: none;
   height: 30px;
   outline: none;
@@ -261,6 +286,7 @@ span {
   color: rgb(125, 125, 125);
   border: 1px solid rgb(125, 125, 125);
   box-shadow: 2px 4px 0 0 rgb(125, 125, 125);
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,6 +295,61 @@ span {
   width: 154px;
   height: 40px;
   &:hover {
+    background-color: transparent;
     cursor: not-allowed;
   }
+}
+
+.section {
+  position: relative;
+}
+
+.form-group {
+  margin: 2rem 0;
+}
+
+input {
+  width: 300px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.placeholder-wrap {
+  position: absolute;
+  /* same position/padding/font-size as your input's placeholder */
+  top: 42px;
+  left: 12px;
+  font-size: 16px;
+  color: #463f3f;
+  pointer-events: none;
+  transition: color 0.2s;
+  width: 100%;
+  height: 100%;
+}
+
+.error {
+  color: red;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.name-msg {
+  position: absolute;
+  top: 13px;
+}
+
+.placeholder-wrap.hidden {
+  display: none;
+}
+
+.placeholder-default {
+  color: #aaa; /* gray */
+}
+
+.placeholder-error {
+  color: red;
+}
+
+textarea {
+  padding-left: 12px;
 }

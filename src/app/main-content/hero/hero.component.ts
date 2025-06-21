@@ -1,20 +1,12 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
-// CustomBounce requires CustomEase
-import { CustomBounce } from 'gsap/CustomBounce';
-
-gsap.registerPlugin(CustomEase, CustomBounce);
-CustomBounce.create('myBounce', {
-  strength: 0.2,
-  squash: 2,
-  squashID: 'myBounce-squash',
-});
+import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
@@ -24,8 +16,11 @@ export class HeroComponent implements AfterViewInit {
   @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
   hovered = false;
 
+  constructor(private route: ActivatedRoute) {}
+
   ngAfterViewInit() {
     // Initialize clip-paths to hidden using GSAP
+    gsap.set('.wav-hand', { x: 50, duration: 0.8, rotation: 0, opacity: 0 });
     gsap.set(this.bgFillGithub.nativeElement, {
       height: '0%',
       duration: 0.4,
@@ -40,6 +35,16 @@ export class HeroComponent implements AfterViewInit {
       height: '0%',
       duration: 0.4,
       ease: 'power2.out',
+    });
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        const element = document.getElementById(fragment);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100); // short delay ensures DOM is ready
+        }
+      }
     });
   }
 

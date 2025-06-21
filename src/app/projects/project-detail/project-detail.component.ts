@@ -18,6 +18,7 @@ export class ProjectDetailComponent implements OnInit {
   project?: Project;
   isUnderlined = false;
   @ViewChild('titleRef') titleElement!: ElementRef;
+  @ViewChild('underlineRef') underlineRef!: ElementRef;
   width!: number;
   height!: number;
 
@@ -32,25 +33,36 @@ export class ProjectDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       this.project = this.projectService.getProjectById(id || '');
+      setTimeout(() => {
+        this.resetUnderlineAnimation();
+      });
     });
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
+      this.resetUnderlineAnimation();
+    });
+  }
+  resetUnderlineAnimation() {
+    if (this.titleElement && this.titleElement.nativeElement) {
       this.width = this.titleElement.nativeElement.offsetWidth;
       if (this.width < 200 || this.width > 400) {
         this.height = 20;
       }
-    });
-
-    gsap.set('.title-underline', {
-      clipPath: 'inset(0% 100% 0% 0%)',
-    });
-    this.animateUnderline();
+    }
+    if (this.underlineRef && this.underlineRef.nativeElement) {
+      gsap.killTweensOf(this.underlineRef.nativeElement);
+      gsap.set(this.underlineRef.nativeElement, {
+        clipPath: 'inset(0% 100% 0% 0%)',
+      });
+      this.animateUnderline();
+    }
   }
-
   animateUnderline() {
-    gsap.to('.title-underline', {
+    gsap.killTweensOf(this.underlineRef.nativeElement);
+
+    gsap.to(this.underlineRef.nativeElement, {
       clipPath: 'inset(0% 0% 0% 0%)',
       duration: 2,
       ease: 'power2.out',
@@ -60,7 +72,7 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   goBack() {
-    this.location.back();
+    this.router.navigate([''], { fragment: 'projects' });
   }
 
   nextProject() {

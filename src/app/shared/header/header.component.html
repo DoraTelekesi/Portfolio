@@ -1,59 +1,62 @@
 <div class="header">
   <img src="assets/icon/logo.svg" alt="logo" />
-
-  <div
-    class="h-btn-wrap about-me"
-    (mouseenter)="putHoverAbout()"
-    (mouseleave)="deleteHoverAbout()"
-  >
-    <p class="h-btn">About me</p>
-    <img
-      class="aboutDrawnLine"
-      #aboutDrawnLine
-      src="assets/drawn-lines/1.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="h-btn-wrap skills"
-    (mouseenter)="putHover('skillsDrawnLine')"
-    (mouseleave)="deleteHover('skillsDrawnLine')"
-  >
-    <p class="h-btn">Skills</p>
-    <img
-      class="skillsDrawnLine"
-      #skillsDrawnLine
-      src="assets/drawn-lines/2.png"
-      alt=""
-    />
-  </div>
-  <div
-    class="h-btn-wrap projects"
-    (mouseenter)="putHover('projectDrawnLine')"
-    (mouseleave)="deleteHover('projectDrawnLine')"
-  >
-    <p class="h-btn">Projects</p>
-    <img
-      class="projectDrawnLine"
-      #projectDrawnLine
-      src="assets/drawn-lines/4.png"
-      alt=""
-    />
-  </div>
-  <div
-    class="h-btn-wrap contact"
-    (mouseenter)="putHover('contactDrawnLine')"
-    (mouseleave)="deleteHover('contactDrawnLine')"
-  >
-    <p class="h-btn">Contact</p>
-    <img
-      class="contactDrawnLine"
-      #contactDrawnLine
-      src="assets/drawn-lines/3.png"
-      alt="drawn-line"
-    />
-  </div>
+  <a [routerLink]="['/']" fragment="about-me">
+    <div
+      class="h-btn-wrap about-me"
+      (mouseenter)="putHoverAbout()"
+      (mouseleave)="deleteHoverAbout()"
+    >
+      <p class="h-btn">About me</p>
+      <img
+        class="aboutDrawnLine"
+        #aboutDrawnLine
+        src="assets/drawn-lines/1.png"
+        alt=""
+      /></div
+  ></a>
+  <a [routerLink]="['/']" fragment="skills">
+    <div
+      class="h-btn-wrap skills"
+      (mouseenter)="putHover('skillsDrawnLine')"
+      (mouseleave)="deleteHover('skillsDrawnLine')"
+    >
+      <p class="h-btn">Skills</p>
+      <img
+        class="skillsDrawnLine"
+        #skillsDrawnLine
+        src="assets/drawn-lines/2.png"
+        alt=""
+      /></div
+  ></a>
+  <a [routerLink]="['/']" fragment="projects">
+    <div
+      class="h-btn-wrap projects"
+      (mouseenter)="putHover('projectDrawnLine')"
+      (mouseleave)="deleteHover('projectDrawnLine')"
+    >
+      <p class="h-btn">Projects</p>
+      <img
+        class="projectDrawnLine"
+        #projectDrawnLine
+        src="assets/drawn-lines/4.png"
+        alt=""
+      /></div
+  ></a>
+  <a [routerLink]="['/']" fragment="contact">
+    <div
+      class="h-btn-wrap contact"
+      (mouseenter)="putHover('contactDrawnLine')"
+      (mouseleave)="deleteHover('contactDrawnLine')"
+    >
+      <p class="h-btn">Contact</p>
+      <img
+        class="contactDrawnLine"
+        #contactDrawnLine
+        src="assets/drawn-lines/3.png"
+        alt="drawn-line"
+      />
+    </div>
+  </a>
   <div class="h-btn t-switch">
     <span
       (mouseenter)="putHoverEnglish()"

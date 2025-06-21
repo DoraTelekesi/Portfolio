@@ -39,7 +39,7 @@ app-header {
 
   .aboutDrawnLine {
     position: absolute;
-    top: 6px;
+    top: -10px;
     right: -8px;
     width: 90px;
     height: auto;
@@ -65,7 +65,7 @@ app-header {
 .projects {
   .projectDrawnLine {
     right: -16px;
-    top: 7px;
+    top: 2px;
     z-index: 999;
     // clip-path: inset(100% 0% 0% 0%);
   }
@@ -75,7 +75,7 @@ app-header {
   .skillsDrawnLine {
     position: absolute;
     right: -28px;
-    top: 5px;
+    top: -10px;
     z-index: 999;
     // clip-path: inset(100% 0% 0% 0%);
   }
@@ -84,7 +84,7 @@ app-header {
 .contact {
   .contactDrawnLine {
     right: -20px;
-    top: 5px;
+    top: -10px;
     z-index: 999;
     // clip-path: inset(100% 0% 0% 0%);
   }
