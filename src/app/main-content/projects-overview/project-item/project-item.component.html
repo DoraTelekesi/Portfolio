@@ -19,13 +19,15 @@
         (mouseenter)="hoveredImg = true; onEvent($event)"
         (mouseleave)="hoveredImg = true; onEvent($event)"
       >
-        <div class="btn-cont btn">Project Details</div>
+        <div class="btn-cont btn">
+          {{ "PROJECTS_OVERVIEW.DETAILS" | translate }}
+        </div>
       </div>
     </a>
     }
   </div>
   <h4>{{ project.title }}</h4>
   <p>
-    {{ project.description }}
+    {{ project.description | translate }}
   </p>
 </div>

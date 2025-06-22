@@ -1,27 +1,15 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  inject,
-  NgModule,
-} from '@angular/core';
-import {
-  EmailValidator,
-  FormGroup,
-  FormsModule,
-  NgForm,
-  NgModel,
-} from '@angular/forms';
+import { Component, ViewChild, ElementRef, inject } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { gsap } from 'gsap';
-import { ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
-import { FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, NgIf, NgClass],
+  imports: [FormsModule, NgIf, NgClass, ...sharedTranslateImports],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
@@ -46,10 +34,8 @@ export class ContactComponent {
     });
   }
 
-  // updatePlaceholder(text: string) {
-  //   this.placeholderTextMessage = 'Hello Dora, I am interested in...';
-  // }
-
+  constructor(private translate: TranslateService) {}
+  
   putHover() {
     this.hovered = true;
     gsap.to(this.legalDrawnLine.nativeElement, {
@@ -246,7 +232,6 @@ export class ContactComponent {
   invalidMessageBackup = '';
   messageFocused = false;
   messageTouched = false;
-
 
   onMessageFocus() {
     this.messageFocused = true;

@@ -8,11 +8,13 @@ import {
   QueryList,
 } from '@angular/core';
 import { gsap } from 'gsap';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ...sharedTranslateImports],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
@@ -24,7 +26,10 @@ export class SkillsComponent implements AfterViewInit {
   showImage1: boolean = true;
   revealed = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {}
 
   @ViewChildren('stickerImages') stickerImages!: QueryList<
     ElementRef<HTMLImageElement>

@@ -1,15 +1,24 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { NgIf, Location } from '@angular/common';
 import { gsap } from 'gsap';
 import { PROJECTS } from '../../data/projects';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, ...sharedTranslateImports],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })
@@ -21,13 +30,25 @@ export class ProjectDetailComponent implements OnInit {
   @ViewChild('underlineRef') underlineRef!: ElementRef;
   width!: number;
   height!: number;
+  translatedDescription = '';
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private projectService: ProjectService,
-    private location: Location
+    private location: Location,
+    private translate: TranslateService
   ) {}
+
+  private setTranslatedDescription() {
+    if (this.project?.description) {
+      this.translate
+        .get(this.project.description)
+        .subscribe((res) => (this.translatedDescription = res));
+    } else {
+      this.translatedDescription = '';
+    }
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -39,10 +60,17 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['project']) {
+      this.setTranslatedDescription();
+    }
+  }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.resetUnderlineAnimation();
     });
+    this.setTranslatedDescription();
   }
   resetUnderlineAnimation() {
     if (this.titleElement && this.titleElement.nativeElement) {

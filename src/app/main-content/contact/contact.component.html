@@ -1,18 +1,13 @@
 <div class="content-wrap" id="contact">
   <div class="content">
     <div class="col-1">
-      <h3>CONTACT ME</h3>
-      <h1>Ready to work?</h1>
+      <h3>{{ "CONTACT.CONTACT" | translate }}</h3>
+      <h1>{{ "CONTACT.READY" | translate }}</h1>
       <p>
-        I warmly invite you to reach out to me! I am particularly interested in
-        roles that allow me to apply my front-end skills to innovative projects.
-        With my expertise and passion for continuous learning, I am confident
-        that I can make a valuable contribution.
+        {{ "CONTACT.TEXT_1" | translate }}
       </p>
       <p>
-        I bring not only technical knowledge but also creativity and teamwork.
-        Let’s collaborate on exciting challenges and achieve extraordinary
-        results together!
+        {{ "CONTACT.TEXT_2" | translate }}
       </p>
       <div class="img-wrap">
         <img
@@ -36,7 +31,9 @@
         >
           <div class="hover-line" [class.blue]="hoveredSectionName"></div>
 
-          <label class="label" for="name">What's your name?</label>
+          <label class="label" for="name">{{
+            "CONTACT.NAME" | translate
+          }}</label>
           <input
             [(ngModel)]="contactData.name"
             name="name"
@@ -57,12 +54,13 @@
             }"
           >
             <span class="name-msg">
-              {{
-                !nameTouched || nameFocused
-                  ? "Your Name goes here"
-                  : "Name is required"
-              }}</span
-            >
+              <ng-container *ngIf="!nameTouched || nameFocused; else errorText">
+                {{ "CONTACT.NAME_PH" | translate }}
+              </ng-container>
+              <ng-template #errorText>
+                {{ "CONTACT.NAME_ERROR" | translate }}
+              </ng-template>
+            </span>
           </div>
           <div
             class="separator-line"
@@ -74,7 +72,9 @@
           (mouseenter)="sectionHovered('email')"
           (mouseleave)="removeSectionHover('email')"
         >
-          <label class="label" for="email">What's your email?</label>
+          <label class="label" for="email">{{
+            "CONTACT.EMAIL" | translate
+          }}</label>
           <input
             [(ngModel)]="contactData.email"
             name="email"
@@ -104,19 +104,19 @@
                 !showInvalidEmailError
               "
             >
-              Email is required
+              {{ "CONTACT.EMAIL_ERROR_1" | translate }}
             </span>
 
             <span
               *ngIf="emailTouched && !emailFocused && showInvalidEmailError"
             >
-              Please enter a valid email
+              {{ "CONTACT.EMAIL_ERROR_2" | translate }}
             </span>
 
             <span
               *ngIf="(!emailTouched || emailFocused) && !showInvalidEmailError"
             >
-              youremailsomething.com
+              {{ "CONTACT.EMAIL_PH" | translate }}
             </span>
           </div>
           <div
@@ -129,7 +129,9 @@
           (mouseenter)="sectionHovered('description')"
           (mouseleave)="removeSectionHover('description')"
         >
-          <label class="label" for="description">How can I help you?</label>
+          <label class="label" for="description">{{
+            "CONTACT.MSG" | translate
+          }}</label>
           <textarea
             minlength="15"
             #message="ngModel"
@@ -161,7 +163,7 @@
                 !showInvalidMessageError
               "
             >
-              Please enter a text message
+              {{ "CONTACT.MSG_ERROR_1" | translate }}
             </span>
 
             <span
@@ -169,7 +171,7 @@
                 messageTouched && !messageFocused && showInvalidMessageError
               "
             >
-              Please write at least 15 character
+              {{ "CONTACT.MSG_ERROR_2" | translate }}
             </span>
 
             <span
@@ -177,7 +179,7 @@
                 (!messageTouched || messageFocused) && !showInvalidMessageError
               "
             >
-              Hi Dora, I'm interested in...
+              {{ "CONTACT.MSG_PH" | translate }}
             </span>
           </div>
           <div
@@ -187,10 +189,7 @@
         </div>
         <label class="custom-checkbox">
           <input type="checkbox" name="privacy" [(ngModel)]="privacyChecked" />
-          <p>
-            I've read the <span class="highlight">privacy policy</span> and
-            agree to the processing of my data as outlined.
-          </p>
+          <p [innerHTML]="'CONTACT.PP' | translate"></p>
         </label>
 
         <div class="btn-wrap">
@@ -200,7 +199,7 @@
             [class.disabled]="!privacyChecked"
             [disabled]="!privacyChecked"
           >
-            Send
+            {{ "CONTACT.SEND" | translate }}
           </button>
         </div>
       </form>
@@ -215,7 +214,7 @@
         (mouseenter)="putHover()"
         (mouseleave)="deleteHover()"
       >
-        <p>Legal Notice</p>
+        <p>{{ "CONTACT.LN" | translate }}</p>
         <img
           class="legalDrawnLine"
           #legalDrawnLine

@@ -9,7 +9,7 @@
     </div>
     <div class="loc">
       <img class="loc-icon" src="assets/icon/location.svg" alt="" />
-      <p class="loc-text">Based in Münster</p>
+      <p class="loc-text">{{ "ABOUT_ME.LOCATION" | translate }}</p>
     </div>
     <div class="relocation">
       <img
@@ -20,7 +20,7 @@
     </div>
     <div class="reloc">
       <img class="loc-icon reloc-i" src="assets/icon/relocation.svg" alt="" />
-      <p class="loc-text reloc-t">Open to relocate</p>
+      <p class="loc-text reloc-t">{{ "ABOUT_ME.RELOCATION" | translate }}</p>
     </div>
     <div class="remote">
       <img
@@ -31,14 +31,14 @@
     </div>
     <div class="rem">
       <img class="loc-icon rem-i" src="assets/icon/remote.svg" alt="" />
-      <p class="loc-text rem-t">Open to work remote</p>
+      <p class="loc-text rem-t">{{ "ABOUT_ME.REMOTE" | translate }}</p>
     </div>
   </div>
   <div class="a-m-section-right">
     <div class="a-m-text">
-      <h4>WHO'S DORA</h4>
+      <h4>{{ "ABOUT_ME.WHO_IS_DORA" | translate }}</h4>
       <div class="a-m-title-wrap">
-        <h1>About me</h1>
+        <h1>{{ "ABOUT_ME.ABOUT_ME" | translate }}</h1>
         <img
           #underline
           class="underline"
@@ -46,20 +46,11 @@
           alt=""
         />
       </div>
-      <p class="a-m-text">
-        Hello, I'm Dora. I've always been passionate about IT and have helped
-        those around me with their PC-related issues. <br />
-        After several years without my own computer, I purchased one and began
-        programming mods and games with friends. <br />I enjoyed it so much that
-        I decided to pursue it as a career. <br />What I appreciate most about
-        programming is the constant opportunity to learn and the challenges that
-        come with finding and fixing errors. <br />The feeling of having
-        accomplished something motivates me to keep going. Let's work together
-        to create something extraordinary!
-      </p>
+      <p class="a-m-text" [innerHTML]="'ABOUT_ME.TEXT' | translate"></p>
     </div>
     <div class="btn-wrap">
-      <a [routerLink]="['/']" fragment="contact"><div class="a-m-btn">Let's talk</div></a
+      <a [routerLink]="['/']" fragment="contact"
+        ><div class="a-m-btn">{{ "ABOUT_ME.CONTACT" | translate }}</div></a
       >
     </div>
   </div>

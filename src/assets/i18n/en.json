@@ -7,12 +7,13 @@
   },
   "HERO": {
     "GREETING": "Hello World",
+    "GREET_NAME": "I'M DORA TELEKESI",
     "CONTACT": "Get in Touch"
   },
   "ABOUT_ME": {
     "WHO_IS_DORA": "WHO'S DORA",
-    "ABOUT_ME": "Über mich",
-    "TEXT": "Ever since I was young, I’ve been fascinated by informatics and solving IT-related challenges—especially when it meant getting a game or program to work just right. That curiosity led me to build personal websites as a hobby, where I found joy in crafting visually appealing and user-friendly experiences. As a frontend developer, I love combining design with problem-solving to create creative, functional solutions. I’m always eager to learn new things and open to new challenges—that’s why I believe we’d make a great team.",
+    "ABOUT_ME": "About me",
+    "TEXT": "Hello, I'm Dora. <br/><br/>Ever since I was young, I’ve been fascinated by informatics and solving IT-related challenges—especially when it meant getting a game or program to work just right. <br/>That curiosity led me to build personal websites as a hobby, where I found joy in crafting visually appealing and user-friendly experiences. <br/>As a frontend developer, I love combining design with problem-solving to create creative, functional solutions. I’m always eager to learn new things and open to new challenges—that’s why I believe we’d make a great team.",
     "CONTACT": "Let's talk",
     "LOCATION": "Based in Münster",
     "RELOCATION": "Open to relocate",
@@ -21,7 +22,7 @@
   "SKILLS": {
     "MY_STACK": "MY STACK",
     "SKILL_SET": "Skill set",
-    "TEXT": "I’ve gained extensive experience with core frontend technologies like HTML, CSS, and JavaScript, as well as libraries such as SCSS and frameworks like Angular. I'm also confident working with TypeScript and Firebase. I’m always open to learning and adapting to new technologies to stay up to date and deliver the best possible solutions.",
+    "TEXT": "I've gained solid experience with frontend technologies like HTML, CSS, JavaScript, SCSS, and Angular, along with TypeScript and Firebase. I'm always eager to learn and adapt to new tools to build efficient and modern solutions.",
     "PEEL": "Pull to peel",
     "SKILL_EXTRA": "Also, I'm interested in diving into:"
   },
@@ -43,6 +44,7 @@
     "LI_PROFILE": "Profile"
   },
   "CONTACT": {
+     "CONTACT":"Contact me",
     "READY": "Ready to work?",
     "TEXT_1": "I’d be delighted to hear from you! I’m especially eager to take on opportunities where I can use my frontend expertise to contribute to cutting-edge projects. With my skills and enthusiasm for learning, I’m confident I can add real value to your team.",
     "TEXT_2": "Beyond technical abilities, I bring creativity and a strong team spirit. Let’s work together to tackle exciting challenges and create outstanding outcomes!",
@@ -57,7 +59,7 @@
     "MSG_PH": "Hi Dora, I'm interested in...",
     "MSG_ERROR_1": "Please enter a text message",
     "MSG_ERROR_2": "Please write at least 15 character",
-    "PP": "I've read the privacy policy and agree to the processing of my data as outlined.",
+    "PP": "I've read the <span class='highlight'>privacy policy</span> and agree to the processing of my data as outlined.",
     "LN": "Legal Notice",
     "SEND": "Send"
   },
@@ -69,7 +71,7 @@
       "TEXT_1": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
       "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
       "DUR": "Duration:",
-      "WEEK": "5 weeks",
+      "WEEK": "3 weeks",
       "BACK": "Go Back",
       "NEXT": "Next Project"
     },

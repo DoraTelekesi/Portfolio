@@ -2,9 +2,9 @@
   <div class="skills-content">
     <div class="title-section">
       <div class="title">
-        <p>MY STACK</p>
+        <p>{{ "SKILLS.MY_STACK" | translate }}</p>
         <div class="title-wrap">
-          <h1>Skill set</h1>
+          <h1>{{ "SKILLS.SKILL_SET" | translate }}</h1>
           <img
             class="skill-title-line"
             src="assets/drawn-lines/skills-title.png"
@@ -14,10 +14,7 @@
       </div>
       <div class="title-text">
         <p>
-          I have extensive experience with front-end technologies like HTML,<br />
-          CSS, and JavaScript, as well as frameworks like Angular and React.<br />
-          I am always open to learning new things and strive to continuously<br />
-          improve my skills to create user-friendly and engaging interfaces.
+          {{ "SKILLS.TEXT" | translate }}
         </p>
         <img src="assets/img/ripped-paper-skills.png" alt="" />
       </div>
@@ -68,7 +65,7 @@
           class="sticker-text"
         >
           <img src="assets/img/arrow-white.png" alt="" />
-          <p>Pull to peel</p>
+          <p>{{ "SKILLS.PEEL" | translate }}</p>
         </div>
 
         <div
@@ -76,7 +73,7 @@
           [class.show]="revealed"
           [class.hide]="!revealed"
         >
-          <div>Also, I'm interested in diving into:</div>
+          <div>{{ "SKILLS.SKILL_EXTRA" | translate }}</div>
           <div class="extra-icons">
             <div>
               <img src="assets/icon/React.png" alt="" />

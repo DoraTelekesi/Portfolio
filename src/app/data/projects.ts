@@ -4,10 +4,8 @@ export const PROJECTS: Project[] = [
   {
     id: 'Spooky-Town',
     title: 'Spooky Town',
-    description:
-      'Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.',
-    implementation:
-      "In the 'El Pollo Loco' project, I developed an engaging jump-and-run game based on object-oriented programming. Players take on the role of Pepe, navigating through various levels to collect coins and Tabasco salsa while battling crazy chickens. I used JavaScript to implement the gamemechanics, focusing on an object-oriented design to create characters andtheir interactions. The game features interactive gameplay elements,challenging boss fights, and lively sound effects that enhance the overallexperience. Through close collaboration with other developers, I was able to continuously improve and adapt the game.",
+    description: 'PROJECTS.SPOOKY.TEXT_1',
+    implementation: 'PROJECTS.SPOOKY.TEXT_2',
     tools: [
       { name: 'JavaScript', img: 'assets/icon/Js.svg' },
       { name: 'HTML', img: 'assets/icon/HTML.svg' },
@@ -25,10 +23,8 @@ export const PROJECTS: Project[] = [
   {
     id: 'Join',
     title: 'Join',
-    description:
-      'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. ',
-    implementation:
-      'Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.',
+    description: 'PROJECTS.JOIN.TEXT_1',
+    implementation: 'PROJECTS.JOIN.TEXT_2',
     tools: [
       { name: 'JavaScript', img: 'assets/icon/Js.svg' },
       { name: 'HTML', img: 'assets/icon/HTML.svg' },
@@ -47,10 +43,8 @@ export const PROJECTS: Project[] = [
   {
     id: 'DaBubble',
     title: 'DaBubble',
-    description:
-      'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
-    implementation:
-      'Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.',
+    description: 'PROJECTS.DABUBBLE.TEXT_1',
+    implementation: 'PROJECTS.DABUBBLE.TEXT_2',
     tools: [
       { name: 'TypeScript', img: 'assets/icon/Ts.svg' },
       { name: 'HTML', img: 'assets/icon/HTML.svg' },

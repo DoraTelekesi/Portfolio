@@ -17,15 +17,18 @@
             alt=""
           />
         </div>
-        <h3>Description</h3>
+        <h3>{{ "PROJECTS.JOIN.DESC" | translate }}</h3>
         <p>
-          {{ project?.description }}
+          {{ project?.description || "" | translate }}
         </p>
-        <h3>Implementation Details</h3>
+        <h3>{{ "PROJECTS.JOIN.I_D" | translate }}</h3>
         <p>
-          {{ project?.implementation }}
+          {{ project?.implementation || "" | translate }}
         </p>
-        <p><span>Duration:</span> 3 weeks</p>
+        <p>
+          <span>{{ "PROJECTS.JOIN.DUR" | translate }}</span>
+          {{ "PROJECTS.JOIN.WEEK" | translate }}
+        </p>
         <div class="tools">
           @for(tool of project?.tools; track tool){
           <img src="{{ tool.img }}" alt="" />
@@ -40,7 +43,7 @@
           <a href="{{ project?.liveLink }}"><div class="btn">Live Test</div></a>
         </div>
         <div (click)="nextProject()" class="next-project">
-          <p>Next Project</p>
+          <p>{{ "PROJECTS.JOIN.NEXT" | translate }}</p>
           <img src="assets/drawn-lines/next-project.png" alt="" />
         </div>
       </div>

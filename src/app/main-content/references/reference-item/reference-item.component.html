@@ -41,7 +41,7 @@
     }"
   >
     <div>
-      {{ item.refText }}
+      {{ item.refText | translate }}
     </div>
     <div class="ref-footer">
       <div
@@ -53,7 +53,7 @@
       </div>
       <div class="ref-footer-link">
         <img src="assets/icon/linkedin-s.png" alt="" />
-        <p>Profile</p>
+        <p>{{ "REFERENCES.LI_PROFILE" | translate }}</p>
       </div>
     </div>
   </div>

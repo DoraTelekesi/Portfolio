@@ -1,10 +1,12 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../../shared/header/translate.module';
 
 @Component({
   selector: 'app-reference-item',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle, ...sharedTranslateImports],
   templateUrl: './reference-item.component.html',
   styleUrl: './reference-item.component.scss',
 })
@@ -26,22 +28,19 @@ export class ReferenceItemComponent {
     {
       name: 'Tobias Lange',
       profession: 'Frontend Developer',
-      refText:
-        "Karl really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
+      refText: 'REFERENCES.TEXT_1',
       imageUrl: 'assets/img/reference-sticker-1.png',
     },
     {
       name: 'Maria Schäfer',
       profession: 'Frontend Developer',
-      refText:
-        'It was a great pleasure to work with Karl. He knows how to push and encourage team members to present the best work possible, always adding something to brainstorm. Regarding the well-being of group members, he was always present and available to listen and help others, with a great sense of humor as well.',
+      refText: 'REFERENCES.TEXT_2',
       imageUrl: 'assets/img/reference-sticker-2.png',
     },
     {
       name: 'David Braun',
       profession: 'Frontend Developer',
-      refText:
-        'Karl was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.',
+      refText: 'REFERENCES.TEXT_3',
       imageUrl: 'assets/img/reference-sticker-1.png',
     },
   ];
@@ -50,6 +49,8 @@ export class ReferenceItemComponent {
 
   currentSticker = 0;
   hoveredIndex: number | null = null;
+
+  constructor(private translate: TranslateService) {}
 
   getRotation(index: number): number {
     let rotations = [-5, 0, 5];

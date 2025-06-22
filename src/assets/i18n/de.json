@@ -7,12 +7,13 @@
   },
   "HERO": {
     "GREETING": "Hallo Welt",
+    "GREET_NAME": "Ich bin DORA TELEKESI",
     "CONTACT": "Kontaktieren"
   },
   "ABOUT_ME": {
     "WHO_IS_DORA": "WER IST DORA",
-    "ABOUT_ME": "About me",
-    "TEXT": "Schon seit meiner Kindheit faszinieren mich Informatik und IT-bezogene Herausforderungen – besonders, wenn es darum ging, ein Videospiel oder Programm zum Laufen zu bringen. Aus dieser Neugier entstand die Leidenschaft, in meiner Freizeit persönliche Websites zu gestalten, wobei ich großen Spaß daran fand, visuell ansprechende und benutzerfreundliche Erlebnisse zu schaffen. Als Frontend-Entwickler verbinde ich kreatives Design mit lösungsorientiertem Denken, um funktionale und innovative Ergebnisse zu erzielen. Ich bin stets lernbereit und offen für neue Herausforderungen – genau deshalb sollten wir zusammenarbeiten.",
+    "ABOUT_ME": "Über mich",
+    "TEXT": "Hallo, Ich bin Dora. <br/><br/>Schon seit meiner Kindheit faszinieren mich Informatik und IT-bezogene Herausforderungen – besonders, wenn es darum ging, ein Videospiel oder Programm zum Laufen zu bringen. <br/>Aus dieser Neugier entstand die Leidenschaft, in meiner Freizeit persönliche Websites zu gestalten, wobei ich großen Spaß daran fand, visuell ansprechende und benutzerfreundliche Erlebnisse zu schaffen. <br/>Als Frontend-Entwickler verbinde ich kreatives Design mit lösungsorientiertem Denken, um funktionale und innovative Ergebnisse zu erzielen. Ich bin stets lernbereit und offen für neue Herausforderungen – genau deshalb sollten wir zusammenarbeiten.",
     "CONTACT": "Kontaktieren",
     "LOCATION": "In Münster ansässig",
     "RELOCATION": "Bereit umzuziehen",
@@ -21,7 +22,7 @@
   "SKILLS": {
     "MY_STACK": "MEINE STACK",
     "SKILL_SET": "Skillset",
-    "TEXT": "Ich habe umfangreiche Erfahrung mit zentralen Frontend-Technologien wie HTML, CSS und JavaScript gesammelt, ebenso mit Bibliotheken wie SCSS und Frameworks wie Angular. Auch mit TypeScript und Firebase arbeite ich sicher. Neue Technologien zu erlernen und mich an aktuelle Entwicklungen anzupassen, ist für mich selbstverständlich – um stets moderne und effektive Lösungen zu bieten.",
+    "TEXT": "Ich habe umfassende Erfahrung mit Frontend-Technologien wie HTML, CSS, JavaScript, SCSS und Angular sowie mit TypeScript und Firebase. Neue Tools und Technologien lerne ich mit Begeisterung, um moderne und effiziente Lösungen zu entwickeln.",
     "PEEL": "Hier ziehen",
     "SKILL_EXTRA": "Ich interessiere mich auch für:"
   },
@@ -43,6 +44,7 @@
     "LI_PROFILE": "Profil"
   },
   "CONTACT": {
+    "CONTACT":"Kontaktiere mich",
     "READY": "Bereit zu arbeiten?",
     "TEXT_1": "Ich freue mich sehr, von Ihnen zu hören! Besonders interessiert mich eine Rolle, in der ich meine Frontend-Kompetenzen für innovative Projekte einsetzen kann. Mit meinem Fachwissen und meiner Begeisterung für kontinuierliches Lernen bin ich überzeugt, einen wertvollen Beitrag leisten zu können.",
     "TEXT_2": "Neben technischem Know-how bringe ich auch Kreativität und Teamgeist mit. Lassen Sie uns gemeinsam spannende Herausforderungen angehen und außergewöhnliche Ergebnisse erzielen!",
@@ -57,7 +59,7 @@
     "MSG_PH": "Hallo Dora, ich bin interessiert an...",
     "MSG_ERROR_1": "Bitte eine Nachricht eingeben!",
     "MSG_ERROR_2": "Bitte mindestens 15 Zeichen schreiben!",
-    "PP": "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+    "PP": "Ich habe die <span class='highlight'>Datenschutzerklärung</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
     "LN": "Impressum",
     "SEND": "Senden"
   },

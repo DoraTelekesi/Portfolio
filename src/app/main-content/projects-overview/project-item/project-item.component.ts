@@ -6,31 +6,32 @@ import {
   Input,
   ViewChild,
   ElementRef,
-  Output,
-  EventEmitter,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../../shared/header/translate.module';
 
 @Component({
   selector: 'app-project-item',
   standalone: true,
-  imports: [NgClass, RouterModule],
+  imports: [NgClass, RouterModule, ...sharedTranslateImports],
   templateUrl: './project-item.component.html',
   styleUrl: './project-item.component.scss',
 })
 export class ProjectItemComponent implements AfterViewInit {
   @Input() project = {
-    id:"Spooky-Town",
+    id: 'Spooky-Town',
     title: 'Spooky Town',
-    description:
-      'Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.',
+    description: 'PROJECTS_OVERVIEW.SPOOKY_TEXT',
     img: 'assets/img/SpookyTown.png',
     imgClass: 'spooky-img',
     imgId: 'spooky-img',
-    path:'Projects/Spooky-Town'
+    path: 'Projects/Spooky-Town',
   };
-
+  translatedDescription = '';
   isFloated = false;
   hoveredImg: boolean = false;
   public floatIntervalId: any;
@@ -39,11 +40,25 @@ export class ProjectItemComponent implements AfterViewInit {
   @ViewChild('imageElement', { static: true })
   imageElement!: ElementRef<HTMLImageElement>;
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['project']) {
+      this.setTranslatedDescription();
+    }
+  }
+
   ngAfterViewInit(): void {
     gsap.set('.title-underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
     });
     this.floatingAnimation();
+    this.setTranslatedDescription();
+    this.floatingAnimation();
+  }
+  constructor(private translate: TranslateService) {}
+  private setTranslatedDescription() {
+    this.translate
+      .get(this.project.description)
+      .subscribe((res) => (this.translatedDescription = res));
   }
 
   onImageEnter() {

@@ -1,10 +1,12 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { gsap } from 'gsap';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 @Component({
   selector: 'app-projects-overview',
   standalone: true,
-  imports: [ProjectItemComponent],
+  imports: [ProjectItemComponent, ...sharedTranslateImports],
   templateUrl: './projects-overview.component.html',
   styleUrl: './projects-overview.component.scss',
 })
@@ -13,8 +15,7 @@ export class ProjectsOverviewComponent {
     {
       id: 'Spooky-Town',
       title: 'Spooky Town',
-      description:
-        'Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.',
+      description: 'PROJECTS_OVERVIEW.SPOOKY_TEXT',
       img: 'assets/img/SpookyTown.png',
       imgClass: 'spooky-img',
       imgId: 'spooky-img',
@@ -23,8 +24,7 @@ export class ProjectsOverviewComponent {
     {
       id: 'Join',
       title: 'Join',
-      description:
-        'Task manager inspired by the Kanban System. Create and organize tasks, drag and drop function, assign users and categories.',
+      description: 'PROJECTS_OVERVIEW.JOIN_TEXT',
       img: 'assets/img/Join.png',
       imgClass: 'join-img',
       imgId: 'join-img',
@@ -33,15 +33,14 @@ export class ProjectsOverviewComponent {
     {
       id: 'DaBubble',
       title: 'Dabubble',
-      description:
-        'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
+      description: 'PROJECTS_OVERVIEW.DABUBBLE_TEXT',
       img: 'assets/img/dabubble.jpg',
       imgClass: 'dabubble-img',
       imgId: 'dabubble-img',
       path: 'DaBubble',
     },
   ];
-
+  constructor(private translate: TranslateService) {}
   isUnderlined = false;
 
   ngAfterViewInit(): void {

@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { ReferenceItemComponent } from './reference-item/reference-item.component';
 import { gsap } from 'gsap';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [ReferenceItemComponent],
+  imports: [ReferenceItemComponent, ...sharedTranslateImports],
   templateUrl: './references.component.html',
   styleUrl: './references.component.scss',
 })
@@ -16,6 +18,7 @@ export class ReferencesComponent {
     });
     this.animateArrow();
   }
+  constructor(private translate: TranslateService) {}
 
   animateArrow() {
     gsap.to('.drawn-arrow', {
