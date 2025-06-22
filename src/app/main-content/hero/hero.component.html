@@ -20,7 +20,9 @@
         (mouseenter)="putHover()"
         (mouseleave)="deleteHover()"
       >
-        <p class="world-welc" [class.visible]="!hovered">Hello World</p>
+        <p class="world-welc" [class.visible]="!hovered">
+          {{ "HERO.GREETING" | translate }}
+        </p>
         <p class="name-welc" [class.visible]="hovered">I'M DORA TELEKESI</p>
       </div>
     </div>
@@ -45,7 +47,7 @@
     </div>
 
     <a [routerLink]="['/']" fragment="contact"
-      ><div class="btn-cont btn">Get in Touch</div></a
+      ><div class="btn-cont btn">{{ "HERO.CONTACT" | translate }}</div></a
     >
     <div class="media-icons">
       <a

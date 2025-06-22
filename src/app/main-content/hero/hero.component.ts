@@ -2,11 +2,13 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { Router, RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ...sharedTranslateImports],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
@@ -16,7 +18,10 @@ export class HeroComponent implements AfterViewInit {
   @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
   hovered = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {}
 
   ngAfterViewInit() {
     // Initialize clip-paths to hidden using GSAP

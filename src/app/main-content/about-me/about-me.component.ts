@@ -2,11 +2,13 @@ import { AfterViewInit, Component } from '@angular/core';
 import { gsap } from 'gsap';
 import { Router, RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from '../../shared/header/translate.module';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ...sharedTranslateImports],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })
@@ -28,7 +30,10 @@ export class AboutMeComponent implements AfterViewInit {
       }
     });
   }
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {}
   animateUnderline() {
     gsap.to('.underline', {
       clipPath: 'inset(0% 0% 0% 0%)',

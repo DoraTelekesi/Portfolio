@@ -1,6 +1,97 @@
 {
-  "SKILLS": "Skills",
-  "ABOUT_ME": "About Me",
-  "CONTACT": "Contact",
-  "PROJECTS": "Projects"
+  "HEADER": {
+    "SKILLS": "Skills",
+    "ABOUT_ME": "About Me",
+    "CONTACT": "Contact",
+    "PROJECTS": "Projects"
+  },
+  "HERO": {
+    "GREETING": "Hello World",
+    "CONTACT": "Get in Touch"
+  },
+  "ABOUT_ME": {
+    "WHO_IS_DORA": "WHO'S DORA",
+    "ABOUT_ME": "Über mich",
+    "TEXT": "Ever since I was young, I’ve been fascinated by informatics and solving IT-related challenges—especially when it meant getting a game or program to work just right. That curiosity led me to build personal websites as a hobby, where I found joy in crafting visually appealing and user-friendly experiences. As a frontend developer, I love combining design with problem-solving to create creative, functional solutions. I’m always eager to learn new things and open to new challenges—that’s why I believe we’d make a great team.",
+    "CONTACT": "Let's talk",
+    "LOCATION": "Based in Münster",
+    "RELOCATION": "Open to relocate",
+    "REMOTE": "Open to work remote"
+  },
+  "SKILLS": {
+    "MY_STACK": "MY STACK",
+    "SKILL_SET": "Skill set",
+    "TEXT": "I’ve gained extensive experience with core frontend technologies like HTML, CSS, and JavaScript, as well as libraries such as SCSS and frameworks like Angular. I'm also confident working with TypeScript and Firebase. I’m always open to learning and adapting to new technologies to stay up to date and deliver the best possible solutions.",
+    "PEEL": "Pull to peel",
+    "SKILL_EXTRA": "Also, I'm interested in diving into:"
+  },
+  "PROJECTS_OVERVIEW": {
+    "MY_CRAFT": "MY CRAFT",
+    "PROJECTS": "Projects",
+    "TEXT": "Feel free to check out my projects – each one is built with a focus on responsive design, user-friendliness, and clean, efficient code. I strive to create solutions that are both functional and visually engaging across all devices.",
+    "JOIN_TEXT": "Task manager inspired by the Kanban System. Create and organize tasks, drag and drop function, assign users and categories.",
+    "SPOOKY_TEXT": "Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.",
+    "DABUBBLE_TEXT": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+    "DETAILS": "Project Details"
+  },
+  "REFERENCES": {
+    "IN_THEIR_WORDS": "IN THEIR WORDS:",
+    "COLLEAGUES_THOUGHTS": "Colleagues' Thoughts",
+    "TEXT_1": "Dora really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
+    "TEXT_2": "It was a great pleasure to work with Karl. He knows how to push and encourage team members to present the best work possible, always adding something to brainstorm. Regarding the well-being of group members, he was always present and available to listen and help others, with a great sense of humor as well.",
+    "TEXT_3": "Dora was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.",
+    "LI_PROFILE": "Profile"
+  },
+  "CONTACT": {
+    "READY": "Ready to work?",
+    "TEXT_1": "I’d be delighted to hear from you! I’m especially eager to take on opportunities where I can use my frontend expertise to contribute to cutting-edge projects. With my skills and enthusiasm for learning, I’m confident I can add real value to your team.",
+    "TEXT_2": "Beyond technical abilities, I bring creativity and a strong team spirit. Let’s work together to tackle exciting challenges and create outstanding outcomes!",
+    "NAME": "What's your name?",
+    "NAME_PH": "Your name goes here",
+    "NAME_ERROR": "Name is required",
+    "EMAIL": "What's your email?",
+    "EMAIL_PH": "youremail@something.com",
+    "EMAIL_ERROR_1": "Email is required",
+    "EMAIL_ERROR_2": "Please enter a valid email",
+    "MSG": "How can I help you?",
+    "MSG_PH": "Hi Dora, I'm interested in...",
+    "MSG_ERROR_1": "Please enter a text message",
+    "MSG_ERROR_2": "Please write at least 15 character",
+    "PP": "I've read the privacy policy and agree to the processing of my data as outlined.",
+    "LN": "Legal Notice",
+    "SEND": "Send"
+  },
+
+  "PROJECTS": {
+    "JOIN": {
+      "DESC": "Description",
+      "I_D": "Implementation Details",
+      "TEXT_1": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+      "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "DUR": "Duration:",
+      "WEEK": "5 weeks",
+      "BACK": "Go Back",
+      "NEXT": "Next Project"
+    },
+    "SPOOKY": {
+      "DESC": "Description",
+      "I_D": "Implementation Details",
+      "TEXT_1": "Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.",
+      "TEXT_2": "In the 'Spooky Town' project, I developed an engaging jump-and-run game based on object-oriented programming. Players take on the role of Skeleton Warrior, navigating through various levels to collect coins and bottles while battling crazy Wraiths. I used JavaScript to implement the gamemechanics, focusing on an object-oriented design to create characters andtheir interactions. The game features interactive gameplay elements,challenging boss fights, and lively sound effects that enhance the overallexperience.",
+      "DUR": "Duration:",
+      "WEEK": "3 weeks",
+      "BACK": "Go Back",
+      "NEXT": "Next Project"
+    },
+    "DABUBBLE": {
+      "DESC": "Description",
+      "I_D": "Implementation Details",
+      "TEXT_1": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
+      "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "DUR": "Duration:",
+      "WEEK": "3 weeks",
+      "BACK": "Go Back",
+      "NEXT": "Next Project"
+    }
+  }
 }
