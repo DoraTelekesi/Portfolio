@@ -3,13 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
+import { TranslateService } from '@ngx-translate/core';
+import { sharedTranslateImports } from './translate.module';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ...sharedTranslateImports],
 })
 export class HeaderComponent implements AfterViewInit {
   @ViewChild('aboutDrawnLine') aboutDrawnLine!: ElementRef<HTMLImageElement>;
@@ -25,8 +27,40 @@ export class HeaderComponent implements AfterViewInit {
   language: string = 'en';
   status: 'english' | 'german' = 'english';
 
-  constructor(private route: ActivatedRoute) {}
+  currentLang: 'en' | 'de' = 'en';
+
+  constructor(
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {
+    const savedLang = localStorage.getItem('lang');
+    const savedStatus = localStorage.getItem('status') as 'english' | 'german';
+    if (savedStatus) {
+      this.status = savedStatus;
+    }
+
+    if (savedLang === 'de') {
+      localStorage.setItem('status', 'german');
+      this.status = 'german';
+      this.translate.use('de');
+    } else {
+      localStorage.setItem('status', 'english');
+      this.status = 'english';
+      this.translate.use('en');
+    }
+  }
+
+  onToggleLanguage(): void {
+    this.currentLang = this.currentLang === 'en' ? 'de' : 'en';
+    this.translate.use(this.currentLang);
+    localStorage.setItem('lang', this.currentLang);
+  }
+
   ngAfterViewInit() {
+    const savedX = localStorage.getItem('toggleX');
+    if (savedX) {
+      gsap.set(this.toggleBtn.nativeElement, { x: parseFloat(savedX) });
+    }
     // Initialize clip-paths to hidden using GSAP
     gsap.set(this.aboutDrawnLine.nativeElement, {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
@@ -144,14 +178,21 @@ export class HeaderComponent implements AfterViewInit {
       x: 0,
     });
     this.status = 'english';
-    console.log(this.status);
+
+    this.translate.use('en');
+    localStorage.setItem('lang', 'en');
+    localStorage.setItem('status', 'english');
+    localStorage.setItem('toggleX', '0');
   }
   switchToGerman() {
+    this.status = 'german';
+    this.translate.use('de');
+    localStorage.setItem('lang', 'de');
+    localStorage.setItem('status', 'german');
+    localStorage.setItem('toggleX', '30');
     gsap.to('.toggle-btn', {
       x: 30,
     });
-    this.status = 'german';
-    console.log(this.status);
   }
 }
 
