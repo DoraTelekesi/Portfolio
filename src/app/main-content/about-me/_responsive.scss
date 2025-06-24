@@ -120,6 +120,11 @@
   }
 }
 @media (max-width: 500px) {
+  .location,
+  .relocation,
+  .remote {
+    width: 490px;
+  }
   .a-m-wrap {
     width: 390px;
   }
@@ -173,6 +178,11 @@
 }
 
 @media (max-width: 450px) {
+  .location,
+  .relocation,
+  .remote {
+    width: 390px;
+  }
   .a-m-title-wrap {
     > h1 {
       font-size: 45px;
@@ -198,20 +208,25 @@
   }
   .loc {
     top: 15px;
-    right: 210px;
+    right: 100px;
   }
 
   .reloc {
     top: -16px;
-    right: 210px;
+    right: 100px;
   }
 
   .rem {
     top: -35px;
-    right: 190px;
+    right: 90px;
   }
 }
 @media (max-width: 400px) {
+  .location,
+  .relocation,
+  .remote {
+    width: 300px;
+  }
   .ripped-paper,
   .location-section {
     width: 340px;
@@ -224,17 +239,17 @@
   }
   .loc {
     top: 13px;
-    right: 230px;
+    right: 40px;
   }
 
   .reloc {
     top: -20px;
-    right: 230px;
+    right: 40px;
   }
 
   .rem {
     top: -45px;
-    right: 210px;
+    right: 20px;
   }
   .loc-icon,
   .reloc-icon,
@@ -268,16 +283,16 @@
   }
   .loc {
     top: 8px;
-    right: 250px;
+    right: 40px;
   }
 
   .reloc {
     top: -30px;
-    right: 250px;
+    right: 50px;
   }
 
   .rem {
     top: -65px;
-    right: 230px;
+    right: 30px;
   }
 }

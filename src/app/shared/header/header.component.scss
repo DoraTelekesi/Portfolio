@@ -10,7 +10,9 @@
   position: absolute;
 }
 
-.header-resp, .menu-resp,.media-icons-resp {
+.header-resp,
+.menu-resp,
+.media-icons-resp {
   display: none;
 }
 
@@ -71,17 +73,15 @@ app-header {
     right: -16px;
     top: 2px;
     z-index: 999;
-    // clip-path: inset(100% 0% 0% 0%);
   }
 }
 
 .skills {
   .skillsDrawnLine {
     position: absolute;
-    right: -28px;
+    right: -19px;
     top: -10px;
     z-index: 999;
-    // clip-path: inset(100% 0% 0% 0%);
   }
 }
 
@@ -90,7 +90,6 @@ app-header {
     right: -20px;
     top: -10px;
     z-index: 999;
-    // clip-path: inset(100% 0% 0% 0%);
   }
 }
 
@@ -110,7 +109,6 @@ app-header {
       right: -7px;
       height: auto;
       z-index: 1;
-      // clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%);
     }
   }
 }

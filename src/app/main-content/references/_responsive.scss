@@ -8,6 +8,7 @@
   app-reference-item {
     flex-direction: column;
     top: 20px;
+    width: 800px;
   }
   .references {
     width: 800px;
@@ -22,6 +23,9 @@
   }
 }
 @media (max-width: 800px) {
+  app-reference-item {
+    width: 600px;
+  }
   .references {
     width: 600px;
   }
@@ -31,6 +35,9 @@
   }
 }
 @media (max-width: 700px) {
+  app-reference-item {
+    width: 500px;
+  }
   .references {
     width: 500px;
     > .title-section {
@@ -44,6 +51,9 @@
   }
 }
 @media (max-width: 600px) {
+  app-reference-item {
+    width: 450px;
+  }
   .references {
     width: 450px;
     > .title-section {
@@ -58,6 +68,9 @@
   }
 }
 @media (max-width: 500px) {
+  app-reference-item {
+    width: 350px;
+  }
   .references {
     width: 350px;
   }
@@ -66,5 +79,20 @@
   }
   .title-section {
     width: 340px;
+  }
+}
+
+@media (max-width: 400px) {
+  app-reference-item {
+    width: 280px;
+  }
+  .references {
+    width: 280px;
+  }
+  .stickers {
+    width: 280px;
+  }
+  .title-section {
+    width: 280px;
   }
 }

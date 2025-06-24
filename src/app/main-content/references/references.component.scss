@@ -17,6 +17,7 @@ app-reference-item {
 
   > .title-section {
     margin-bottom: 50px;
+    margin-right: 20px;
     @include dFlex($fd: column, $ai: flex-end);
     > h1 {
       font-size: 74px;

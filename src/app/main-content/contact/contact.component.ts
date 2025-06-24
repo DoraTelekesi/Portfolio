@@ -1,4 +1,11 @@
-import { Component, ViewChild, ElementRef, inject } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  inject,
+  OnInit,
+  HostListener,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { gsap } from 'gsap';
 import { HttpClient } from '@angular/common/http';
@@ -13,16 +20,23 @@ import { sharedTranslateImports } from '../../shared/header/translate.module';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   hovered = false;
   hoveredSectionName = false;
   hoveredSectionEmail = false;
   hoveredSectionDescription = false;
   privacyChecked = false;
-  // placeholderTextMessage = 'Hello Dora...';
-
+  @ViewChild('btnbox') btnbox!: ElementRef;
   @ViewChild('legalDrawnLine')
   legalDrawnLine!: ElementRef<HTMLImageElement>;
+  width?: number;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: UIEvent) {
+    console.log('Window resized', (event.target as Window).innerWidth);
+    this.resetRotateAnimation();
+  }
+
+  constructor(private translate: TranslateService) {}
 
   ngAfterViewInit(): void {
     gsap.set('.arrow', {
@@ -32,10 +46,21 @@ export class ContactComponent {
     gsap.set(this.legalDrawnLine.nativeElement, {
       clipPath: 'inset(0% 100% 0% 0%)',
     });
+    setTimeout(() => {
+      this.resetRotateAnimation();
+    });
   }
 
-  constructor(private translate: TranslateService) {}
-  
+  resetRotateAnimation() {
+    if (this.btnbox && this.btnbox.nativeElement) {
+      this.width = this.btnbox.nativeElement.offsetWidth - 30;
+    }
+  }
+
+  ngOnInit(): void {
+    this.onResize({ target: window } as unknown as UIEvent);
+  }
+
   putHover() {
     this.hovered = true;
     gsap.to(this.legalDrawnLine.nativeElement, {
@@ -58,14 +83,14 @@ export class ContactComponent {
     gsap.fromTo(
       '.github-icon',
       { x: 0, duration: 0.8, rotation: 0, opacity: 0 },
-      { rotation: 360, x: 100, duration: 0.8, opacity: 1, ease: 'back' }
+      { rotation: 360, x: this.width, duration: 0.8, opacity: 1, ease: 'back' }
     );
   }
 
   removeHoverGitHub() {
     gsap.fromTo(
       '.github-icon',
-      { x: 100, duration: 0.8, rotation: 0, opacity: 1 },
+      { x: this.width, duration: 0.8, rotation: 0, opacity: 1 },
       { rotation: -360, x: 0, duration: 0.8, opacity: 0 }
     );
   }
@@ -73,14 +98,14 @@ export class ContactComponent {
     gsap.fromTo(
       '.linkedin-icon',
       { x: 0, duration: 0.8, rotation: 0, opacity: 0 },
-      { rotation: 360, x: 100, duration: 0.8, opacity: 1, ease: 'back' }
+      { rotation: 360, x: this.width, duration: 0.8, opacity: 1, ease: 'back' }
     );
   }
 
   removeHoverLinkedin() {
     gsap.fromTo(
       '.linkedin-icon',
-      { x: 100, duration: 0.8, rotation: 0, opacity: 1 },
+      { x: this.width, duration: 0.8, rotation: 0, opacity: 1 },
       { rotation: -360, x: 0, duration: 0.8, opacity: 0 }
     );
   }
@@ -88,14 +113,14 @@ export class ContactComponent {
     gsap.fromTo(
       '.email-icon',
       { x: 0, duration: 0.8, rotation: 0, opacity: 0 },
-      { rotation: 360, x: 100, duration: 0.8, opacity: 1, ease: 'back' }
+      { rotation: 360, x: this.width, duration: 0.8, opacity: 1, ease: 'back' }
     );
   }
 
   removeHoverEmail() {
     gsap.fromTo(
       '.email-icon',
-      { x: 100, duration: 0.8, rotation: 0, opacity: 1 },
+      { x: this.width, duration: 0.8, rotation: 0, opacity: 1 },
       { rotation: -360, x: 0, duration: 0.8, opacity: 0 }
     );
   }
@@ -179,25 +204,23 @@ export class ContactComponent {
   }
 
   // Email Validation
+
   emailFocused = false;
   emailTouched = false;
   emailValid = false;
-  invalidEmailBackup = ''; // store invalid email temporarily
+  invalidEmailBackup = '';
   showInvalidEmailError = false;
 
   onEmailBlur() {
     this.emailFocused = false;
     this.emailTouched = true;
-
     if (!this.isEmailValid()) {
       if (this.contactData.email) {
-        // Invalid but user typed something
-        this.invalidEmailBackup = this.contactData.email; // save it
-        this.contactData.email = ''; // clear input to show error message
-        this.showInvalidEmailError = true; // flag to show invalid email message
+        this.invalidEmailBackup = this.contactData.email;
+        this.contactData.email = '';
+        this.showInvalidEmailError = true;
       }
     } else {
-      // valid email or empty
       this.invalidEmailBackup = '';
       this.showInvalidEmailError = false;
     }
@@ -205,7 +228,6 @@ export class ContactComponent {
 
   onEmailFocus() {
     this.emailFocused = true;
-    // Restore invalid email if we have it and the input is empty (due to blur clearing)
     if (this.showInvalidEmailError && !this.contactData.email) {
       this.contactData.email = this.invalidEmailBackup;
     }
@@ -218,15 +240,15 @@ export class ContactComponent {
     }
   }
   isEmailValid(): boolean {
-    // Simple email regex validation
     if (!this.contactData.email) {
-      return false; // empty is invalid for this logic
+      return false;
     }
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(this.contactData.email);
   }
 
   //Message Validation
+
   messageValid = false;
   showInvalidMessageError = false;
   invalidMessageBackup = '';
@@ -252,13 +274,11 @@ export class ContactComponent {
 
     if (!this.isMessageValid()) {
       if (this.contactData.message) {
-        // Invalid but user typed something
-        this.invalidMessageBackup = this.contactData.message; // save it
-        this.contactData.message = ''; // clear input to show error message
-        this.showInvalidMessageError = true; // flag to show invalid email message
+        this.invalidMessageBackup = this.contactData.message;
+        this.contactData.message = '';
+        this.showInvalidMessageError = true;
       }
     } else {
-      // valid email or empty
       this.invalidMessageBackup = '';
       this.showInvalidMessageError = false;
     }

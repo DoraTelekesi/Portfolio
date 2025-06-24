@@ -89,6 +89,7 @@
             (input)="onEmailInputChange()"
           />
           <div
+            class="ph email-ph"
             class="placeholder-wrap"
             *ngIf="!contactData.email"
             [ngClass]="{
@@ -97,6 +98,7 @@
             }"
           >
             <span
+              class="ph email-ph"
               *ngIf="
                 emailTouched &&
                 !emailFocused &&
@@ -108,12 +110,14 @@
             </span>
 
             <span
+              class="ph email-ph"
               *ngIf="emailTouched && !emailFocused && showInvalidEmailError"
             >
               {{ "CONTACT.EMAIL_ERROR_2" | translate }}
             </span>
 
             <span
+              class="ph email-ph"
               *ngIf="(!emailTouched || emailFocused) && !showInvalidEmailError"
             >
               {{ "CONTACT.EMAIL_PH" | translate }}
@@ -156,6 +160,7 @@
             }"
           >
             <span
+              class="ph"
               *ngIf="
                 messageTouched &&
                 !messageFocused &&
@@ -167,6 +172,7 @@
             </span>
 
             <span
+              class="ph"
               *ngIf="
                 messageTouched && !messageFocused && showInvalidMessageError
               "
@@ -175,6 +181,7 @@
             </span>
 
             <span
+              class="ph"
               *ngIf="
                 (!messageTouched || messageFocused) && !showInvalidMessageError
               "
@@ -206,8 +213,10 @@
     </div>
   </div>
   <footer>
-    <img src="assets/icon/logo.svg" alt="" />
-    <p>© Dora Telekesi 2025</p>
+    <div class="footer-1">
+      <img src="assets/icon/logo.svg" alt="" />
+      <p>© Dora Telekesi 2025</p>
+    </div>
     <div class="links">
       <div
         class="h-btn-wrap legal"
@@ -222,7 +231,9 @@
           alt="drawn-line"
         />
       </div>
+
       <div
+        
         class="btn-section"
         (mouseenter)="putHoverGitHub()"
         (mouseleave)="removeHoverGitHub()"
@@ -249,7 +260,7 @@
           alt="linkedin icon"
         />
         <a href="https://www.linkedin.com/in/dora-telekesi-05470431b/">
-          <div class="icon-box linkedin">
+          <div class="icon-box linkedin" #btnbox>
             <p>LinkedIn</p>
           </div></a
         >

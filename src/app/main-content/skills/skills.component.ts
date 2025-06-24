@@ -5,6 +5,7 @@ import {
   Component,
   ElementRef,
   ViewChildren,
+  ViewChild,
   QueryList,
 } from '@angular/core';
 import { gsap } from 'gsap';
@@ -25,6 +26,7 @@ export class SkillsComponent implements AfterViewInit {
   img!: HTMLImageElement;
   showImage1: boolean = true;
   revealed = false;
+  width!:number;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +36,7 @@ export class SkillsComponent implements AfterViewInit {
   @ViewChildren('stickerImages') stickerImages!: QueryList<
     ElementRef<HTMLImageElement>
   >;
+  @ViewChild('title') title!: ElementRef;
 
   peelOffImagesOpen = [
     'assets/img/sticker-1.png',
@@ -59,7 +62,11 @@ export class SkillsComponent implements AfterViewInit {
       }
     });
   }
-
+resetRotateAnimation(){
+  if(this.title && this.title.nativeElement){
+    this.width = this.title.nativeElement.offsetWidth;
+  }
+}
   rotateDrawnLine() {
     setInterval(() => {
       if (this.lineRotated == false) {

@@ -4,7 +4,9 @@
 }
 a {
   text-decoration: none;
-  &:visited, &:active, &:link {
+  &:visited,
+  &:active,
+  &:link {
     color: #f8f9fa;
   }
 }
@@ -32,13 +34,15 @@ body {
 html,
 body {
   height: 100%;
+
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
 }
 
-.highlight{
+.highlight {
   color: rgb(48, 79, 234);
   &:hover {
     color: rgb(246, 196, 24);

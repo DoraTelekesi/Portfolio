@@ -117,7 +117,7 @@ export class ProjectItemComponent implements AfterViewInit {
       this.floatTween.kill();
     }
     gsap.to('.join-img', {
-      y: 0,
+      y: -30,
       x: 0,
       duration: 0.1,
       ease: 'power0.out',
@@ -126,7 +126,7 @@ export class ProjectItemComponent implements AfterViewInit {
 
   floatUp() {
     this.floatTween = gsap.to('.join-img', {
-      y: 80,
+      y: 40,
       duration: 2,
       ease: 'back.inOut',
       yoyo: true,
