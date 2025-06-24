@@ -6,41 +6,39 @@
 
 .a-m-wrap {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 50px;
-  max-width: 1990px;
-  margin: 0 auto;
-  margin-bottom: 200px;
-  margin-top: 100px;
+  gap: 30px;
+  max-width: 1440px;
+  width: 1000px;
+
+  margin-bottom: 30px;
+  margin-top: 30px;
 
   > .location-section {
     display: flex;
     flex-direction: column;
-    width: 560px;
   }
 }
 
-.ripped-paper {
-  width: 500px;
-  height: auto;
-}
-
 .green {
-  top: 100px;
-  transform: rotate(-7deg);
+  top: 0px;
+  transform: rotate(-3deg);
   z-index: 3;
 }
 .blue {
-  top: 190px;
-  transform: rotate(-3deg);
+  top: -100px;
+  transform: rotate(-2deg);
 }
 .turqoise {
-  top: 280px;
-  transform: rotate(3deg);
+  top: -50px;
+  transform: rotate(1deg);
 }
 
 .ripped-paper {
   position: absolute;
+  width: 500px;
+  height: auto;
 }
 
 .loc,
@@ -55,30 +53,39 @@
 }
 
 .loc {
-  top: 120px;
-  right: 200px;
-  transform: rotate(-7deg);
+  top: 20px;
+  right: 140px;
+  transform: rotate(-5deg);
 }
 
 .reloc {
-  top: 225px;
-  right: 200px;
-  transform: rotate(-3deg);
+  top: -20px;
+  right: 140px;
+  transform: rotate(4deg);
 }
 
 .rem {
-  top: 315px;
-  right: 180px;
-  transform: rotate(5deg);
+  top: -65px;
+  right: 130px;
+  transform: rotate(-1deg);
 }
 
 .location-section {
   position: relative;
+  margin-top: 100px;
+}
+
+.location,
+.relocation,
+.remote {
+  position: relative;
+  width: 500px;
+  height: 150px;
 }
 
 .a-m-btn {
   @include dFlex();
-  color:black;
+  color: black;
   border: 1px solid black;
   border-radius: 100px;
   font-size: 18px;
@@ -98,6 +105,7 @@
   position: relative;
   > h1 {
     font-size: 75px;
+    margin: 10px;
   }
   > img {
     width: 350px;
@@ -106,11 +114,15 @@
   }
 }
 
-.a-m-section-right {
-  width: 560px;
+.a-m-text {
+  display: flex;
+  flex-direction: column;
 }
+
 .btn-wrap {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
+
+@import "./responsive";

@@ -1,10 +1,18 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { gsap } from 'gsap';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from './translate.module';
+import { Subscription, filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +21,7 @@ import { sharedTranslateImports } from './translate.module';
   standalone: true,
   imports: [CommonModule, RouterLink, ...sharedTranslateImports],
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('aboutDrawnLine') aboutDrawnLine!: ElementRef<HTMLImageElement>;
   @ViewChild('skillsDrawnLine') skillsDrawnLine!: ElementRef<HTMLImageElement>;
   @ViewChild('projectDrawnLine')
@@ -23,15 +31,48 @@ export class HeaderComponent implements AfterViewInit {
   @ViewChild('en') en!: ElementRef<HTMLImageElement>;
   @ViewChild('de') de!: ElementRef<HTMLImageElement>;
   @ViewChild('toggleBtn') toggleBtn!: ElementRef<HTMLImageElement>;
+  @ViewChild('bgFillGithub') bgFillGithub!: ElementRef;
+  @ViewChild('bgFillLinkedin') bgFillLinkedin!: ElementRef;
+  @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
 
   language: string = 'en';
   status: 'english' | 'german' = 'english';
-
   currentLang: 'en' | 'de' = 'en';
+  currentUrl: string = '';
+  private routerSub = Subscription.EMPTY; // avoids the need for !
+
+  respMenuOpened = false;
+
+  closeRespMenu() {
+    this.respMenuOpened = false;
+  }
+  openRespMenu() {
+    this.respMenuOpened = true;
+  }
+
+  ngOnInit(): void {
+    this.currentUrl = this.router.url;
+
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event) => {
+        this.currentUrl = event.urlAfterRedirects;
+        console.log('Current URL:', this.currentUrl);
+        console.log(this.currentUrl.includes('Projects'));
+      });
+  }
+  ngOnDestroy(): void {
+    this.routerSub.unsubscribe();
+  }
 
   constructor(
     private route: ActivatedRoute,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     const savedLang = localStorage.getItem('lang');
     const savedStatus = localStorage.getItem('status') as 'english' | 'german';
@@ -57,6 +98,21 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    gsap.set(this.bgFillGithub.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+    gsap.set(this.bgFillLinkedin.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+    gsap.set(this.bgFillEmail.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
     const savedX = localStorage.getItem('toggleX');
     if (savedX) {
       gsap.set(this.toggleBtn.nativeElement, { x: parseFloat(savedX) });
@@ -192,6 +248,38 @@ export class HeaderComponent implements AfterViewInit {
     localStorage.setItem('toggleX', '30');
     gsap.to('.toggle-btn', {
       x: 30,
+    });
+  }
+  fillBackground(type: string) {
+    const lineMap: { [key: string]: ElementRef } = {
+      bgFillGithub: this.bgFillGithub,
+      bgFillLinkedin: this.bgFillLinkedin,
+      bgFillEmail: this.bgFillEmail,
+    };
+
+    const element = lineMap[type];
+    if (!element) return;
+    gsap.to(element.nativeElement, {
+      scaleX: 1,
+      height: '100%',
+      duration: 0.2,
+      ease: 'power2.out',
+    });
+  }
+  unfillBackground(type: string) {
+    const lineMap: { [key: string]: ElementRef } = {
+      bgFillGithub: this.bgFillGithub,
+      bgFillLinkedin: this.bgFillLinkedin,
+      bgFillEmail: this.bgFillEmail,
+    };
+
+    const element = lineMap[type];
+    if (!element) return;
+    gsap.to(element.nativeElement, {
+      scaleX: 0,
+      height: '0%',
+      duration: 0.2,
+      ease: 'power2.in',
     });
   }
 }

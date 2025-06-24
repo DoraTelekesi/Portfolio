@@ -1,13 +1,5 @@
 <div class="wrapper">
   <div class="hero-main">
-    <div class="profil-photo-section">
-      <img
-        class="profil-frame"
-        src="assets/img/polaroid-frame.png"
-        alt="Polaroid frame"
-      />
-      <p>Dora :)</p>
-    </div>
     <div class="section-welc">
       <img
         class="wav-hand"
@@ -34,11 +26,14 @@
           <span class="upper">F</span><span>r</span><span>o</span><span>n</span
           ><span>t</span><span>e</span><span>n</span><span>d</span>
         </h1>
-        <img
-          class="p-frame"
-          src="assets/img/polaroid-frame.png"
-          alt="Polaroid frame"
-        />
+        <div class="profil-photo-section">
+          <img
+            class="profil-frame"
+            src="assets/img/polaroid-frame.png"
+            alt="Polaroid frame"
+          />
+          <p>Dora :)</p>
+        </div>
       </div>
       <div>
         <h1 class="title t-2">
@@ -48,7 +43,7 @@
       </div>
     </div>
 
-    <a [routerLink]="['/']" fragment="contact"
+    <a [routerLink]="['/']" fragment="contact" class="contact"
       ><div class="btn-cont btn">{{ "HERO.CONTACT" | translate }}</div></a
     >
     <div class="media-icons">

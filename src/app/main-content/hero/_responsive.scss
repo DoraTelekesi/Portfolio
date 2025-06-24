@@ -1,0 +1,130 @@
+@media (max-width: 950px) {
+  .t-1 span,
+  .t-2 span {
+    font-size: 90px;
+  }
+
+  .hero-main {
+    max-width: 800px;
+  }
+  // .profil-photo-section {
+  //   right: 70px;
+  // }
+}
+
+@media (max-width: 850px) {
+  .t-1 span,
+  .t-2 span {
+    font-size: 80px;
+  }
+  .t-2,
+  .t-1 {
+    line-height: 90px;
+    margin: 0px;
+  }
+  .media-icons {
+    display: none;
+  }
+  .profil-photo-section {
+    right: 325px;
+    top: 230px;
+    > p {
+      top: 155px;
+      right: 60px;
+    }
+  }
+  .hero-main {
+    max-width: 650px;
+    margin-bottom: 200px;
+  }
+
+  .profil-frame {
+    width: 180px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-main {
+    max-width: 550px;
+    margin-bottom: 220px;
+    gap: 20px;
+  }
+  .profil-photo-section {
+    right: 205px;
+  }
+  .t-2,
+  .t-1 {
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 650px) {
+  .t-1 span,
+  .t-2 span {
+    font-size: 70px;
+  }
+  .hero-main {
+    max-width: 450px;
+  }
+  .profil-photo-section {
+    right: 185px;
+  }
+  .btn {
+    width: 130px;
+  }
+}
+@media (max-width: 550px) {
+  .t-1 span,
+  .t-2 span {
+    font-size: 60px;
+  }
+  .t-2,
+  .t-1 {
+    line-height: 70px;
+  }
+  .hero-main {
+    max-width: 350px;
+  }
+  .profil-photo-section {
+    right: 105px;
+    top: 240px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
+@media (max-width: 420px) {
+  .t-1 span,
+  .t-2 span {
+    font-size: 50px;
+  }
+  .t-2,
+  .t-1 {
+    line-height: 50px;
+  }
+  .profil-photo-section {
+    right: 75px;
+    top: 220px;
+  }
+  .hero-main {
+    width: 300px;
+    gap: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .t-2,
+  .t-1 {
+    line-height: 40px;
+  }
+  // .t-1 span,
+  // .t-2 span {
+  //   font-size: 40px;
+  // }
+  .hero-main {
+    width: 260px;
+  }
+  .profil-photo-section {
+    right: 45px;
+    top: 220px;
+  }
+}

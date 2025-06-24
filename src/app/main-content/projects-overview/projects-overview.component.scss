@@ -3,11 +3,16 @@
   justify-content: center;
   align-items: center;
 }
+.main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 
 .projects-content {
   display: flex;
   justify-content: center;
-  max-width: 1990px;
+  max-width: 1440px;
   margin: 0 auto;
   margin-top: 150px;
   gap: 50px;
@@ -26,9 +31,9 @@
   grid-template-rows: auto auto;
   gap: 50px;
   justify-content: center;
-  max-width: 1990px;
+  max-width: 1440px;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 0;
 }
 
 .grid-item {
@@ -59,3 +64,4 @@ p {
     font-size: 20px;
   }
 }
+@import "./responsive";

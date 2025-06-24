@@ -7,22 +7,25 @@
   justify-content: center;
 
   > .skills-content {
-    width: 100%;
-    max-width: 1990px;
+    // width: 100%;
+    max-width: 1440px;
+    // width: 1000px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
     padding-bottom: 100px;
-    gap: 80px;
+    margin-bottom: 100px;
+    gap: 40px;
   }
 }
 .title-section {
   display: flex;
   position: relative;
+  justify-content: space-between;
   gap: 50px;
-  margin-right: 200px;
+  // margin-right: 50px;
 }
 
 .title {
@@ -38,11 +41,13 @@
 }
 
 .title-text {
+  // display: flex;
   position: relative;
   > p {
+    width: 90%;
     position: absolute;
-    top: 10px;
-    right: 70px;
+    top: 20px;
+    right: 20px;
   }
   > img {
     width: 650px;
@@ -74,6 +79,8 @@
     cursor: pointer;
   }
   > img {
+    top: 0;
+    right: 0;
     position: absolute;
     width: 200px;
     height: 200px;
@@ -102,7 +109,6 @@
     height: 50px;
   }
   > p {
-    // position: absolute;
     margin: 0;
     line-height: 40px;
     font-size: 40px;
@@ -147,30 +153,17 @@
 
 .icons-section {
   display: flex;
-  gap: 100px;
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .icons {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
-  > .icons-r1 {
+  > div {
     display: flex;
-    gap: 50px;
-    > img {
-      width: 78px;
-      height: 78px;
-      filter: grayscale(100%);
-      transition: all 0.1s ease-out;
-      &:hover {
-        filter: grayscale(0%);
-        transform: scale(0.8);
-      }
-    }
-  }
-
-  > .icons-r2 {
+    width: 700px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     display: flex;
     gap: 50px;
     > img {
@@ -185,3 +178,4 @@
     }
   }
 }
+@import "./responsive";

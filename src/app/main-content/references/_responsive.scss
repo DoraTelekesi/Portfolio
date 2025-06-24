@@ -1,0 +1,70 @@
+@media (max-width: 1200px) {
+  .stickers {
+    width: 800px;
+  }
+}
+
+@media (max-width: 1000px) {
+  app-reference-item {
+    flex-direction: column;
+    top: 20px;
+  }
+  .references {
+    width: 800px;
+    > .title-section {
+      > h1.main-title {
+        font-size: 50px;
+      }
+    }
+  }
+  .stickers {
+    width: 800px;
+  }
+}
+@media (max-width: 800px) {
+  .references {
+    width: 600px;
+  }
+  .stickers,
+  .title-section {
+    width: 600px;
+  }
+}
+@media (max-width: 700px) {
+  .references {
+    width: 500px;
+    > .title-section {
+      > h1.main-title {
+        font-size: 45px;
+      }
+    }
+  }
+  .stickers {
+    width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .references {
+    width: 450px;
+    > .title-section {
+      > h1.main-title {
+        font-size: 45px;
+      }
+    }
+  }
+
+  .stickers {
+    width: 450px;
+  }
+}
+@media (max-width: 500px) {
+  .references {
+    width: 350px;
+  }
+  .stickers {
+    width: 350px;
+  }
+  .title-section {
+    width: 340px;
+  }
+}

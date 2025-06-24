@@ -1,6 +1,6 @@
-app-references {
-  margin-bottom: 500px;
-}
+// app-references {
+//   margin-bottom: 500px;
+// }
 
 app-hero {
   z-index: 999;
@@ -9,7 +9,8 @@ app-hero {
 app-references {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  // margin-top: 100px;
+  margin-bottom: 500px;
 }
 app-contact {
   // height:100vh;
@@ -17,4 +18,9 @@ app-contact {
   justify-content: center;
   background-image: url("/assets/img/contact-bg.png");
   background-size: cover;
+}
+
+app-about-me {
+  display: flex;
+  justify-content: center;
 }

@@ -1,9 +1,19 @@
+.content {
+  width: 512px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
 .img-wrap {
   position: absolute;
   width: 512px;
   height: 320px;
 
   > img {
+    transform: translate(-20px);
     width: 512px;
     height: 320px;
     transform: rotate(5deg);
@@ -75,3 +85,4 @@ span {
   z-index: 999;
   opacity: 0.5;
 }
+@import "./responsive";

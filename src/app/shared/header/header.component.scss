@@ -10,6 +10,10 @@
   position: absolute;
 }
 
+.header-resp, .menu-resp,.media-icons-resp {
+  display: none;
+}
+
 app-header {
   max-width: 1990px;
 }
@@ -123,10 +127,20 @@ app-header {
   }
 }
 
-
 .de {
   &:hover {
     cursor: pointer;
   }
 }
 
+.black {
+  color: black;
+  font-weight: 700;
+  text-shadow: 2px 0px 2px#f8f9fa;
+}
+
+.white {
+  color: #f8f9fa;
+}
+
+@import "./responsive";

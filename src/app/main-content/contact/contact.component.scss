@@ -7,7 +7,7 @@
     color: #f8f9fa;
     gap: 150px;
     justify-content: center;
-
+    margin-top: 100px;
     align-items: center;
     max-width: 1220px;
     width: 100%;
@@ -140,12 +140,9 @@ footer {
   pointer-events: none;
 }
 
-/* ✅ This works: use :has() (if supported), or move logic to JS or wrap in span if you want to style based on input */
 .custom-checkbox:has(input[type="checkbox"]:checked)::after {
   opacity: 1;
 }
-
-
 
 .legal {
   position: relative;
@@ -222,6 +219,9 @@ footer {
   justify-content: space-evenly;
   height: 110px;
   gap: 10px;
+  &:hover {
+    color: #f87a55;
+  }
 }
 
 .label {
@@ -310,10 +310,9 @@ input {
 
 .placeholder-wrap {
   position: absolute;
-  /* same position/padding/font-size as your input's placeholder */
   top: 42px;
   left: 12px;
-  font-size: 16px;
+  font-size: 18px;
   color: #463f3f;
   pointer-events: none;
   transition: color 0.2s;
@@ -346,4 +345,8 @@ input {
 
 textarea {
   padding-left: 12px;
+}
+
+h3 {
+  font-size: 20px;
 }

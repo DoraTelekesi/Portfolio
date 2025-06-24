@@ -10,15 +10,12 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  display: flex;
+  @include dFlex();
   width: 100%;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
 }
 
 .profil-frame {
-  display: none;
   width: 200px;
   height: auto;
 }
@@ -26,23 +23,30 @@
 .hero-main {
   color: #f8f9fa;
   max-width: 1990px;
+  width:900px;
+  position: relative;
+  display:flex;
+  flex-direction: column;
 }
 
 .p-frame {
   display: none;
 }
 .profil-photo-section {
-  position: relative;
+  position: absolute;
+  right: 70px;
+  top: -120px;
+  transform: rotate(10deg);
   > p {
     font-family: "Kalam", sans-serif;
     font-size: 20px;
     font-weight: 650;
     color: black;
     position: absolute;
-    top: 140px;
-    right: 120px;
+    top: 180px;
+    right: 80px;
     z-index: 3;
-    transform: rotate(7deg);
+    // transform: rotate(7deg);
   }
 }
 
@@ -77,10 +81,10 @@
   overflow: hidden;
   z-index: 0;
   color: #f8f9fa;
-  width: 154px; 
+  width: 154px;
   transition: width 0.8s ease-out;
   transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-  white-space: nowrap; 
+  white-space: nowrap;
   > .world-welc,
   .name-welc {
     @include dFlex();
@@ -155,11 +159,20 @@
 .t-2 {
   margin-left: 150px;
 }
-.btn-cont {
-  margin-left: 700px;
+
+.contact {
+  display: flex;
+  justify-content: flex-end;
 }
+// .btn-cont {
+//   display:flex;
+
+// }
 
 .media-icons {
+  position: absolute;
+  top: 285px;
+  left: 0px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -183,7 +196,7 @@
     width: 100%;
     height: 10%;
     border-radius: 50%;
-    background-color: #3355ff; 
+    background-color: #3355ff;
     z-index: 1;
   }
   img {
@@ -231,3 +244,5 @@
     }
   }
 }
+
+@import "./responsive";

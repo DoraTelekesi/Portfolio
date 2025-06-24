@@ -1,61 +1,63 @@
-@for(item of references; track item.name;let index = $index){
-<div
-  class="content"
-  (mouseenter)="applyHover(index)"
-  (mouseleave)="removeHover(index)"
->
-  <div
-    class="img-wrap"
-    [ngStyle]="{
-      'left.px': -650 + index * 400,
-      'z-index': getZIndex(index)
-    }"
-  >
-    <img
-      [ngStyle]="{
-        transform: 'rotate(' + getRotation(index) + 'deg)',
-        'z-index': getZIndexImg(index)
-      }"
-      class="img-hover"
-      src="assets/img/reference-hover.png"
-      alt=""
-    />
 
-    <img
-      #imageElement
-      [id]="specialId"
-      src="{{ item.imageUrl }}"
+  @for(item of references; track item.name;let index = $index){
+  <div
+    class="content"
+    (mouseenter)="applyHover(index)"
+    (mouseleave)="removeHover(index)"
+  >
+    <div
+      class="img-wrap"
       [ngStyle]="{
+
+        'z-index': getZIndex(index)
+      }"
+    >
+      <img
+        [ngStyle]="{
+          transform: 'rotate(' + getRotation(index) + 'deg)',
+          'z-index': getZIndexImg(index)
+        }"
+        class="img-hover"
+        src="assets/img/reference-hover.png"
+        alt=""
+      />
+
+      <img
+        #imageElement
+        [id]="specialId"
+        src="{{ item.imageUrl }}"
+        [ngStyle]="{
+          transform: 'rotate(' + getRotation(index) + 'deg)',
+          'z-index': getZIndex(index)
+        }"
+        alt="Sticker Image"
+      />
+    </div>
+    <div
+      class="ref-content"
+      [ngStyle]="{
+
         transform: 'rotate(' + getRotation(index) + 'deg)',
         'z-index': getZIndex(index)
       }"
-      alt="Sticker Image"
-    />
-  </div>
-  <div
-    class="ref-content"
-    [ngStyle]="{
-      'left.px': -650 + index * 400,
-      transform: 'rotate(' + getRotation(index) + 'deg)',
-      'z-index': getZIndex(index)
-    }"
-  >
-    <div>
-      {{ item.refText | translate }}
-    </div>
-    <div class="ref-footer">
-      <div
-        class="person-datas"
-        [class.white]="hovered === true && currentSticker === index"
-      >
-        <span>{{ item.name }}</span>
-        <p>{{ item.profession }}</p>
+    >
+      <div>
+        {{ item.refText | translate }}
       </div>
-      <div class="ref-footer-link">
-        <img src="assets/icon/linkedin-s.png" alt="" />
-        <p>{{ "REFERENCES.LI_PROFILE" | translate }}</p>
+      <div class="ref-footer">
+        <div
+          class="person-datas"
+          [class.white]="hovered === true && currentSticker === index"
+        >
+          <span>{{ item.name }}</span>
+          <p>{{ item.profession }}</p>
+        </div>
+        <div class="ref-footer-link">
+          <img src="assets/icon/linkedin-s.png" alt="" />
+          <p>{{ "REFERENCES.LI_PROFILE" | translate }}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-}
+  }
+
