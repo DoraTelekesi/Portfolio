@@ -38,9 +38,9 @@
   "REFERENCES": {
     "IN_THEIR_WORDS": "IN IHREN WORTEN:",
     "COLLEAGUES_THOUGHTS": "Feedback von Kollegen",
-    "TEXT_1": "Dora hat das Team mit seiner großartigen Organisation und klaren Kommunikation wirklich zusammengehalten. Ohne sein Engagement wären wir nicht so weit gekommen.",
-    "TEXT_2": "Es war eine große Freude, mit Dora zusammenzuarbeiten. Er weiß, wie man Teammitglieder motiviert und ermutigt, ihr Bestes zu geben, und bringt stets neue Ideen ins Brainstorming ein. Was das Wohlbefinden der Gruppenmitglieder angeht, war er immer präsent, offen für Gespräche und hilfsbereit – und das alles mit großem Sinn für Humor.",
-    "TEXT_3": "Dora war ein herausragender Kollege im Team bei DA. Sein positives Engagement und seine Bereitschaft, Verantwortung zu übernehmen, haben wesentlich dazu beigetragen, dass wir unsere Ziele erreicht haben.",
+    "TEXT_1": "Die Zusammenarbeit mit Dora war stets positiv und konstruktiv. Sie kommuniziert klar, arbeitet zuverlässig und qualitätsbewusst und ist offen für Feedback. Durch ihre proaktive, teamorientierte und lösungsorientierte Haltung leistet sie einen wichtigen Beitrag zum Projekterfolg.",
+    "TEXT_2":"Dora passt sich schnell an neue Situationen an und handelt eigeninitiativ, ohne ständige Anleitung zu benötigen. Herausforderungen meistert sie ruhig und liefert auch unter Druck verlässliche Ergebnisse. Es ist eine große Unterstützung, jemanden so selbstständigen und zuverlässigen im Team zu haben.",
+    "TEXT_3": "Dora ist ein echter Teamplayer. Sie hört aktiv zu, unterstützt andere ohne zu zögern und schafft eine kooperative Atmosphäre, in der sich alle gehört und eingebunden fühlen. Ihre positive Haltung und teamorientierte Denkweise machen die Zusammenarbeit angenehm und effizient.",
     "LI_PROFILE": "Profil"
   },
   "CONTACT": {
@@ -69,7 +69,7 @@
       "DESC": "Beschreibung",
       "I_D": "Implementierungsdetails",
       "TEXT_1": "Aufgabenmanager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.",
-      "TEXT_2": "Im Projekt 'Join' habe ich eine Plattform entwickelt, die die Zusammenarbeit und Kommunikation zwischen Nutzern verbessert. Ich nutzte Technologien wie JavaScript, React und Node.js, um eine benutzerfreundliche Oberfläche und eine leistungsfähige Backend-Architektur zu schaffen. Besonders hervorzuheben ist die Implementierung von Echtzeit-Kommunikationsfunktionen, die es Nutzern ermöglichen, sofortige Rückmeldungen zu erhalten. Durch enge Zusammenarbeit im agilen Team konnten wir die Plattform flexibel anpassen und kontinuierlich verbessern.",
+      "TEXT_2": "Im Projekt Join entwickelte ich eine Plattform zur Verbesserung der Nutzerkommunikation und Zusammenarbeit. Mit JavaScript, React und Node.js entstand eine benutzerfreundliche Oberfläche und ein leistungsstarkes Backend. Besonders wichtig war die Umsetzung von Echtzeit-Kommunikation. Durch agile Teamarbeit konnten wir die Plattform flexibel weiterentwickeln.",
       "DUR": "Dauer:",
       "WEEK": "5 Wochen",
       "BACK": "Gehe zurück",
@@ -79,7 +79,7 @@
       "DESC": "Beschreibung",
       "I_D": "Implementierungsdetails",
       "TEXT_1": "Jump-, Run- und Wurfspiel basierend auf einem objektorientierten Ansatz. Hilf dem Skelett-Krieger, Münzen und Flaschen zu finden, um gegen die Feinde zu kämpfen.",
-      "TEXT_2": "Im Projekt 'Spooky Town' habe ich ein spannendes Jump-and-Run-Spiel entwickelt, das auf objektorientierter Programmierung basiert. Die Spieler schlüpfen in die Rolle von Skeletor Krieger, um Münzen und Flaschen zu sammeln, während sie gegen verrückte Wraiths kämpfen. Ich habe JavaScript verwendet, um die Spielmechanik zu implementieren und ein objektorientiertes Design zu verfolgen, um die Charaktere und deren Interaktionen zu gestalten. Das Spiel bietet interaktive Elemente, herausfordernde Bosskämpfe und lebendige Soundeffekte, die das Gesamterlebnis verbessern.",
+      "TEXT_2": "Im Projekt Spooky Town habe ich ein spannendes Jump-and-Run-Spiel mit objektorientierter Programmierung entwickelt. Die Spieler steuern einen Skeletor-Krieger, sammeln Münzen und Flaschen und kämpfen gegen verrückte Wraiths. Die Spielmechanik habe ich mit JavaScript umgesetzt und die Charaktere sowie ihre Interaktionen objektorientiert gestaltet. Interaktive Elemente, Bosskämpfe und Soundeffekte runden das Spielerlebnis ab.",
       "DUR": "Dauer:",
       "WEEK": "3 Wochen",
       "BACK": "Gehe zurück",

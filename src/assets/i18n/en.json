@@ -38,9 +38,9 @@
   "REFERENCES": {
     "IN_THEIR_WORDS": "IN THEIR WORDS:",
     "COLLEAGUES_THOUGHTS": "Colleagues' Thoughts",
-    "TEXT_1": "Dora really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
-    "TEXT_2": "It was a great pleasure to work with Karl. He knows how to push and encourage team members to present the best work possible, always adding something to brainstorm. Regarding the well-being of group members, he was always present and available to listen and help others, with a great sense of humor as well.",
-    "TEXT_3": "Dora was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.",
+    "TEXT_1": "Working with Dora was always positive and constructive. She communicates clearly, works reliably and with high quality, and is open to feedback. With her proactive, team-oriented, and solution-focused attitude, she makes a valuable contribution to the project's success.",
+    "TEXT_2": "Dora quickly adapts to new situations and takes initiative without needing constant direction. They handle challenges calmly and deliver results even under pressure. It's a great support having someone so self-sufficient and dependable on the team.",
+    "TEXT_3": "Dora is a true team player. They listen actively, support others without hesitation, and create a collaborative atmosphere where everyone feels heard. Her positive attitude and cooperative mindset make working together smooth and enjoyable.",
     "LI_PROFILE": "Profile"
   },
   "CONTACT": {
@@ -69,7 +69,7 @@
       "DESC": "Description",
       "I_D": "Implementation Details",
       "TEXT_1": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
-      "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "TEXT_2": "In the Join project, I developed a platform to enhance user communication and collaboration. Using JavaScript, React, and Node.js, I built a user-friendly frontend and a robust backend. A key feature was real-time communication. Working in an agile team allowed us to adapt and improve the platform continuously.",
       "DUR": "Duration:",
       "WEEK": "3 weeks",
       "BACK": "Go Back",
@@ -79,7 +79,7 @@
       "DESC": "Description",
       "I_D": "Implementation Details",
       "TEXT_1": "Jump, tun and throw game based on object-orientated approach. Help Skeleton Warrior to find coins and bottles to fight against the enemies.",
-      "TEXT_2": "In the 'Spooky Town' project, I developed an engaging jump-and-run game based on object-oriented programming. Players take on the role of Skeleton Warrior, navigating through various levels to collect coins and bottles while battling crazy Wraiths. I used JavaScript to implement the gamemechanics, focusing on an object-oriented design to create characters andtheir interactions. The game features interactive gameplay elements,challenging boss fights, and lively sound effects that enhance the overallexperience.",
+      "TEXT_2": "In the project Spooky Town, I developed an exciting jump-and-run game using object-oriented programming. Players control a Skeletor warrior, collecting coins and bottles while battling wild Wraiths. I implemented the game mechanics in JavaScript, using an object-oriented approach to structure characters and their interactions. The game features interactive elements, challenging boss fights, and immersive sound effects.",
       "DUR": "Duration:",
       "WEEK": "3 weeks",
       "BACK": "Go Back",

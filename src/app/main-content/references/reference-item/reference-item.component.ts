@@ -26,13 +26,13 @@ export class ReferenceItemComponent {
     imageUrl: string;
   }[] = [
     {
-      name: 'Tobias Lange',
+      name: 'Noah Velickovic',
       profession: 'Frontend Developer',
       refText: 'REFERENCES.TEXT_1',
       imageUrl: 'assets/img/reference-sticker-1.png',
     },
     {
-      name: 'Maria Schäfer',
+      name: 'Abbas Al Mahmoud',
       profession: 'Frontend Developer',
       refText: 'REFERENCES.TEXT_2',
       imageUrl: 'assets/img/reference-sticker-2.png',
