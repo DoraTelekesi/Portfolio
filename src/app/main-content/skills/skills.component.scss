@@ -31,9 +31,9 @@
   color: #f8f9fa;
   gap: 20px;
   align-items: flex-end;
-  > p {
+  > h3 {
     margin: 0;
-    font-size: 25px;
+    font-size: 19px;
   }
 }
 
@@ -54,7 +54,7 @@
 
 .title-wrap {
   position: relative;
-  > h1 {
+  > h2 {
     font-size: 75px;
     margin: 0;
   }

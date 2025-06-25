@@ -27,8 +27,8 @@
   .ref-content {
     width: 350px;
     height: 370px;
-    >div{
-      font-size:15px;
+    > div {
+      font-size: 15px;
     }
   }
 }
@@ -99,6 +99,11 @@
     height: 350px;
     > div {
       font-size: 15px;
+    }
+  }
+  .person-datas {
+    > span {
+      line-height: 1;
     }
   }
 }

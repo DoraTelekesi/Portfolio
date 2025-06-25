@@ -24,7 +24,7 @@
 }
 @media (max-width: 1000px) {
   .col-1 {
-    > h1 {
+    > h2 {
       font-size: 50px;
     }
   }
@@ -146,6 +146,11 @@
   .col-1,
   .col-2 {
     width: 350px;
+  }
+  .col-1 {
+    > h2 {
+      font-size: 45px;
+    }
   }
   .label {
     font-size: 20px;

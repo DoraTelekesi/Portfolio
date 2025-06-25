@@ -19,7 +19,7 @@ app-reference-item {
     margin-bottom: 50px;
     margin-right: 20px;
     @include dFlex($fd: column, $ai: flex-end);
-    > h1 {
+    > h2 {
       font-size: 74px;
       margin: 0;
     }
@@ -33,8 +33,8 @@ app-reference-item {
       width: 100px;
     }
   }
-  > h4 {
-    font-size: 20px;
+  > h3 {
+    font-size: 19px;
   }
 }
 
@@ -49,12 +49,8 @@ app-reference-item {
 
 app-reference-item {
   width: 900px;
-  // width: 100%;
   position: absolute;
-  // top: 0;
-  // right: 30%;
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   align-items: center;
 }

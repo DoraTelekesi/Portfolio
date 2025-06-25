@@ -1,4 +1,4 @@
-<div class="header" [ngClass]="respMenuOpened ? 'visible' : 'hidden'">
+<div class="header" [ngClass]="respMenuOpened ? 'visibleMenu' : 'hiddenMenu'">
   <img class="logo" src="assets/icon/logo.svg" alt="logo" />
   <a [routerLink]="['/']" fragment="about-me">
     <div
@@ -143,14 +143,14 @@
 <div class="header-resp">
   <img src="assets/icon/logo.svg" alt="logo" />
   <img
-    [ngClass]="respMenuOpened ? 'hidden' : 'visible'"
+    [ngClass]="respMenuOpened ? 'hiddenImg' : 'visibleImg'"
     (click)="openRespMenu()"
     class="resp-menu-img"
     src="assets/img/Resp-menu.png"
     alt="responsive menu button"
   />
   <img
-    [ngClass]="respMenuOpened ? 'visible' : 'hidden'"
+    [ngClass]="respMenuOpened ? 'visibleImg' : 'hiddenImg'"
     (click)="closeRespMenu()"
     class="resp-exit-img"
     src="assets/img/resp-menu-exit.png"

@@ -34,6 +34,10 @@
       cursor: pointer;
     }
   }
+  .black {
+    color: #f8f9fa !important;
+    text-shadow: none;
+  }
 
   .resp-exit-img {
     width: 24px;
@@ -83,11 +87,21 @@
     z-index: 2;
   }
 
-  .visible {
+  .visibleMenu {
     display: flex;
+    transform: translate(0%, 0%);
+    transition: transform 0.75s ease;
   }
 
-  .hidden {
+  .hiddenMenu {
+    transform: translate(0%, -100%);
+    transition: transform 0.75s ease;
+  }
+
+  .visibleImg {
+    display: flex;
+  }
+  .hiddenImg {
     display: none;
   }
 }

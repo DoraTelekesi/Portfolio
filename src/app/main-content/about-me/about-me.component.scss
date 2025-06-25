@@ -103,7 +103,7 @@
 
 .a-m-title-wrap {
   position: relative;
-  > h1 {
+  > h2 {
     font-size: 75px;
     margin: 10px;
   }
@@ -117,6 +117,9 @@
 .a-m-text {
   display: flex;
   flex-direction: column;
+  >h3{
+    font-size:19px;
+  }
 }
 
 .btn-wrap {

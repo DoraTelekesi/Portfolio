@@ -1,10 +1,10 @@
 <div class="projects-content-grid">
   <div class="grid-item title-section section">
     <div class="title">
-      <h4>{{ "PROJECTS_OVERVIEW.MY_CRAFT" | translate }}</h4>
+      <h3>{{ "PROJECTS_OVERVIEW.MY_CRAFT" | translate }}</h3>
 
       <div class="main-title">
-        <h1>{{ "PROJECTS_OVERVIEW.PROJECTS" | translate }}</h1>
+        <h2>{{ "PROJECTS_OVERVIEW.PROJECTS" | translate }}</h2>
         <img
           class="title-underline"
           src="assets/drawn-lines/portfolio-title.png"
@@ -17,21 +17,20 @@
     </p>
   </div>
 
-    @if(projectlist.length > 1){
-    <app-project-item
-      class="grid-item"
-      [project]="projectlist[1]"
-    ></app-project-item>
-    } @if(projectlist.length > 0){
-    <app-project-item
-      class="grid-item"
-      [project]="projectlist[0]"
-    ></app-project-item>
-    } @if(projectlist.length > 2){
-    <app-project-item
-      class="grid-item"
-      [project]="projectlist[2]"
-    ></app-project-item>
-    }
-
+  @if(projectlist.length > 1){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[1]"
+  ></app-project-item>
+  } @if(projectlist.length > 0){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[0]"
+  ></app-project-item>
+  } @if(projectlist.length > 2){
+  <app-project-item
+    class="grid-item"
+    [project]="projectlist[2]"
+  ></app-project-item>
+  }
 </div>

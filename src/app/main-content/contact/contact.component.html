@@ -2,7 +2,7 @@
   <div class="content">
     <div class="col-1">
       <h3>{{ "CONTACT.CONTACT" | translate }}</h3>
-      <h1>{{ "CONTACT.READY" | translate }}</h1>
+      <h2>{{ "CONTACT.READY" | translate }}</h2>
       <p>
         {{ "CONTACT.TEXT_1" | translate }}
       </p>
@@ -222,6 +222,7 @@
         class="h-btn-wrap legal"
         (mouseenter)="putHover()"
         (mouseleave)="deleteHover()"
+        (click)="goToLegalNotice()"
       >
         <p>{{ "CONTACT.LN" | translate }}</p>
         <img
@@ -233,7 +234,6 @@
       </div>
 
       <div
-        
         class="btn-section"
         (mouseenter)="putHoverGitHub()"
         (mouseleave)="removeHoverGitHub()"

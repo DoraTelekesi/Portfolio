@@ -22,7 +22,7 @@
   justify-content: center;
   width: 560px;
   gap: 20px;
-  > h1 {
+  > h2 {
     font-size: 70px;
     margin: 0;
   }
@@ -43,6 +43,10 @@
 .legal {
   display: flex;
   align-items: end;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn {
@@ -367,7 +371,7 @@ textarea {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .btn-pages {

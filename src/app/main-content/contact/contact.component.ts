@@ -7,6 +7,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
@@ -36,7 +37,11 @@ export class ContactComponent implements OnInit {
     this.resetRotateAnimation();
   }
 
-  constructor(private translate: TranslateService) {}
+  constructor(
+    private translate: TranslateService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngAfterViewInit(): void {
     gsap.set('.arrow', {
@@ -302,5 +307,9 @@ export class ContactComponent implements OnInit {
   }
   onNameFocus() {
     this.nameFocused = true;
+  }
+
+  goToLegalNotice() {
+    this.router.navigate(['legal-notice']);
   }
 }
