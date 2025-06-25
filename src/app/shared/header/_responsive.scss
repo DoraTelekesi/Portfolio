@@ -7,7 +7,7 @@
 @media (max-width: 900px) {
   .header {
     flex-direction: column;
-    background-image: url("/assets/img/hero-bg.png");
+    background-image: url("/angular-projects/Portfolio/assets/img/hero-bg-1.png");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -100,8 +100,8 @@
 
   .visibleImg {
     display: flex;
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
   }
   .hiddenImg {
     display: none;

@@ -6,7 +6,7 @@
 
 .wrapper {
   height: 100vh;
-  background-image: url("/assets/img/hero-bg.png");
+  background-image: url("/angular-projects/Portfolio/assets/img/hero-bg-1.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -23,9 +23,9 @@
 .hero-main {
   color: #f8f9fa;
   max-width: 1990px;
-  width:900px;
+  width: 900px;
   position: relative;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -37,16 +37,21 @@
   right: 70px;
   top: -120px;
   transform: rotate(10deg);
+  > img {
+    filter: grayscale(100%);
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
   > p {
     font-family: "Kalam", sans-serif;
     font-size: 20px;
     font-weight: 650;
     color: black;
     position: absolute;
-    top: 180px;
+    top: 185px;
     right: 80px;
     z-index: 3;
-    // transform: rotate(7deg);
   }
 }
 
@@ -164,10 +169,7 @@
   display: flex;
   justify-content: flex-end;
 }
-// .btn-cont {
-//   display:flex;
 
-// }
 
 .media-icons {
   position: absolute;

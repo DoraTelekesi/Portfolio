@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  // max-width: 1990px;
   color: #f8f9fa;
   margin-top: 20px;
   width: 100%;
@@ -28,7 +27,7 @@ app-header {
     width: 100px;
     height: auto;
     z-index: 0;
-    clip-path: inset(100% 0% 0% 0%); // initially hidden
+    clip-path: inset(100% 0% 0% 0%); 
   }
   &:hover {
     cursor: pointer;
@@ -40,7 +39,7 @@ app-header {
 
   > p.h-btn {
     position: relative;
-    z-index: 999; // always on top
+    z-index: 999; 
   }
 
   .aboutDrawnLine {
@@ -55,8 +54,7 @@ app-header {
       100% 0%,
       100% 0%,
       0% 0%
-    ); // completely hidden from top
-    // transition: clip-path 0.1s ease-in; // fallback if GSAP fails
+    ); 
   }
 }
 

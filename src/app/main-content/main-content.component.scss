@@ -1,7 +1,3 @@
-// app-references {
-//   margin-bottom: 500px;
-// }
-
 app-hero {
   z-index: 999;
 }
@@ -11,11 +7,10 @@ app-references {
   justify-content: center;
 }
 app-contact {
-  width:100%;
-  // height:100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
-  background-image: url("/assets/img/contact-bg.png");
+  background-image: url("/angular-projects/Portfolio/assets/img/contact-bg-1.png");
   background-size: cover;
 }
 

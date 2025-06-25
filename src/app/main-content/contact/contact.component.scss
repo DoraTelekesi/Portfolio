@@ -114,14 +114,14 @@ footer {
   }
 }
 
-/* Native checkbox hidden */
+
 .custom-checkbox input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-/* Label styling */
+
 .custom-checkbox {
   position: relative;
   padding-left: 50px;
@@ -136,10 +136,9 @@ footer {
 
 .checkbox-section {
   display: flex;
-  // align-items: center;
 }
 
-/* Checkbox box (unchecked background) */
+
 .custom-checkbox::before {
   content: "";
   position: absolute;
@@ -147,12 +146,12 @@ footer {
   top: 20px;
   width: 20px;
   height: 20px;
-  background-image: url("/assets/img/checkbox.png");
+  background-image: url("/angular-projects/Portfolio/assets/img/checkbox-1.png");
   background-size: cover;
   transition: all 0.2s ease;
 }
 
-/* Tick mark - starts hidden */
+
 .custom-checkbox::after {
   content: "";
   position: absolute;
@@ -160,7 +159,7 @@ footer {
   top: 20px;
   width: 20px;
   height: 20px;
-  background-image: url("/assets/img/check.png");
+  background-image: url("/angular-projects/Portfolio/assets/img/check-1.png");
   background-size: cover;
   opacity: 0;
   transition: opacity 0.2s ease;
@@ -201,7 +200,7 @@ footer {
   overflow: hidden;
   z-index: 0;
   color: #f8f9fa;
-  width: 134px; // Initial width
+  width: 134px; 
   height: 40px;
   transition: width 0.6s ease-out;
   &:hover {
@@ -364,7 +363,7 @@ input {
 }
 
 .placeholder-default {
-  color: #aaa; /* gray */
+  color: #aaa; 
 }
 
 .placeholder-error {
