@@ -24,8 +24,8 @@
     position: absolute;
     justify-content: space-between;
     width: 100%;
-    margin: 20px;
     padding: 20px;
+    align-items: center;
   }
 
   .resp-menu-img {
@@ -100,6 +100,8 @@
 
   .visibleImg {
     display: flex;
+    width: 45px;
+    height: 45px;
   }
   .hiddenImg {
     display: none;

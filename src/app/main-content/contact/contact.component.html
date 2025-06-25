@@ -194,11 +194,22 @@
             [class.blue]="hoveredSectionDescription"
           ></div>
         </div>
-        <label class="custom-checkbox">
-          <input type="checkbox" name="privacy" [(ngModel)]="privacyChecked" />
-          <p [innerHTML]="'CONTACT.PP' | translate"></p>
-        </label>
-
+        <div class="checkbox-section">
+          <label class="custom-checkbox">
+            <input
+              type="checkbox"
+              name="privacy"
+              [(ngModel)]="privacyChecked"
+            />
+          </label>
+          <p>
+            {{ "CONTACT.PP-TEXT-1" | translate }}
+            <span (click)="goToPrivacyPolicy()" class="highlight">{{
+              "CONTACT.PP-TITLE" | translate
+            }}</span>
+            {{ "CONTACT.PP-TEXT-2" | translate }}
+          </p>
+        </div>
         <div class="btn-wrap">
           <button
             class="btn"
@@ -214,7 +225,7 @@
   </div>
   <footer>
     <div class="footer-1">
-      <img src="assets/icon/logo.svg" alt="" />
+      <img src="assets/icon/logo.png" alt="" />
       <p>© Dora Telekesi 2025</p>
     </div>
     <div class="links">

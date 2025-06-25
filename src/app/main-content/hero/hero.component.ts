@@ -23,24 +23,22 @@ export class HeroComponent implements AfterViewInit {
     private translate: TranslateService
   ) {}
 
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Initializes GSAP animations for the waving hand and background fills, and sets up navigation to fragments.
+   */
   ngAfterViewInit() {
-    // Initialize clip-paths to hidden using GSAP
     gsap.set('.wav-hand', { x: 50, duration: 0.8, rotation: 0, opacity: 0 });
-    gsap.set(this.bgFillGithub.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-    gsap.set(this.bgFillLinkedin.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-    gsap.set(this.bgFillEmail.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
+    this.setBackgroundFillGh();
+    this.setBackgroundFillLi();
+    this.setBackgroundFillEm();
+    this.navigate();
+  }
+
+  /**
+   * Subscribes to route fragment changes and scrolls smoothly to the corresponding element if present.
+   */
+  navigate() {
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {
         const element = document.getElementById(fragment);
@@ -53,6 +51,42 @@ export class HeroComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Sets the initial background fill for the GitHub element to 0% height.
+   */
+  setBackgroundFillGh() {
+    gsap.set(this.bgFillGithub.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+  }
+
+  /**
+   * Sets the initial background fill for the LinkedIn element to 0% height.
+   */
+  setBackgroundFillLi() {
+    gsap.set(this.bgFillLinkedin.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+  }
+
+  /**
+   * Sets the initial background fill for the Email element to 0% height.
+   */
+  setBackgroundFillEm() {
+    gsap.set(this.bgFillEmail.nativeElement, {
+      height: '0%',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+  }
+
+  /**
+   * Handles hover event: animates the waving hand and toggles welcome text opacity.
+   */
   putHover() {
     this.hovered = true;
     gsap.fromTo(
@@ -64,6 +98,9 @@ export class HeroComponent implements AfterViewInit {
     gsap.to('.name-welc', { opacity: 1, duration: 0.4 });
   }
 
+  /**
+   * Handles mouse leave event: reverses the waving hand animation and toggles welcome text opacity.
+   */
   deleteHover() {
     this.hovered = false;
     gsap.fromTo(
@@ -75,13 +112,16 @@ export class HeroComponent implements AfterViewInit {
     gsap.to('.world-welc', { opacity: 1, duration: 0.4 });
   }
 
+  /**
+   * Fills the background of the specified element type using GSAP animation.
+   * @param type The type of background fill ('bgFillGithub', 'bgFillLinkedin', or 'bgFillEmail').
+   */
   fillBackground(type: string) {
     const lineMap: { [key: string]: ElementRef } = {
       bgFillGithub: this.bgFillGithub,
       bgFillLinkedin: this.bgFillLinkedin,
       bgFillEmail: this.bgFillEmail,
     };
-
     const element = lineMap[type];
     if (!element) return;
     gsap.to(element.nativeElement, {
@@ -91,13 +131,17 @@ export class HeroComponent implements AfterViewInit {
       ease: 'power2.out',
     });
   }
+
+  /**
+   * Unfills the background of the specified element type using GSAP animation.
+   * @param type The type of background fill ('bgFillGithub', 'bgFillLinkedin', or 'bgFillEmail').
+   */
   unfillBackground(type: string) {
     const lineMap: { [key: string]: ElementRef } = {
       bgFillGithub: this.bgFillGithub,
       bgFillLinkedin: this.bgFillLinkedin,
       bgFillEmail: this.bgFillEmail,
     };
-
     const element = lineMap[type];
     if (!element) return;
     gsap.to(element.nativeElement, {

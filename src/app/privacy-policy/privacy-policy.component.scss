@@ -1,0 +1,35 @@
+.content-wrap {
+  background-image: url("/assets/img/hero-bg.png");
+  background-size: 100% 120%;
+  background-position: center;
+  > .content {
+    display: flex;
+    justify-content: center;
+    > .privacy-policy {
+      color: #f8f9fa;
+      max-width: 1440px;
+      width: 80%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+    }
+  }
+}
+
+.go-back {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+  color: #f8f9fa;
+  &:hover {
+    color: orange;
+    cursor: pointer;
+  }
+  > img {
+    width: 20px;
+    height: 20px;
+  }
+}

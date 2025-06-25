@@ -40,6 +40,11 @@ export class ProjectDetailComponent implements OnInit {
     private translate: TranslateService
   ) {}
 
+  /**
+   * Sets the translated description for the current project using ngx-translate.
+   * If no description is present, sets an empty string.
+   * @private
+   */
   private setTranslatedDescription() {
     if (this.project?.description) {
       this.translate
@@ -50,6 +55,10 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * Angular lifecycle hook called on component initialization.
+   * Fetches the project by ID from the route and resets the underline animation.
+   */
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
@@ -60,18 +69,32 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Angular lifecycle hook called when any data-bound property of a directive changes.
+   * Updates the translated description if the project input changes.
+   * @param changes The changed properties.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
       this.setTranslatedDescription();
     }
   }
 
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Resets the underline animation and sets the translated description.
+   */
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.resetUnderlineAnimation();
     });
     this.setTranslatedDescription();
   }
+
+  /**
+   * Resets the underline animation for the project title.
+   * Sets the width and height for the underline and starts the animation.
+   */
   resetUnderlineAnimation() {
     if (this.titleElement && this.titleElement.nativeElement) {
       this.width = this.titleElement.nativeElement.offsetWidth;
@@ -87,6 +110,10 @@ export class ProjectDetailComponent implements OnInit {
       this.animateUnderline();
     }
   }
+
+  /**
+   * Animates the underline element using GSAP with a repeating yoyo effect.
+   */
   animateUnderline() {
     gsap.killTweensOf(this.underlineRef.nativeElement);
 
@@ -99,19 +126,23 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Navigates back to the root route and scrolls to the 'projects' fragment.
+   */
   goBack() {
     this.router.navigate([''], { fragment: 'projects' });
   }
 
+  /**
+   * Navigates to the next project in the projects list.
+   * If at the end, wraps to the first project.
+   */
   nextProject() {
     let currentPath = this.location.path();
-    console.log(currentPath);
     let currentId = currentPath.split('/').pop();
     if (this.projects) {
       let currentIndex = this.projects?.findIndex((p) => p.id === currentId);
-      console.log(currentIndex);
       let nextIndex = (currentIndex + 1) % this.projects?.length;
-      console.log(nextIndex);
       let nextProjectId = this.projects[nextIndex].id;
       this.router.navigate(['/Projects', nextProjectId]);
     }

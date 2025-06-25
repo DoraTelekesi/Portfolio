@@ -43,6 +43,10 @@ export class ProjectsOverviewComponent {
   constructor(private translate: TranslateService) {}
   isUnderlined = false;
 
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Sets the initial state of the title underline and starts the underline animation.
+   */
   ngAfterViewInit(): void {
     gsap.set('.title-underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
@@ -50,6 +54,9 @@ export class ProjectsOverviewComponent {
     this.animateUnderline();
   }
 
+  /**
+   * Animates the title underline using GSAP with a repeating yoyo effect.
+   */
   animateUnderline() {
     gsap.to('.title-underline', {
       clipPath: 'inset(0% 0% 0% 0%)',

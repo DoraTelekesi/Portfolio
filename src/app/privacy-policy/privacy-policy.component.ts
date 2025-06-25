@@ -4,19 +4,18 @@ import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../shared/header/translate.module';
 
 @Component({
-  selector: 'app-impressum',
+  selector: 'app-privacy-policy',
   standalone: true,
-  imports: [...sharedTranslateImports],
-  templateUrl: './impressum.component.html',
-  styleUrl: './impressum.component.scss',
+  imports: [],
+  templateUrl: './privacy-policy.component.html',
+  styleUrl: './privacy-policy.component.scss',
 })
-export class ImpressumComponent {
+export class PrivacyPolicyComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private translate: TranslateService
   ) {}
-
   /**
    * Navigates back to the root route and scrolls to the 'contact' fragment.
    */

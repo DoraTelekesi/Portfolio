@@ -125,6 +125,12 @@ app-header {
   }
 }
 
+.logo,
+.name-logo-resp {
+  width: 80px;
+  height: 80px;
+}
+
 .de {
   &:hover {
     cursor: pointer;
@@ -140,6 +146,5 @@ app-header {
 .white {
   color: #f8f9fa;
 }
-
 
 @import "./responsive";

@@ -7,7 +7,7 @@ import {
   ViewChild,
   ElementRef,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
@@ -36,16 +36,24 @@ export class ProjectItemComponent implements AfterViewInit {
   hoveredImg: boolean = false;
   public floatIntervalId: any;
   public floatTween: gsap.core.Tween | null = null;
-
   @ViewChild('imageElement', { static: true })
   imageElement!: ElementRef<HTMLImageElement>;
 
+  /**
+   * Angular lifecycle hook called when any data-bound property of a directive changes.
+   * Updates the translated description if the project input changes.
+   * @param changes The changed properties.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
       this.setTranslatedDescription();
     }
   }
 
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Sets the initial state of the title underline, starts the floating animation, and sets the translated description.
+   */
   ngAfterViewInit(): void {
     gsap.set('.title-underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
@@ -54,33 +62,38 @@ export class ProjectItemComponent implements AfterViewInit {
     this.setTranslatedDescription();
     this.floatingAnimation();
   }
+
   constructor(private translate: TranslateService) {}
+
+  /**
+   * Sets the translated description for the project using ngx-translate.
+   * @private
+   */
   private setTranslatedDescription() {
     this.translate
       .get(this.project.description)
       .subscribe((res) => (this.translatedDescription = res));
   }
 
+  /**
+   * Handles mouse enter event on the project image.
+   * Animates the image scale up.
+   */
   onImageEnter() {
     this.hoveredImg = true;
     const el = this.imageElement.nativeElement;
-    gsap.killTweensOf(el); // Kill any existing scale tweens on this element
-    let scaleValue = 1.1; // Apply custom scale based on ID
-    let duration = 0.2;
-    if (this.project.imgId === 'spooky-img') {
-      scaleValue = 1.15;
-      duration = 0.25;
-    } else if (this.project.imgId === 'dabubble-img') {
-      scaleValue = 1.2;
-      duration = 0.3;
-    } else if (this.project.imgId === 'join-img') {
-      this.stopFloatingAnimation();
-      scaleValue = 1.1;
-      duration = 0.2;
-    }
+    gsap.killTweensOf(el);
+    let scaleValue = 1.1;
+    let duration = 0.25;
     this.animateHover(el, scaleValue, duration);
   }
 
+  /**
+   * Animates the hover effect on the image.
+   * @param el The image element to animate.
+   * @param sV The scale value to animate to.
+   * @param d The duration of the animation.
+   */
   animateHover(el: HTMLImageElement, sV: number, d: number) {
     gsap.to(el, {
       scale: sV,
@@ -89,6 +102,10 @@ export class ProjectItemComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Handles mouse leave event on the project image.
+   * Animates the image scale down and restarts floating animation for join image.
+   */
   onImageLeave() {
     this.hoveredImg = false;
     const el = this.imageElement.nativeElement;
@@ -103,14 +120,24 @@ export class ProjectItemComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Returns the native image element.
+   * @returns The native HTMLImageElement.
+   */
   getImageElement(): HTMLImageElement {
     return this.imageElement.nativeElement;
   }
 
+  /**
+   * Starts the floating animation for the join image.
+   */
   floatingAnimation() {
     this.floatUp();
   }
 
+  /**
+   * Stops the floating animation and resets the join image position.
+   */
   stopFloatingAnimation() {
     clearInterval(this.floatIntervalId);
     if (this.floatTween) {
@@ -124,6 +151,9 @@ export class ProjectItemComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Animates the join image floating up and down infinitely.
+   */
   floatUp() {
     this.floatTween = gsap.to('.join-img', {
       y: 40,
@@ -134,6 +164,10 @@ export class ProjectItemComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Stops event propagation for the given event.
+   * @param event The event to stop propagation for.
+   */
   onEvent(event: any) {
     event.stopPropagation();
   }

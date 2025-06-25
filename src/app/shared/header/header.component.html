@@ -1,5 +1,5 @@
 <div class="header" [ngClass]="respMenuOpened ? 'visibleMenu' : 'hiddenMenu'">
-  <img class="logo" src="assets/icon/logo.svg" alt="logo" />
+  <img class="logo" src="assets/icon/logo.png" alt="logo" />
   <a [routerLink]="['/']" fragment="about-me">
     <div
       class="h-btn-wrap about-me"
@@ -141,7 +141,7 @@
 </div>
 
 <div class="header-resp">
-  <img src="assets/icon/logo.svg" alt="logo" />
+  <img class="name-logo-resp" src="assets/icon/logo.png" alt="logo" />
   <img
     [ngClass]="respMenuOpened ? 'hiddenImg' : 'visibleImg'"
     (click)="openRespMenu()"

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { gsap } from 'gsap';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../../shared/header/translate.module';
@@ -14,6 +14,11 @@ import { sharedTranslateImports } from '../../shared/header/translate.module';
 })
 export class AboutMeComponent implements AfterViewInit {
   isUnderlined = false;
+
+  /**
+   * Lifecycle hook that is called after Angular has fully initialized a component's view.
+   * Initializes the underline animation and scrolls to a fragment if present in the route.
+   */
   ngAfterViewInit(): void {
     gsap.set('.underline', {
       clipPath: 'inset(0% 100% 0% 0%)',
@@ -30,10 +35,15 @@ export class AboutMeComponent implements AfterViewInit {
       }
     });
   }
+
   constructor(
     private route: ActivatedRoute,
     private translate: TranslateService
   ) {}
+
+  /**
+   * Animates the underline element using GSAP with a repeating yoyo effect.
+   */
   animateUnderline() {
     gsap.to('.underline', {
       clipPath: 'inset(0% 0% 0% 0%)',

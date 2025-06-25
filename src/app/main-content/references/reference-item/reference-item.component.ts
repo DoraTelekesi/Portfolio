@@ -46,21 +46,34 @@ export class ReferenceItemComponent {
   ];
   zIndex: number[] = [9, 3, 1];
   zIndexImg: number[] = [1, 1, 1];
-
   currentSticker = 0;
   hoveredIndex: number | null = null;
 
   constructor(private translate: TranslateService) {}
 
+  /**
+   * Returns the rotation angle for a sticker based on its index.
+   * @param index The index of the sticker.
+   * @returns The rotation angle in degrees.
+   */
   getRotation(index: number): number {
     let rotations = [-5, 0, 5];
     return rotations[index % rotations.length];
   }
 
+  /**
+   * Returns the z-index for a sticker based on its index.
+   * @param index The index of the sticker.
+   * @returns The z-index value.
+   */
   getZIndex(index: number): number {
     return this.zIndex[index % this.zIndex.length];
   }
 
+  /**
+   * Applies hover effects to a sticker, updating z-index and state.
+   * @param index The index of the sticker being hovered.
+   */
   applyHover(index: number) {
     this.zIndex[index] = 9;
     this.currentSticker = index;
@@ -68,6 +81,10 @@ export class ReferenceItemComponent {
     this.zIndexImg[index] = 999;
   }
 
+  /**
+   * Removes hover effects from a sticker, resetting z-index and state.
+   * @param index The index of the sticker.
+   */
   removeHover(index: number) {
     this.currentSticker = index;
     this.zIndex[index] = 1;
@@ -75,6 +92,11 @@ export class ReferenceItemComponent {
     this.zIndexImg[index] = 1;
   }
 
+  /**
+   * Returns the z-index for a sticker image based on its index.
+   * @param index The index of the sticker image.
+   * @returns The z-index value for the image.
+   */
   getZIndexImg(index: number) {
     return this.zIndexImg[index % this.zIndexImg.length];
   }

@@ -12,6 +12,10 @@ import { sharedTranslateImports } from '../../shared/header/translate.module';
   styleUrl: './references.component.scss',
 })
 export class ReferencesComponent {
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Sets the initial state of the drawn arrow and starts the arrow animation.
+   */
   ngAfterViewInit(): void {
     gsap.set('.drawn-arrow', {
       clipPath: 'inset(0% 0% 0% 100%)',
@@ -20,6 +24,9 @@ export class ReferencesComponent {
   }
   constructor(private translate: TranslateService) {}
 
+  /**
+   * Animates the drawn arrow using GSAP with a repeating yoyo effect.
+   */
   animateArrow() {
     gsap.to('.drawn-arrow', {
       clipPath: 'inset(0% 0% 0% 0%)',

@@ -26,7 +26,7 @@ export class SkillsComponent implements AfterViewInit {
   img!: HTMLImageElement;
   showImage1: boolean = true;
   revealed = false;
-  width!:number;
+  width!: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +44,10 @@ export class SkillsComponent implements AfterViewInit {
     'assets/img/sticker-3.png',
   ];
 
+  /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   * Sets the initial state of the skill title line, starts the rotation animation, and handles fragment navigation.
+   */
   ngAfterViewInit(): void {
     gsap.set('.skill-title-line', {
       rotation: 0,
@@ -62,64 +66,104 @@ export class SkillsComponent implements AfterViewInit {
       }
     });
   }
-resetRotateAnimation(){
-  if(this.title && this.title.nativeElement){
-    this.width = this.title.nativeElement.offsetWidth;
+
+  /**
+   * Resets the rotation animation by updating the width property based on the title element.
+   */
+  resetRotateAnimation() {
+    if (this.title && this.title.nativeElement) {
+      this.width = this.title.nativeElement.offsetWidth;
+    }
   }
-}
+
+  /**
+   * Starts an interval that alternates the skill title line between faded and revealed states every 2 seconds.
+   * Uses fadeDrawing and revealDrawing to animate the line.
+   */
   rotateDrawnLine() {
     setInterval(() => {
       if (this.lineRotated == false) {
-        gsap.to('.skill-title-line', {
-          rotation: -45,
-          scale: 0.5,
-          opacity: 0,
-          duration: 0.2,
-          transformOrigin: 'right bottom',
-        });
+        this.fadeDrawing();
         this.lineRotated = true;
       } else if (this.lineRotated == true) {
-        gsap.to('.skill-title-line', {
-          rotation: 0,
-          duration: 0.2,
-          scale: 1,
-          opacity: 1,
-          transformOrigin: 'right bottom',
-        });
+        this.revealDrawing();
         this.lineRotated = false;
       }
     }, 2000);
   }
 
+  /**
+   * Animates the skill title line to a faded, rotated, and scaled-down state.
+   */
+  fadeDrawing() {
+    gsap.to('.skill-title-line', {
+      rotation: -45,
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.2,
+      transformOrigin: 'right bottom',
+    });
+  }
+
+  /**
+   * Animates the skill title line back to its original, fully visible state.
+   */
+  revealDrawing() {
+    gsap.to('.skill-title-line', {
+      rotation: 0,
+      duration: 0.2,
+      scale: 1,
+      opacity: 1,
+      transformOrigin: 'right bottom',
+    });
+  }
+
+  /**
+   * Toggles the reveal state of sticker images.
+   * Reveals or hides additional stickers with animation.
+   */
   revealImages() {
     const images = this.stickerImages.toArray().map((el) => el.nativeElement);
-
     if (!this.revealed) {
-      // Reveal: show image 2, then 3
-      gsap.to(images[1], {
-        opacity: 1,
-        duration: 0.2,
-        onComplete: () => {
-          gsap.to(images[2], {
-            opacity: 1,
-            duration: 0.2,
-          });
-        },
-      });
+      this.showSticker(images);
       this.revealed = true;
     } else {
-      // Un-reveal: hide image 3, then image 2
-      gsap.to(images[2], {
-        opacity: 0,
-        duration: 0.2,
-        onComplete: () => {
-          gsap.to(images[1], {
-            opacity: 0,
-            duration: 0.2,
-          });
-        },
-      });
+      this.removeSticker(images);
       this.revealed = false;
     }
+  }
+
+  /**
+   * Animates hiding of the additional sticker images.
+   * @param images Array of HTMLImageElement to animate.
+   */
+  removeSticker(images: HTMLImageElement[]) {
+    gsap.to(images[2], {
+      opacity: 0,
+      duration: 0.2,
+      onComplete: () => {
+        gsap.to(images[1], {
+          opacity: 0,
+          duration: 0.2,
+        });
+      },
+    });
+  }
+
+  /**
+   * Animates revealing of the additional sticker images.
+   * @param images Array of HTMLImageElement to animate.
+   */
+  showSticker(images: HTMLImageElement[]) {
+    gsap.to(images[1], {
+      opacity: 1,
+      duration: 0.2,
+      onComplete: () => {
+        gsap.to(images[2], {
+          opacity: 1,
+          duration: 0.2,
+        });
+      },
+    });
   }
 }
