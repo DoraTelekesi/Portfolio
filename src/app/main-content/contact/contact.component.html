@@ -44,6 +44,7 @@
             required
             (focus)="onNameFocus()"
             (blur)="onNameBlur()"
+            (input)="onNameInputChange()"
           />
           <div
             class="placeholder-wrap"
@@ -214,8 +215,9 @@
           <button
             class="btn"
             type="submit"
-            [class.disabled]="!privacyChecked"
-            [disabled]="!privacyChecked"
+            [class.disabled]="!allInputValid()"
+            [disabled]="!allInputValid()"
+            
           >
             {{ "CONTACT.SEND" | translate }}
           </button>
@@ -254,7 +256,7 @@
           src="assets/icon/Github.svg"
           alt="github icon"
         />
-        <a href="https://github.com/DoraTelekesi">
+        <a href="https://github.com/DoraTelekesi" target="_blank">
           <div class="icon-box github">
             <p>GitHub</p>
           </div></a
@@ -270,7 +272,10 @@
           src="assets/icon/Linkedin.svg"
           alt="linkedin icon"
         />
-        <a href="https://www.linkedin.com/in/dora-telekesi-05470431b/">
+        <a
+          href="https://www.linkedin.com/in/dora-telekesi-05470431b/"
+          target="_blank"
+        >
           <div class="icon-box linkedin" #btnbox>
             <p>LinkedIn</p>
           </div></a

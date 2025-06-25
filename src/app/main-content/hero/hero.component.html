@@ -43,12 +43,13 @@
       </div>
     </div>
 
-    <a [routerLink]="['/']" fragment="contact" class="contact"
+    <a (click)="goToSection('contact')" class="contact"
       ><div class="btn-cont btn">{{ "HERO.CONTACT" | translate }}</div></a
     >
     <div class="media-icons">
       <a
         href="https://www.linkedin.com/in/dora-telekesi-05470431b/"
+        target="_blank"
         class="icon-box linkedin"
         (mouseenter)="fillBackground('bgFillLinkedin')"
         (mouseleave)="unfillBackground('bgFillLinkedin')"
@@ -59,6 +60,7 @@
 
       <a
         href="https://github.com/DoraTelekesi"
+        target="_blank"
         class="icon-box github"
         (mouseenter)="fillBackground('bgFillGithub')"
         (mouseleave)="unfillBackground('bgFillGithub')"

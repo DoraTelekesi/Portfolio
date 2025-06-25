@@ -55,6 +55,7 @@ export class ContactComponent implements OnInit {
   showInvalidEmailError = false;
   nameFocused = false;
   nameTouched = false;
+  nameValid = false;
 
   contactData = {
     name: '',
@@ -63,8 +64,6 @@ export class ContactComponent implements OnInit {
   };
 
   http = inject(HttpClient);
-
-  mailTest = true;
 
   post = {
     endPoint: 'https://deineDomain.de/sendMail.php',
@@ -256,6 +255,8 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  mailTest = false;
+
   /**
    * Handles form submission, validates the form, and sends data via HTTP POST.
    * @param ngForm The NgForm instance representing the contact form.
@@ -314,9 +315,16 @@ export class ContactComponent implements OnInit {
     if (!this.contactData.email) {
       this.invalidEmailBackup = '';
       this.showInvalidEmailError = false;
+    } else if (this.contactData.email && this.isEmailValid()) {
+      this.emailValid = true;
     }
   }
 
+  onNameInputChange() {
+    if (this.contactData.name && this.isNameValid()) {
+      this.nameValid = true;
+    }
+  }
   /**
    * Validates the email format.
    * @returns True if the email is valid, false otherwise.
@@ -346,6 +354,8 @@ export class ContactComponent implements OnInit {
     if (!this.contactData.message) {
       this.invalidEmailBackup = '';
       this.showInvalidEmailError = false;
+    } else if (this.contactData.message && this.isMessageValid()) {
+      this.messageValid = true;
     }
   }
 
@@ -367,6 +377,12 @@ export class ContactComponent implements OnInit {
     }
   }
 
+  isNameValid(): boolean {
+    if (!this.contactData.name) {
+      return false;
+    }
+    return this.contactData.name.length > 0;
+  }
   /**
    * Validates the message length.
    * @returns True if the message is longer than 15 characters, false otherwise.
@@ -384,6 +400,19 @@ export class ContactComponent implements OnInit {
   onNameBlur() {
     this.nameFocused = false;
     this.nameTouched = true;
+  }
+
+  allInputValid(): boolean {
+    if (
+      this.isMessageValid() &&
+      this.isNameValid() &&
+      this.isEmailValid() &&
+      this.privacyChecked
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**

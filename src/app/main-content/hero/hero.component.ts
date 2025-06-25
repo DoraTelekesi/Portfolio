@@ -4,11 +4,12 @@ import { Router, RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../../shared/header/translate.module';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [RouterLink, ...sharedTranslateImports],
+  imports: [ ...sharedTranslateImports],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
@@ -20,9 +21,13 @@ export class HeroComponent implements AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private scrollService: ScrollService
   ) {}
 
+  goToSection(section: string) {
+    this.scrollService.scrollToSection(section);
+  }
   /**
    * Angular lifecycle hook called after the component's view has been fully initialized.
    * Initializes GSAP animations for the waving hand and background fills, and sets up navigation to fragments.

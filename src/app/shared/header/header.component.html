@@ -1,6 +1,6 @@
 <div class="header" [ngClass]="respMenuOpened ? 'visibleMenu' : 'hiddenMenu'">
   <img class="logo" src="assets/icon/logo.png" alt="logo" />
-  <a [routerLink]="['/']" fragment="about-me">
+  <a (click)="goToSection('about-me')">
     <div
       class="h-btn-wrap about-me"
       (mouseenter)="putHoverAbout()"
@@ -19,7 +19,7 @@
         alt=""
       /></div
   ></a>
-  <a [routerLink]="['/']" fragment="skills">
+  <a (click)="goToSection('skills')">
     <div
       class="h-btn-wrap skills"
       (mouseenter)="putHover('skillsDrawnLine')"
@@ -38,7 +38,7 @@
         alt=""
       /></div
   ></a>
-  <a [routerLink]="['/']" fragment="projects">
+  <a (click)="goToSection('projects')">
     <div
       class="h-btn-wrap projects"
       (mouseenter)="putHover('projectDrawnLine')"
@@ -52,7 +52,7 @@
         alt=""
       /></div
   ></a>
-  <a [routerLink]="['/']" fragment="contact">
+  <a (click)="goToSection('contact')">
     <div
       class="h-btn-wrap contact"
       (mouseenter)="putHover('contactDrawnLine')"
@@ -109,6 +109,7 @@
   <div class="media-icons-resp">
     <a
       href="https://www.linkedin.com/in/dora-telekesi-05470431b/"
+      target="_blank"
       class="icon-box linkedin"
       (mouseenter)="fillBackground('bgFillLinkedin')"
       (mouseleave)="unfillBackground('bgFillLinkedin')"
@@ -119,6 +120,7 @@
 
     <a
       href="https://github.com/DoraTelekesi"
+      target="_blank"
       class="icon-box github"
       (mouseenter)="fillBackground('bgFillGithub')"
       (mouseleave)="unfillBackground('bgFillGithub')"

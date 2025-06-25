@@ -13,13 +13,14 @@ import { gsap } from 'gsap';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from './translate.module';
 import { Subscription, filter } from 'rxjs';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink, ...sharedTranslateImports],
+  imports: [CommonModule, ...sharedTranslateImports],
 })
 export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('aboutDrawnLine') aboutDrawnLine!: ElementRef<HTMLImageElement>;
@@ -84,7 +85,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private scrollService: ScrollService
   ) {
     const savedLang = localStorage.getItem('lang');
     const savedStatus = localStorage.getItem('status') as 'english' | 'german';
@@ -94,6 +96,10 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     this.getTranslationStatusFromLocalStorage(savedLang);
   }
 
+  goToSection(section: string) {
+    this.scrollService.scrollToSection(section);
+    this.respMenuOpened = false;
+  }
   /**
    * Retrieves and sets the translation status from local storage.
    * @param savedLang The saved language code from local storage.

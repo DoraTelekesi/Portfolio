@@ -4,11 +4,14 @@ import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../../shared/header/translate.module';
+import { ViewportScroller } from '@angular/common';
+import { Router } from '@angular/router';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [RouterLink, ...sharedTranslateImports],
+  imports: [...sharedTranslateImports],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })
@@ -38,9 +41,15 @@ export class AboutMeComponent implements AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
-    private translate: TranslateService
+    private router: Router,
+    private translate: TranslateService,
+    private viewportScroller: ViewportScroller,
+    private scrollService: ScrollService
   ) {}
 
+  goToSection(section: string) {
+    this.scrollService.scrollToSection(section);
+  }
   /**
    * Animates the underline element using GSAP with a repeating yoyo effect.
    */

@@ -39,8 +39,12 @@
       <div class="col-2">
         <img src="{{ project?.imageUrl }}" alt="" />
         <div class="links">
-          <a href="{{ project?.repoLink }}"><div class="btn">GitHub</div></a>
-          <a href="{{ project?.liveLink }}"><div class="btn">Live Test</div></a>
+          <a href="{{ project?.repoLink }}" target="_blank"
+            ><div class="btn">GitHub</div></a
+          >
+          <a href="{{ project?.liveLink }}" target="_blank"
+            ><div class="btn">Live Test</div></a
+          >
         </div>
         <div (click)="nextProject()" class="next-project">
           <p>{{ "PROJECTS.JOIN.NEXT" | translate }}</p>
