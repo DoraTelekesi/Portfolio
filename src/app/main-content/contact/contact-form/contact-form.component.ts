@@ -38,7 +38,7 @@ export class ContactFormComponent {
   invalidEmailBackup = '';
   showInvalidEmailError = false;
   showInvalidMessageError = false;
-  mailTest = true; // if still needed here
+  mailTest = false; // if still needed here
   http = inject(HttpClient);
   post = {
     endPoint: 'https://dora-telekesi.com/sendMail.php',
