@@ -1,0 +1,49 @@
+@media (max-width: 700px) {
+  .section,
+  .form {
+    width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .section,
+  .form {
+    width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .section,
+  .form {
+    width: 350px;
+  }
+  .label {
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .ph,
+  .name-msg {
+    font-size: 15px;
+  }
+  .email-ph {
+    position: absolute;
+    top: 5px;
+  }
+  .custom-checkbox {
+    > p {
+      font-size: 15px;
+    }
+    > input {
+      width: 240px;
+    }
+  }
+  .custom-input {
+    margin-top: 7px;
+  }
+  .label {
+    font-size: 19px;
+  }
+  .section,
+  .form {
+    width: 280px;
+  }
+}

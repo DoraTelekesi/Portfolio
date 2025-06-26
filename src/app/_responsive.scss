@@ -1,0 +1,24 @@
+@media (max-width: 800px) {
+  .scroll-to-top {
+    width: 83px;
+    height: 80px;
+    > img {
+      width: 20px;
+    }
+    > p {
+      font-size: 14px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .scroll-to-top {
+    width: 83px;
+    height: 80px;
+    > img {
+      width: 20px;
+    }
+    > p {
+      font-size: 14px;
+    }
+  }
+}

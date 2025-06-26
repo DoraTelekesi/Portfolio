@@ -35,7 +35,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('bgFillGithub') bgFillGithub!: ElementRef;
   @ViewChild('bgFillLinkedin') bgFillLinkedin!: ElementRef;
   @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
-
   language: string = 'en';
   status: 'english' | 'german' = 'english';
   currentLang: 'en' | 'de' = 'en';
@@ -96,6 +95,10 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     this.getTranslationStatusFromLocalStorage(savedLang);
   }
 
+  /**
+   * Scrolls to the specified section using the ScrollService and closes the responsive menu.
+   * @param section The section ID or name to scroll to.
+   */
   goToSection(section: string) {
     this.scrollService.scrollToSection(section);
     this.respMenuOpened = false;

@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
 import { HeaderComponent } from './shared/header/header.component';
-
-// import { SpookyTownComponent } from './projects/spooky-town/spooky-town.component';
-// import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +12,16 @@ import { HeaderComponent } from './shared/header/header.component';
 })
 export class AppComponent {
   title = 'Portfolio';
+  showScrollToTop = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const pageHeight = document.body.scrollHeight;
+    this.showScrollToTop = scrollPosition >= pageHeight - 100;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

@@ -1,0 +1,206 @@
+<form
+  class="form"
+  autocomplete="off"
+  (ngSubmit)="onSubmit(contactForm)"
+  #contactForm="ngForm"
+>
+  <div
+    class="name-section section"
+    (mouseenter)="sectionHovered('name')"
+    (mouseleave)="removeSectionHover('name')"
+  >
+    <div class="hover-line" [class.blue]="hoveredSectionName"></div>
+
+    <label class="label" for="name">{{ "CONTACT.NAME" | translate }}</label>
+    <input
+      [(ngModel)]="contactData.name"
+      name="name"
+      id="name"
+      class="custom-input"
+      type="text"
+      autocomplete="off"
+      required
+      (focus)="onNameFocus()"
+      (blur)="onNameBlur()"
+      (input)="onNameInputChange()"
+    />
+    <div
+      class="placeholder-wrap"
+      *ngIf="!contactData.name"
+      [ngClass]="{
+        'placeholder-default': !nameTouched || nameFocused || dataSent,
+        'placeholder-error': nameTouched && !nameFocused && !dataSent
+      }"
+    >
+      <span class="name-msg">
+        <ng-container
+          *ngIf="!nameTouched || nameFocused || dataSent; else errorText"
+        >
+          {{ "CONTACT.NAME_PH" | translate }}
+        </ng-container>
+        <ng-template #errorText>
+          {{ "CONTACT.NAME_ERROR" | translate }}
+        </ng-template>
+      </span>
+    </div>
+    <div
+      class="separator-line"
+      [class.blue]="hoveredSectionEmail || hoveredSectionName"
+    ></div>
+  </div>
+  <div
+    class="email-section section"
+    (mouseenter)="sectionHovered('email')"
+    (mouseleave)="removeSectionHover('email')"
+  >
+    <label class="label" for="email">{{ "CONTACT.EMAIL" | translate }}</label>
+    <input
+      [(ngModel)]="contactData.email"
+      name="email"
+      id="email"
+      class="custom-input"
+      type="email"
+      autocomplete="off"
+      required
+      email
+      (focus)="onEmailFocus()"
+      (blur)="onEmailBlur()"
+      (input)="onEmailInputChange()"
+    />
+    <div
+      class="ph email-ph"
+      class="placeholder-wrap"
+      *ngIf="!contactData.email"
+      [ngClass]="{
+        'placeholder-default': !emailTouched || emailFocused || dataSent,
+        'placeholder-error': emailTouched && !emailFocused && !dataSent
+      }"
+    >
+      <span
+        class="ph email-ph"
+        *ngIf="
+          emailTouched &&
+          !emailFocused &&
+          !contactData.email &&
+          !showInvalidEmailError &&
+          !dataSent
+        "
+      >
+        {{ "CONTACT.EMAIL_ERROR_1" | translate }}
+      </span>
+
+      <span
+        class="ph email-ph"
+        *ngIf="
+          emailTouched && !emailFocused && showInvalidEmailError && !dataSent
+        "
+      >
+        {{ "CONTACT.EMAIL_ERROR_2" | translate }}
+      </span>
+
+      <span
+        class="ph email-ph"
+        *ngIf="
+          ((!emailTouched || emailFocused) && !showInvalidEmailError) ||
+          dataSent
+        "
+      >
+        {{ "CONTACT.EMAIL_PH" | translate }}
+      </span>
+    </div>
+    <div
+      class="separator-line"
+      [class.blue]="hoveredSectionDescription || hoveredSectionEmail"
+    ></div>
+  </div>
+  <div
+    class="description-section section"
+    (mouseenter)="sectionHovered('description')"
+    (mouseleave)="removeSectionHover('description')"
+  >
+    <label class="label" for="description">{{
+      "CONTACT.MSG" | translate
+    }}</label>
+    <textarea
+      minlength="15"
+      #message="ngModel"
+      [(ngModel)]="contactData.message"
+      name="message"
+      id="description"
+      class="custom-input"
+      type="text"
+      autocomplete="off"
+      required
+      (focus)="onMessageFocus()"
+      (blur)="onMessageBlur()"
+      (input)="onMessageInputChange()"
+    >
+    </textarea>
+    <div
+      class="placeholder-wrap"
+      *ngIf="!contactData.message"
+      [ngClass]="{
+        'placeholder-default': !messageTouched || messageFocused || dataSent,
+        'placeholder-error': messageTouched && !messageFocused && !dataSent
+      }"
+    >
+      <span
+        class="ph"
+        *ngIf="
+          messageTouched &&
+          !messageFocused &&
+          !contactData.message &&
+          !showInvalidMessageError &&
+          !dataSent
+        "
+      >
+        {{ "CONTACT.MSG_ERROR_1" | translate }}
+      </span>
+
+      <span
+        class="ph"
+        *ngIf="
+          messageTouched &&
+          !messageFocused &&
+          showInvalidMessageError &&
+          !dataSent
+        "
+      >
+        {{ "CONTACT.MSG_ERROR_2" | translate }}
+      </span>
+
+      <span
+        class="ph"
+        *ngIf="
+          ((!messageTouched || messageFocused) && !showInvalidMessageError) ||
+          dataSent
+        "
+      >
+        {{ "CONTACT.MSG_PH" | translate }}
+      </span>
+    </div>
+    <div class="separator-line" [class.blue]="hoveredSectionDescription"></div>
+  </div>
+  <div class="checkbox-section">
+    <label class="custom-checkbox">
+      <input type="checkbox" name="privacy" [(ngModel)]="privacyChecked" />
+    </label>
+    <p>
+      {{ "CONTACT.PP-TEXT-1" | translate }}
+      <span (click)="goToPrivacyPolicy()" class="highlight">{{
+        "CONTACT.PP-TITLE" | translate
+      }}</span>
+      {{ "CONTACT.PP-TEXT-2" | translate }}
+    </p>
+  </div>
+  <div class="btn-wrap">
+    <button
+      class="btn"
+      type="submit"
+      [class.disabled]="!allInputValid()"
+      [disabled]="!allInputValid()"
+    >
+      {{ "CONTACT.SEND" | translate }}
+    </button>
+  </div>
+</form>

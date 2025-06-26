@@ -2,3 +2,36 @@ app-header {
   display: flex;
   justify-content: center;
 }
+
+.scroll-to-top {
+  width: 93px;
+  height: 100px;
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  background-color: #55555585;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > img {
+    transform: rotate(90deg);
+    width: 30px;
+  }
+  > p {
+    color: rgb(247, 121, 84);
+  }
+}
+.scroll-to-top:hover {
+  background-color: #555;
+}
+@import "./responsive";

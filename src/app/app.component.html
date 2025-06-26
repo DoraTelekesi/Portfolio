@@ -1,2 +1,7 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
+
+<div class="scroll-to-top" *ngIf="showScrollToTop" (click)="scrollToTop()">
+  <img src="assets/drawn-lines/to-top-img.png" />
+  <p>TO TOP</p>
+</div>

@@ -2,79 +2,60 @@ import {
   Component,
   ViewChild,
   ElementRef,
-  inject,
   OnInit,
   HostListener,
 } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule, NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { gsap } from 'gsap';
-import { HttpClient } from '@angular/common/http';
-import { NgClass, NgIf } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../../shared/header/translate.module';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, NgIf, NgClass, ...sharedTranslateImports],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ...sharedTranslateImports,
+    ContactFormComponent,
+  ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements OnInit {
   hovered = false;
-  hoveredSectionName = false;
-  hoveredSectionEmail = false;
-  hoveredSectionDescription = false;
-  privacyChecked = false;
+  showLogMsg = false;
+
   @ViewChild('btnbox') btnbox!: ElementRef;
   @ViewChild('legalDrawnLine')
   legalDrawnLine!: ElementRef<HTMLImageElement>;
   width?: number;
-  @HostListener('window:resize', ['$event'])
 
   /****
    * Handles window resize events and resets the rotate animation.
    * @param event The UIEvent triggered by window resize.
    */
+  @HostListener('window:resize', ['$event'])
   onResize(event: UIEvent) {
-    // console.log('Window resized', (event.target as Window).innerWidth);
     this.resetRotateAnimation();
   }
-
-  //Form validation
-  messageValid = false;
-  showInvalidMessageError = false;
-  invalidMessageBackup = '';
-  messageFocused = false;
-  messageTouched = false;
-  emailFocused = false;
-  emailTouched = false;
-  emailValid = false;
-  invalidEmailBackup = '';
-  showInvalidEmailError = false;
-  nameFocused = false;
-  nameTouched = false;
-  nameValid = false;
-
-  http = inject(HttpClient);
-
-  post = {
-    endPoint: 'https://dora-telekesi.com/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload),
-    options: {
-      headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
-      },
-    },
-  };
 
   constructor(
     private translate: TranslateService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
+  /**
+   * Angular lifecycle hook called on component initialization.
+   * Triggers the resize handler to set initial state.
+   */
+  ngOnInit(): void {
+    this.onResize({ target: window } as unknown as UIEvent);
+  }
 
   /**
    * Angular lifecycle hook called after the component's view has been fully initialized.
@@ -94,20 +75,24 @@ export class ContactComponent implements OnInit {
   }
 
   /**
+   * Handles the form submission event from the contact form.
+   * Displays a log message for 2 seconds after the form is submitted.
+   * @param data The data submitted from the form.
+   */
+  onFormSubmitted(data: any) {
+    this.showLogMsg = true;
+    setTimeout(() => {
+      this.showLogMsg = false;
+    }, 2000);
+  }
+
+  /**
    * Resets the rotation animation by updating the width property based on the button box element.
    */
   resetRotateAnimation() {
     if (this.btnbox && this.btnbox.nativeElement) {
       this.width = this.btnbox.nativeElement.offsetWidth - 30;
     }
-  }
-
-  /**
-   * Angular lifecycle hook called on component initialization.
-   * Triggers the resize handler to set initial state.
-   */
-  ngOnInit(): void {
-    this.onResize({ target: window } as unknown as UIEvent);
   }
 
   /**
@@ -201,42 +186,6 @@ export class ContactComponent implements OnInit {
   }
 
   /**
-   * Sets the hovered state for a specific section.
-   * @param section The section name ('name', 'email', or 'description').
-   */
-  sectionHovered(section: string) {
-    switch (section) {
-      case 'name':
-        this.hoveredSectionName = true;
-        break;
-      case 'email':
-        this.hoveredSectionEmail = true;
-        break;
-      case 'description':
-        this.hoveredSectionDescription = true;
-        break;
-    }
-  }
-
-  /**
-   * Removes the hovered state for a specific section.
-   * @param section The section name ('name', 'email', or 'description').
-   */
-  removeSectionHover(section: string) {
-    switch (section) {
-      case 'name':
-        this.hoveredSectionName = false;
-        break;
-      case 'email':
-        this.hoveredSectionEmail = false;
-        break;
-      case 'description':
-        this.hoveredSectionDescription = false;
-        break;
-    }
-  }
-
-  /**
    * Animates the arrow element using GSAP with a repeating yoyo effect.
    */
   animateArrow() {
@@ -248,215 +197,11 @@ export class ContactComponent implements OnInit {
       yoyo: true,
     });
   }
-  dataSent = false;
-  dataCleared = false;
-  mailTest = true;
-  contactData = {
-    name: '',
-    email: '',
-    message: '',
-  };
-
-  /**
-   * Handles form submission, validates the form, and sends data via HTTP POST.
-   * @param ngForm The NgForm instance representing the contact form.
-   */
-  onSubmit(ngForm: NgForm) {
-    ngForm.control.markAllAsTouched();
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http
-        .post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: (response) => {
-            console.log('data sent');
-            this.dataSent = true;
-            setTimeout(() => {
-              this.dataSent = false;
-              console.log(this.dataSent);
-            }, 2000);
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error(error);
-            this.dataSent = false;
-          },
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      console.log('data sent');
-      this.dataSent = true;
-      setTimeout(() => {
-        this.dataSent = false;
-        console.log(this.dataSent);
-      }, 2000);
-      ngForm.resetForm();
-      // this.contactData:{name:String;email:String;message:String} = {}; // clear bound model if needed
-      this.resetInputFlags(); // reset manual flags if you're using any
-    }
-  }
-
-  resetInputFlags() {
-    this.nameTouched = false;
-    this.nameFocused = false;
-    this.messageFocused = false;
-    this.messageTouched = false;
-    this.emailFocused = false;
-    this.emailTouched = false;
-    // reset other similar flags if needed
-  }
-  /**
-   * Handles blur event on the email input, validates the email, and manages error state.
-   */
-  onEmailBlur() {
-    this.emailFocused = false;
-    this.emailTouched = true;
-    if (!this.isEmailValid()) {
-      if (this.contactData.email) {
-        this.invalidEmailBackup = this.contactData.email;
-        this.contactData.email = '';
-        this.showInvalidEmailError = true;
-      }
-    } else {
-      this.invalidEmailBackup = '';
-      this.showInvalidEmailError = false;
-    }
-  }
-
-  /**
-   * Handles focus event on the email input, restores invalid email if needed.
-   */
-  onEmailFocus() {
-    this.emailFocused = true;
-    if (this.showInvalidEmailError && !this.contactData.email) {
-      this.contactData.email = this.invalidEmailBackup;
-    }
-  }
-
-  /**
-   * Handles input change event on the email input, resets error state if input is empty.
-   */
-  onEmailInputChange() {
-    if (!this.contactData.email) {
-      this.invalidEmailBackup = '';
-      this.showInvalidEmailError = false;
-    } else if (this.contactData.email && this.isEmailValid()) {
-      this.emailValid = true;
-    }
-  }
-
-  onNameInputChange() {
-    if (this.contactData.name && this.isNameValid()) {
-      this.nameValid = true;
-    }
-  }
-  /**
-   * Validates the email format.
-   * @returns True if the email is valid, false otherwise.
-   */
-  isEmailValid(): boolean {
-    if (!this.contactData.email) {
-      return false;
-    }
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(this.contactData.email);
-  }
-
-  /**
-   * Handles focus event on the message input, restores invalid message if needed.
-   */
-  onMessageFocus() {
-    this.messageFocused = true;
-    if (this.showInvalidMessageError && !this.contactData.message) {
-      this.contactData.message = this.invalidMessageBackup;
-    }
-  }
-
-  /**
-   * Handles input change event on the message input, resets error state if input is empty.
-   */
-  onMessageInputChange() {
-    if (!this.contactData.message) {
-      this.invalidEmailBackup = '';
-      this.showInvalidEmailError = false;
-    } else if (this.contactData.message && this.isMessageValid()) {
-      this.messageValid = true;
-    }
-  }
-
-  /**
-   * Handles blur event on the message input, validates the message, and manages error state.
-   */
-  onMessageBlur() {
-    this.messageFocused = false;
-    this.messageTouched = true;
-    if (!this.isMessageValid()) {
-      if (this.contactData.message) {
-        this.invalidMessageBackup = this.contactData.message;
-        this.contactData.message = '';
-        this.showInvalidMessageError = true;
-      }
-    } else {
-      this.invalidMessageBackup = '';
-      this.showInvalidMessageError = false;
-    }
-  }
-
-  isNameValid(): boolean {
-    if (!this.contactData.name) {
-      return false;
-    }
-    return this.contactData.name.length > 0;
-  }
-  /**
-   * Validates the message length.
-   * @returns True if the message is longer than 15 characters, false otherwise.
-   */
-  isMessageValid(): boolean {
-    if (!this.contactData.message) {
-      return false;
-    }
-    return this.contactData.message.length > 15;
-  }
-
-  /**
-   * Handles blur event on the name input, sets touched state.
-   */
-  onNameBlur() {
-    this.nameFocused = false;
-    this.nameTouched = true;
-  }
-
-  allInputValid(): boolean {
-    if (
-      this.isMessageValid() &&
-      this.isNameValid() &&
-      this.isEmailValid() &&
-      this.privacyChecked
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Handles focus event on the name input.
-   */
-  onNameFocus() {
-    this.nameFocused = true;
-  }
 
   /**
    * Navigates to the legal notice page.
    */
   goToLegalNotice() {
     this.router.navigate(['legal-notice']);
-  }
-
-  /**
-   * Navigates to the Privacy Policy page.
-   */
-  goToPrivacyPolicy() {
-    this.router.navigate(['privacy-policy']);
   }
 }

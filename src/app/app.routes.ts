@@ -14,8 +14,8 @@ export const routes: Routes = [
 ];
 
 RouterModule.forRoot(routes, {
-  anchorScrolling: 'enabled', // enables fragment scrolling
-  scrollOffset: [0, 64], // optional, if you have a fixed header (e.g. 64px tall)
-  scrollPositionRestoration: 'enabled', // restores scroll position when navigating back
-  onSameUrlNavigation: 'reload', // important to allow scrolling even on same URL + fragment
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 64],
+  scrollPositionRestoration: 'enabled',
+  onSameUrlNavigation: 'reload',
 });
