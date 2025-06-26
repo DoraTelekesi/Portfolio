@@ -57,16 +57,10 @@ export class ContactComponent implements OnInit {
   nameTouched = false;
   nameValid = false;
 
-  contactData = {
-    name: '',
-    email: '',
-    message: '',
-  };
-
   http = inject(HttpClient);
 
   post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
+    endPoint: 'https://dora-telekesi.com/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
@@ -254,8 +248,14 @@ export class ContactComponent implements OnInit {
       yoyo: true,
     });
   }
-
-  mailTest = false;
+  dataSent = false;
+  dataCleared = false;
+  mailTest = true;
+  contactData = {
+    name: '',
+    email: '',
+    message: '',
+  };
 
   /**
    * Handles form submission, validates the form, and sends data via HTTP POST.
@@ -268,18 +268,42 @@ export class ContactComponent implements OnInit {
         .post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
+            console.log('data sent');
+            this.dataSent = true;
+            setTimeout(() => {
+              this.dataSent = false;
+              console.log(this.dataSent);
+            }, 2000);
             ngForm.resetForm();
           },
           error: (error) => {
             console.error(error);
+            this.dataSent = false;
           },
           complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+      console.log('data sent');
+      this.dataSent = true;
+      setTimeout(() => {
+        this.dataSent = false;
+        console.log(this.dataSent);
+      }, 2000);
       ngForm.resetForm();
+      // this.contactData:{name:String;email:String;message:String} = {}; // clear bound model if needed
+      this.resetInputFlags(); // reset manual flags if you're using any
     }
   }
 
+  resetInputFlags() {
+    this.nameTouched = false;
+    this.nameFocused = false;
+    this.messageFocused = false;
+    this.messageTouched = false;
+    this.emailFocused = false;
+    this.emailTouched = false;
+    // reset other similar flags if needed
+  }
   /**
    * Handles blur event on the email input, validates the email, and manages error state.
    */

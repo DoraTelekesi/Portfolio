@@ -50,12 +50,14 @@
             class="placeholder-wrap"
             *ngIf="!contactData.name"
             [ngClass]="{
-              'placeholder-default': !nameTouched || nameFocused,
-              'placeholder-error': nameTouched && !nameFocused
+              'placeholder-default': (!nameTouched || nameFocused || dataSent),
+              'placeholder-error': (nameTouched && !nameFocused && !dataSent)
             }"
           >
             <span class="name-msg">
-              <ng-container *ngIf="!nameTouched || nameFocused; else errorText">
+              <ng-container
+                *ngIf="(!nameTouched || nameFocused || dataSent); else errorText"
+              >
                 {{ "CONTACT.NAME_PH" | translate }}
               </ng-container>
               <ng-template #errorText>
@@ -94,8 +96,8 @@
             class="placeholder-wrap"
             *ngIf="!contactData.email"
             [ngClass]="{
-              'placeholder-default': !emailTouched || emailFocused,
-              'placeholder-error': emailTouched && !emailFocused
+              'placeholder-default': !emailTouched || emailFocused || dataSent,
+              'placeholder-error': emailTouched && !emailFocused && !dataSent
             }"
           >
             <span
@@ -104,7 +106,8 @@
                 emailTouched &&
                 !emailFocused &&
                 !contactData.email &&
-                !showInvalidEmailError
+                !showInvalidEmailError &&
+                !dataSent
               "
             >
               {{ "CONTACT.EMAIL_ERROR_1" | translate }}
@@ -112,14 +115,22 @@
 
             <span
               class="ph email-ph"
-              *ngIf="emailTouched && !emailFocused && showInvalidEmailError"
+              *ngIf="
+                emailTouched &&
+                !emailFocused &&
+                showInvalidEmailError &&
+                !dataSent
+              "
             >
               {{ "CONTACT.EMAIL_ERROR_2" | translate }}
             </span>
 
             <span
               class="ph email-ph"
-              *ngIf="(!emailTouched || emailFocused) && !showInvalidEmailError"
+              *ngIf="
+                ((!emailTouched || emailFocused) && !showInvalidEmailError) ||
+                dataSent
+              "
             >
               {{ "CONTACT.EMAIL_PH" | translate }}
             </span>
@@ -156,8 +167,10 @@
             class="placeholder-wrap"
             *ngIf="!contactData.message"
             [ngClass]="{
-              'placeholder-default': !messageTouched || messageFocused,
-              'placeholder-error': messageTouched && !messageFocused
+              'placeholder-default':
+                !messageTouched || messageFocused || dataSent,
+              'placeholder-error':
+                messageTouched && !messageFocused && !dataSent
             }"
           >
             <span
@@ -166,7 +179,8 @@
                 messageTouched &&
                 !messageFocused &&
                 !contactData.message &&
-                !showInvalidMessageError
+                !showInvalidMessageError &&
+                !dataSent
               "
             >
               {{ "CONTACT.MSG_ERROR_1" | translate }}
@@ -175,7 +189,10 @@
             <span
               class="ph"
               *ngIf="
-                messageTouched && !messageFocused && showInvalidMessageError
+                messageTouched &&
+                !messageFocused &&
+                showInvalidMessageError &&
+                !dataSent
               "
             >
               {{ "CONTACT.MSG_ERROR_2" | translate }}
@@ -184,7 +201,9 @@
             <span
               class="ph"
               *ngIf="
-                (!messageTouched || messageFocused) && !showInvalidMessageError
+                ((!messageTouched || messageFocused) &&
+                  !showInvalidMessageError) ||
+                dataSent
               "
             >
               {{ "CONTACT.MSG_PH" | translate }}
@@ -217,7 +236,6 @@
             type="submit"
             [class.disabled]="!allInputValid()"
             [disabled]="!allInputValid()"
-            
           >
             {{ "CONTACT.SEND" | translate }}
           </button>
