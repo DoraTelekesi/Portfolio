@@ -40,25 +40,4 @@ export const PROJECTS: Project[] = [
     liveLink: 'https://doratelekesi.github.io/Join/',
     repoLink: 'https://github.com/DoraTelekesi/Join',
   },
-  {
-    id: 'DaBubble',
-    title: 'DaBubble',
-    description: 'PROJECTS.DABUBBLE.TEXT_1',
-    implementation: 'PROJECTS.DABUBBLE.TEXT_2',
-    tools: [
-      { name: 'TypeScript', img: 'assets/icon/Ts.svg' },
-      { name: 'HTML', img: 'assets/icon/HTML.svg' },
-      { name: 'CSS', img: 'assets/icon/CSS.svg' },
-      { name: 'Angular', img: 'assets/icon/Firebase.svg' },
-      { name: 'Firebase', img: 'assets/icon/Firebase.svg' },
-    ],
-    toolsImgs: [
-      'assets/icon/Ts.svg',
-      'assets/icon/HTML.svg',
-      'assets/icon/Firebase.svg',
-    ],
-    imageUrl: 'assets/img/dabubble.jpg',
-    liveLink: 'https://doratelekesi.github.io/Spooky-Town/',
-    repoLink: 'https://github.com/DoraTelekesi/Spooky-Town',
-  },
 ];

@@ -6,7 +6,6 @@ import {
   Input,
   ViewChild,
   ElementRef,
-  OnChanges,
   SimpleChanges,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
