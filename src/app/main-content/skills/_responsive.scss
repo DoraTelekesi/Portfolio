@@ -2,9 +2,6 @@
   .skills-content {
     width: 900px;
   }
-  // .skills-wrap {
-  //   height: 100%;
-  // }
 
   .title-section {
     flex-direction: column;
@@ -15,9 +12,6 @@
   }
 }
 @media (max-width: 950px) {
-  // .skills-wrap {
-  //   height: 120%;
-  // }
   .skills-content {
     width: 800px;
   }
@@ -32,23 +26,13 @@
     justify-content: center;
   }
 }
-@media (max-width: 900px) {
-  // .skills-wrap {
-  //   height: 115%;
-  // }
-}
+
 @media (max-width: 800px) {
   .skills-wrap {
     height: 130%;
   }
 }
 @media (max-width: 720px) {
-  // .skills-wrap {
-  //   height: 135%;
-  // }
-  // .skills-wrap {
-  //   margin-top: -50px;
-  // }
   .title-wrap {
     h2 {
       font-size: 60px;
@@ -194,9 +178,6 @@
 }
 
 @media (max-width: 400px) {
-  // .skills-wrap {
-  //   height: 140%;
-  // }
   .title-section {
     width: 320px;
   }
