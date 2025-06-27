@@ -21,6 +21,10 @@
   }
 }
 
+.a-m-section-right {
+  width: 50%;
+}
+
 .green {
   top: 0px;
   transform: rotate(-3deg);
@@ -73,6 +77,7 @@
 .location-section {
   position: relative;
   margin-top: 100px;
+  width: 50%;
 }
 
 .location,
@@ -117,8 +122,8 @@
 .a-m-text {
   display: flex;
   flex-direction: column;
-  >h3{
-    font-size:19px;
+  > h3 {
+    font-size: 19px;
   }
 }
 
