@@ -2,9 +2,10 @@
   background-image: url("/assets/img/hero-bg-1.png");
   background-size: 100% 120%;
   background-position: center;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   > .content {
     display: flex;
     justify-content: center;

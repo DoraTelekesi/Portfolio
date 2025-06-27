@@ -2,6 +2,9 @@
   .skills-content {
     width: 900px;
   }
+  .skills-wrap {
+    height: 150%;
+  }
 
   .title-section {
     flex-direction: column;
@@ -24,6 +27,11 @@
   }
   .icons {
     justify-content: center;
+  }
+}
+@media (max-width: 900px) {
+  .skills-wrap {
+    height: 150%;
   }
 }
 @media (max-width: 720px) {
