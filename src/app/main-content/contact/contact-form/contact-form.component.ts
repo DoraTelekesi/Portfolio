@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { NgClass, NgIf } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { sharedTranslateImports } from '../../../shared/header/translate.module';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [NgClass, NgIf, FormsModule, ...sharedTranslateImports],
+  imports: [NgClass, NgIf, FormsModule, ...sharedTranslateImports, RouterModule],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })

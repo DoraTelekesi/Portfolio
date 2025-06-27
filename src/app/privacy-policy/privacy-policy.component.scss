@@ -5,6 +5,8 @@
   > .content {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     > .privacy-policy {
       color: #f8f9fa;
       max-width: 1440px;
@@ -33,9 +35,14 @@
     height: 20px;
   }
 }
+app-footer {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 500px) {
-h1{
-  font-size:25px;
-}
+  h1 {
+    font-size: 25px;
+  }
 }

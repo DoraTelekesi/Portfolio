@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../shared/header/translate.module';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent],
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss',
 })

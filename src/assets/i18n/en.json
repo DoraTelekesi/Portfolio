@@ -112,6 +112,9 @@
     "COPYRIGHT-TEXT":"The contents and works created by the site operators on these pages are subject to German copyright law. The reproduction, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the contents on this site were not created by the operator, the copyrights of third parties are respected. In particular, contents of third parties are marked as such. Should you nevertheless become aware of a copyright infringement, we ask for a corresponding notification. Upon becoming aware of legal violations, we will remove such contents immediately.",
     "DATA-PROTECT":"Data Protection",
     "DATA-PROTECT-TEXT":" The use of our website is generally possible without providing personal data. Insofar as personal data (such as name, address or email addresses) is collected on our pages, this is always done, as far as possible, on a voluntary basis. This data will not be disclosed to third parties without your explicit consent. <br /> We point out that data transmission on the Internet (e.g. in communication by email) can have security vulnerabilities. A complete protection of the data from access by third parties is not possible. <br /> The use of contact data published within the scope of the imprint obligation by third parties for the purpose of sending unsolicited advertising and information materials is hereby expressly objected to. The operators of the pages expressly reserve the right to take legal action in the event of the unsolicited sending of advertising information, for example through spam emails."
-  }
-
+  },
+    "SCROLL":{
+    "TO_TOP": "TO TOP"
+  },
+  "MESSAGE_LOG":"Message Sent"
 }

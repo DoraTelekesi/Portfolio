@@ -2,9 +2,14 @@
   background-image: url("/assets/img/hero-bg-1.png");
   background-size: 100% 120%;
   background-position: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   > .content {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     > .impressum {
       color: #f8f9fa;
       max-width: 1440px;
@@ -32,4 +37,10 @@
     width: 20px;
     height: 20px;
   }
+}
+
+app-footer {
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }

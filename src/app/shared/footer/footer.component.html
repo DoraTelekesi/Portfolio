@@ -1,0 +1,70 @@
+ <footer>
+    <div class="footer-1">
+      <img src="assets/icon/logo.png" alt="" />
+      <p>© Dora Telekesi 2025</p>
+    </div>
+    <div class="links">
+      <a class="h-btn-wrap legal"[routerLink]="['/legal-notice']">
+        <div
+          
+          (mouseenter)="putHover()"
+          (mouseleave)="deleteHover()"
+        >
+          <p>{{ "CONTACT.LN" | translate }}</p>
+          <img
+            class="legalDrawnLine"
+            #legalDrawnLine
+            src="assets/drawn-lines/3.png"
+            alt="drawn-line"
+          /></div
+      ></a>
+
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverGitHub()"
+        (mouseleave)="removeHoverGitHub()"
+      >
+        <img
+          class="github-icon"
+          src="assets/icon/Github.svg"
+          alt="github icon"
+        />
+        <a href="https://github.com/DoraTelekesi" target="_blank">
+          <div class="icon-box github">
+            <p>GitHub</p>
+          </div></a
+        >
+      </div>
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverLinkedin()"
+        (mouseleave)="removeHoverLinkedin()"
+      >
+        <img
+          class="linkedin-icon"
+          src="assets/icon/Linkedin.svg"
+          alt="linkedin icon"
+        />
+        <a
+          href="https://www.linkedin.com/in/dora-telekesi-05470431b/"
+          target="_blank"
+        >
+          <div class="icon-box linkedin" #btnbox>
+            <p>LinkedIn</p>
+          </div></a
+        >
+      </div>
+      <div
+        class="btn-section"
+        (mouseenter)="putHoverEmail()"
+        (mouseleave)="removeHoverEmail()"
+      >
+        <img class="email-icon" src="assets/icon/Email.svg" alt="email icon" />
+        <a href="mailto:doratelekesi@gmail.com">
+          <div class="icon-box email">
+            <p>Email</p>
+          </div></a
+        >
+      </div>
+    </div>
+  </footer>

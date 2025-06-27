@@ -1,7 +1,7 @@
 <div class="content-wrap" id="contact">
-  <div class="content" >
+  <div class="content">
     <div class="msg" [ngClass]="showLogMsg ? 'msgHidden' : 'msgVisible'">
-      <p>Message Sent</p>
+      <p>{{ "MESSAGE_LOG" | translate }}</p>
     </div>
     <div class="col-1">
       <h3>{{ "CONTACT.CONTACT" | translate }}</h3>
@@ -21,77 +21,10 @@
       </div>
     </div>
     <div class="col-2">
-      <app-contact-form (formSubmitted)="onFormSubmitted($event)"></app-contact-form>
+      <app-contact-form
+        (formSubmitted)="onFormSubmitted($event)"
+      ></app-contact-form>
     </div>
   </div>
-  <footer>
-    <div class="footer-1">
-      <img src="assets/icon/logo.png" alt="" />
-      <p>© Dora Telekesi 2025</p>
-    </div>
-    <div class="links">
-      <div
-        class="h-btn-wrap legal"
-        (mouseenter)="putHover()"
-        (mouseleave)="deleteHover()"
-        (click)="goToLegalNotice()"
-      >
-        <p>{{ "CONTACT.LN" | translate }}</p>
-        <img
-          class="legalDrawnLine"
-          #legalDrawnLine
-          src="assets/drawn-lines/3.png"
-          alt="drawn-line"
-        />
-      </div>
-
-      <div
-        class="btn-section"
-        (mouseenter)="putHoverGitHub()"
-        (mouseleave)="removeHoverGitHub()"
-      >
-        <img
-          class="github-icon"
-          src="assets/icon/Github.svg"
-          alt="github icon"
-        />
-        <a href="https://github.com/DoraTelekesi" target="_blank">
-          <div class="icon-box github">
-            <p>GitHub</p>
-          </div></a
-        >
-      </div>
-      <div
-        class="btn-section"
-        (mouseenter)="putHoverLinkedin()"
-        (mouseleave)="removeHoverLinkedin()"
-      >
-        <img
-          class="linkedin-icon"
-          src="assets/icon/Linkedin.svg"
-          alt="linkedin icon"
-        />
-        <a
-          href="https://www.linkedin.com/in/dora-telekesi-05470431b/"
-          target="_blank"
-        >
-          <div class="icon-box linkedin" #btnbox>
-            <p>LinkedIn</p>
-          </div></a
-        >
-      </div>
-      <div
-        class="btn-section"
-        (mouseenter)="putHoverEmail()"
-        (mouseleave)="removeHoverEmail()"
-      >
-        <img class="email-icon" src="assets/icon/Email.svg" alt="email icon" />
-        <a href="mailto:doratelekesi@gmail.com">
-          <div class="icon-box email">
-            <p>Email</p>
-          </div></a
-        >
-      </div>
-    </div>
-  </footer>
+ <app-footer></app-footer>
 </div>
