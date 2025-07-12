@@ -32,6 +32,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
+        console.log(this.currentRoute)
       }
     });
   }

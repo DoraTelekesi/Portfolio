@@ -1,15 +1,15 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
-import { Router, RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from '../../shared/header/translate.module';
 import { ScrollService } from '../../services/scroll.service';
+import { SplitText, ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [ ...sharedTranslateImports],
+  imports: [...sharedTranslateImports],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
@@ -18,16 +18,22 @@ export class HeroComponent implements AfterViewInit {
   @ViewChild('bgFillLinkedin') bgFillLinkedin!: ElementRef;
   @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
   hovered = false;
+  @ViewChild('titleWrapper', { static: false }) titleWrapper!: ElementRef;
+  @ViewChild('titleWrapper2', { static: false }) titleWrapper2!: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
-    private translate: TranslateService,
     private scrollService: ScrollService
   ) {}
 
+  /**
+   * Navigates smoothly to the specified section using the ScrollService.
+   * @param section The section ID or name to scroll to.
+   */
   goToSection(section: string) {
     this.scrollService.scrollToSection(section);
   }
+
   /**
    * Angular lifecycle hook called after the component's view has been fully initialized.
    * Initializes GSAP animations for the waving hand and background fills, and sets up navigation to fragments.
@@ -38,6 +44,163 @@ export class HeroComponent implements AfterViewInit {
     this.setBackgroundFillLi();
     this.setBackgroundFillEm();
     this.navigate();
+    this.splitTitleFirstRow();
+    this.splitTitleSecondRow();
+    setTimeout(() => this.changeTextTitleFirst(), 50);
+    setTimeout(() => this.changeTextTitleSecond(), 50);
+  }
+
+  /**
+   * Splits the first row of the title into individual character spans and animates them using GSAP.
+   * Adds classes to each character and triggers the timeline animation.
+   */
+  splitTitleFirstRow() {
+    requestAnimationFrame(() => {
+      const split = SplitText.create('.t-1', { type: 'chars' });
+      split.chars.forEach((char, i) => {
+        char.classList.add('char-span', `char-${i}`, 'letter');
+        gsap.set(char, { y: 0, opacity: 1, rotation: 0 });
+      });
+      const tl = gsap.timeline({ paused: true });
+      this.createTimelineFirst(split, tl);
+      tl.play();
+      tl.eventCallback('onComplete', () => {
+        this.onAnimationCompleteFirst();
+      });
+      this.createScrollTriggerFirst(tl);
+    });
+  }
+
+  /**
+   * Creates a GSAP timeline animation for the first row of split title characters.
+   * @param split The SplitText instance containing character elements.
+   * @param tl The GSAP timeline instance.
+   */
+  createTimelineFirst(split: any, tl: any) {
+    tl.from(split.chars, {
+      y: -300,
+      autoAlpha: 0,
+      stagger: 0.2,
+      rotation: 'random(-180,180)',
+      ease: 'back.out',
+      duration: 1,
+    });
+  }
+
+  /**
+   * Callback executed when the first row animation completes. Adds a class and clears transform on the first character.
+   */
+  onAnimationCompleteFirst() {
+    document.querySelector('.t-1')?.classList.add('hover-ready');
+    const char0 = document.querySelector('.char-0') as HTMLElement;
+    if (char0) {
+      gsap.set(char0, { clearProps: 'transform' });
+    }
+  }
+
+  /**
+   * Creates a ScrollTrigger for the first row title animation.
+   * @param tl The GSAP timeline instance.
+   */
+  createScrollTriggerFirst(tl: any) {
+    ScrollTrigger.create({
+      trigger: '.t-1',
+      start: 'top 80%',
+      end: 'bottom top',
+      onLeave: () => tl.pause(0),
+      onEnterBack: () => tl.restart(),
+    });
+  }
+
+  /**
+   * Changes the text case for each letter in the first row title and sets a data-alt attribute.
+   */
+  changeTextTitleFirst() {
+    const letters = this.titleWrapper.nativeElement.querySelectorAll('.letter');
+    letters.forEach((el: HTMLElement) => {
+      const original = el.textContent?.trim() || '';
+      const altCase =
+        original === original.toUpperCase()
+          ? original.toLowerCase()
+          : original.toUpperCase();
+      el.setAttribute('data-alt', altCase);
+    });
+  }
+
+  /**
+   * Splits the second row of the title into individual character spans and animates them using GSAP.
+   * Adds classes to each character and triggers the timeline animation.
+   */
+  splitTitleSecondRow() {
+    let split = SplitText.create('.t-2', { type: 'chars' });
+    const tl = gsap.timeline({ paused: true });
+    this.createTimelineSecond(split, tl);
+    split.chars.forEach((char, i) => {
+      const original = char.textContent || '';
+      char.classList.add('char-span', `char-${i}`, 'letter');
+    });
+    tl.play();
+    tl.eventCallback('onComplete', () => {
+      this.onAnimationCompleteSecond();
+    });
+    this.createScrollTriggerSecond(tl);
+  }
+
+  /**
+   * Creates a GSAP timeline animation for the second row of split title characters.
+   * @param split The SplitText instance containing character elements.
+   * @param tl The GSAP timeline instance.
+   */
+  createTimelineSecond(split: any, tl: any) {
+    tl.from(split.chars, {
+      y: 300,
+      autoAlpha: 0,
+      stagger: 0.2,
+      rotation: 'random(-180,180)',
+      ease: 'back.out',
+      duration: 1,
+    });
+  }
+
+  /**
+   * Callback executed when the second row animation completes. Adds a class and clears transform on the first character.
+   */
+  onAnimationCompleteSecond() {
+    document.querySelector('.t-2')?.classList.add('hover-ready');
+    const char0 = document.querySelector('.char-0') as HTMLElement;
+    if (char0) {
+      gsap.set(char0, { clearProps: 'transform' });
+    }
+  }
+
+  /**
+   * Creates a ScrollTrigger for the second row title animation.
+   * @param tl The GSAP timeline instance.
+   */
+  createScrollTriggerSecond(tl: any) {
+    ScrollTrigger.create({
+      trigger: '.t-2',
+      start: 'top 80%',
+      end: 'bottom top',
+      onLeave: () => tl.pause(0),
+      onEnterBack: () => tl.restart(),
+    });
+  }
+
+  /**
+   * Changes the text case for each letter in the second row title and sets a data-alt attribute.
+   */
+  changeTextTitleSecond() {
+    const letters2 =
+      this.titleWrapper2.nativeElement.querySelectorAll('.letter');
+    letters2.forEach((el: HTMLElement) => {
+      const original = el.textContent?.trim() || '';
+      const altCase =
+        original === original.toUpperCase()
+          ? original.toLowerCase()
+          : original.toUpperCase();
+      el.setAttribute('data-alt', altCase);
+    });
   }
 
   /**

@@ -1,6 +1,5 @@
 @media (max-width: 950px) {
-  .t-1 span,
-  .t-2 span {
+  .title {
     font-size: 90px;
   }
 
@@ -10,8 +9,7 @@
 }
 
 @media (max-width: 850px) {
-  .t-1 span,
-  .t-2 span {
+  .title {
     font-size: 80px;
   }
   .t-2,
@@ -56,9 +54,8 @@
 }
 
 @media (max-width: 650px) {
-  .t-1 span,
-  .t-2 span {
-    font-size: 70px;
+  .title {
+    font-size: 60px;
   }
   .hero-main {
     max-width: 450px;
@@ -71,9 +68,8 @@
   }
 }
 @media (max-width: 550px) {
-  .t-1 span,
-  .t-2 span {
-    font-size: 60px;
+  .title {
+    font-size: 50px;
   }
   .t-2,
   .t-1 {
@@ -91,9 +87,8 @@
   }
 }
 @media (max-width: 420px) {
-  .t-1 span,
-  .t-2 span {
-    font-size: 50px;
+  .title {
+    font-size: 33px;
   }
   .t-2,
   .t-1 {
@@ -113,10 +108,7 @@
   .t-1 {
     line-height: 40px;
   }
-  // .t-1 span,
-  // .t-2 span {
-  //   font-size: 40px;
-  // }
+
   .hero-main {
     width: 260px;
   }
