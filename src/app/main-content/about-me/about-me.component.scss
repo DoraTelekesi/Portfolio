@@ -1,20 +1,64 @@
-@mixin dFlex() {
+@mixin dFlex($justify: center, $align: center, $direction: row, $gap: null) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  @if $gap != null {
+    gap: $gap;
+  }
 }
 
-.a-m-wrap {
+@mixin rotate($deg) {
+  transform: rotate($deg);
+}
+
+@mixin pos($top, $right) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin buttonStyle(
+  $color: black,
+  $bgHover: #f87a55,
+  $width: 154px,
+  $height: 40px,
+  $fontSize: 18px
+) {
+  @include dFlex();
+  color: $color;
+  border: 1px solid $color;
+  border-radius: 100px;
+  font-size: $fontSize;
+  width: $width;
+  height: $height;
+  box-shadow: 2px 4px 0 0 $color;
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+    background-color: $bgHover;
+    transform: translate(2px, 4px);
+    box-shadow: none;
+    cursor: pointer;
+  }
+}
+
+@mixin loc-style($top, $right, $rotate) {
+  @include pos($top, $right);
+  @include rotate($rotate);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+  gap: 20px;
+  color: #f8f9fa;
+  z-index: 5;
+  font-size: 20px;
+}
+
+
+.a-m-wrap {
+  @include dFlex(center, center, row, 30px);
   max-width: 1440px;
   width: 1000px;
-
-  margin-bottom: 30px;
-  margin-top: 30px;
-
+  margin: 30px 0;
   > .location-section {
     display: flex;
     flex-direction: column;
@@ -26,17 +70,22 @@
 }
 
 .green {
-  top: 0px;
-  transform: rotate(-3deg);
+  top: 0;
+  @include rotate(-3deg);
   z-index: 3;
+  position: relative; 
 }
+
 .blue {
   top: -100px;
-  transform: rotate(-2deg);
+  @include rotate(-2deg);
+  position: relative;
 }
+
 .turqoise {
   top: -50px;
-  transform: rotate(1deg);
+  @include rotate(1deg);
+  position: relative;
 }
 
 .ripped-paper {
@@ -45,33 +94,16 @@
   height: auto;
 }
 
-.loc,
-.reloc,
-.rem {
-  position: absolute;
-  display: flex;
-  gap: 20px;
-  color: #f8f9fa;
-  z-index: 5;
-  font-size: 20px;
-}
-
 .loc {
-  top: 20px;
-  right: 140px;
-  transform: rotate(-5deg);
+  @include loc-style(20px, 140px, -5deg);
 }
 
 .reloc {
-  top: -20px;
-  right: 140px;
-  transform: rotate(4deg);
+  @include loc-style(-20px, 140px, 4deg);
 }
 
 .rem {
-  top: -65px;
-  right: 130px;
-  transform: rotate(-1deg);
+  @include loc-style(-65px, 130px, -1deg);
 }
 
 .location-section {
@@ -89,21 +121,7 @@
 }
 
 .a-m-btn {
-  @include dFlex();
-  color: black;
-  border: 1px solid black;
-  border-radius: 100px;
-  font-size: 18px;
-  width: 154px;
-  height: 40px;
-  box-shadow: 2px 4px 0 0 black;
-  transition: all 100ms ease-in-out;
-  &:hover {
-    background-color: #f87a55;
-    transform: translate(2px, 4px);
-    box-shadow: none;
-    cursor: pointer;
-  }
+  @include buttonStyle();
 }
 
 .a-m-title-wrap {

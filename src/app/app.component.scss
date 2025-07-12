@@ -4,15 +4,15 @@ app-header {
 }
 
 .scroll-to-top {
-  width: 93px;
-  height: 100px;
+  width: 50px;
+  height: 70px;
   position: fixed;
-  top: 20%;
+  bottom: 100px;
   right: 20px;
-  background-color: #55555585;
+  background-color: #413d3d85;
   color: white;
   border: none;
-  padding: 5px 8px;
+  // padding: 5px 8px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;

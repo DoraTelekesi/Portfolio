@@ -44,10 +44,14 @@ export class HeroComponent implements AfterViewInit {
     this.setBackgroundFillLi();
     this.setBackgroundFillEm();
     this.navigate();
-    this.splitTitleFirstRow();
-    this.splitTitleSecondRow();
-    setTimeout(() => this.changeTextTitleFirst(), 50);
-    setTimeout(() => this.changeTextTitleSecond(), 50);
+    document.fonts.ready.then(() => {
+      this.splitTitleFirstRow();
+      this.splitTitleSecondRow();
+
+      // You can keep your setTimeout calls if necessary, or refactor them
+      setTimeout(() => this.changeTextTitleFirst(), 50);
+      setTimeout(() => this.changeTextTitleSecond(), 50);
+    });
   }
 
   /**
