@@ -95,15 +95,15 @@
 }
 
 .loc {
-  @include loc-style(20px, 140px, -5deg);
+  @include loc-style(20px, 120px, -5deg);
 }
 
 .reloc {
-  @include loc-style(-20px, 140px, 4deg);
+  @include loc-style(-20px, 120px, 4deg);
 }
 
 .rem {
-  @include loc-style(-65px, 130px, -1deg);
+  @include loc-style(-65px, 100px, -1deg);
 }
 
 .location-section {
