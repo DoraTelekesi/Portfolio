@@ -35,31 +35,25 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('bgFillGithub') bgFillGithub!: ElementRef;
   @ViewChild('bgFillLinkedin') bgFillLinkedin!: ElementRef;
   @ViewChild('bgFillEmail') bgFillEmail!: ElementRef;
+
   language: string = 'en';
   status: 'english' | 'german' = 'english';
   currentLang: 'en' | 'de' = 'en';
   currentUrl: string = '';
-  private routerSub = Subscription.EMPTY; // avoids the need for !
+  private routerSub = Subscription.EMPTY;
   respMenuOpened = false;
 
-  /**
-   * Closes the responsive menu.
-   */
+  /** Closes the responsive navigation menu */
   closeRespMenu() {
     this.respMenuOpened = false;
   }
 
-  /**
-   * Opens the responsive menu.
-   */
+  /** Opens the responsive navigation menu */
   openRespMenu() {
     this.respMenuOpened = true;
   }
 
-  /**
-   * Angular lifecycle hook called on component initialization.
-   * Subscribes to router events to track the current URL.
-   */
+  /** Lifecycle hook for component initialization */
   ngOnInit(): void {
     this.currentUrl = this.router.url;
     this.router.events
@@ -73,10 +67,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
       });
   }
 
-  /**
-   * Angular lifecycle hook called when the component is destroyed.
-   * Unsubscribes from the router subscription.
-   */
+  /** Cleanup when the component is destroyed */
   ngOnDestroy(): void {
     this.routerSub.unsubscribe();
   }
@@ -89,23 +80,22 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   ) {
     const savedLang = localStorage.getItem('lang');
     const savedStatus = localStorage.getItem('status') as 'english' | 'german';
-    if (savedStatus) {
-      this.status = savedStatus;
-    }
+    if (savedStatus) this.status = savedStatus;
     this.getTranslationStatusFromLocalStorage(savedLang);
   }
 
   /**
-   * Scrolls to the specified section using the ScrollService and closes the responsive menu.
-   * @param section The section ID or name to scroll to.
+   * Scrolls to the given section using the scroll service and closes the menu
+   * @param section Section ID or name to scroll to
    */
   goToSection(section: string) {
     this.scrollService.scrollToSection(section);
     this.respMenuOpened = false;
   }
+
   /**
-   * Retrieves and sets the translation status from local storage.
-   * @param savedLang The saved language code from local storage.
+   * Applies language preference from local storage
+   * @param savedLang Previously saved language
    */
   getTranslationStatusFromLocalStorage(savedLang: string | null) {
     if (savedLang === 'de') {
@@ -119,25 +109,19 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
-  /**
-   * Toggles the current language between English and German.
-   */
+  /** Toggles between English and German language */
   onToggleLanguage(): void {
     this.currentLang = this.currentLang === 'en' ? 'de' : 'en';
     this.translate.use(this.currentLang);
     localStorage.setItem('lang', this.currentLang);
   }
 
-  /**
-   * Angular lifecycle hook called after the component's view has been fully initialized.
-   * Sets up background fills, drawn line elements, and handles fragment navigation.
-   */
+  /** Lifecycle hook after component view initialization */
   ngAfterViewInit() {
     this.serBackgroundFill();
     const savedX = localStorage.getItem('toggleX');
-    if (savedX) {
+    if (savedX)
       gsap.set(this.toggleBtn.nativeElement, { x: parseFloat(savedX) });
-    }
     this.setDrawnLineElements();
     this.route.fragment.subscribe((fragment) => {
       if (fragment) {
@@ -151,54 +135,38 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Sets the initial background fill for social icons to 0% height.
-   */
+  /** Initializes social icons background animation */
   serBackgroundFill() {
-    gsap.set(this.bgFillGithub.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-    gsap.set(this.bgFillLinkedin.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-    gsap.set(this.bgFillEmail.nativeElement, {
-      height: '0%',
-      duration: 0.4,
-      ease: 'power2.out',
+    ['bgFillGithub', 'bgFillLinkedin', 'bgFillEmail'].forEach((key) => {
+      const element = this[key as keyof HeaderComponent] as ElementRef;
+      gsap.set(element.nativeElement, {
+        height: '0%',
+        duration: 0.4,
+        ease: 'power2.out',
+      });
     });
   }
 
-  /**
-   * Sets the initial state of the drawn line elements for navigation and language toggles.
-   */
+  /** Initializes drawn line GSAP clip paths */
   setDrawnLineElements() {
     gsap.set(this.aboutDrawnLine.nativeElement, {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
     });
-    gsap.set(this.skillsDrawnLine.nativeElement, {
-      clipPath: 'inset(0% 100% 0% 0%)',
+    [
+      this.skillsDrawnLine,
+      this.projectDrawnLine,
+      this.contactDrawnLine,
+    ].forEach((el) => {
+      gsap.set(el.nativeElement, { clipPath: 'inset(0% 100% 0% 0%)' });
     });
-    gsap.set(this.projectDrawnLine.nativeElement, {
-      clipPath: 'inset(0% 100% 0% 0%)',
-    });
-    gsap.set(this.contactDrawnLine.nativeElement, {
-      clipPath: 'inset(0% 100% 0% 0%)',
-    });
-    gsap.set(this.en.nativeElement, {
-      clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
-    });
-    gsap.set(this.de.nativeElement, {
-      clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+    [this.en, this.de].forEach((el) => {
+      gsap.set(el.nativeElement, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
+      });
     });
   }
 
-  /**
-   * Animates the about section's drawn line on hover.
-   */
+  /** Hover animation for About section */
   putHoverAbout() {
     gsap.to(this.aboutDrawnLine.nativeElement, {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
@@ -207,9 +175,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Reverses the about section's drawn line animation on hover out.
-   */
+  /** Reverses hover animation for About section */
   deleteHoverAbout() {
     gsap.to(this.aboutDrawnLine.nativeElement, {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
@@ -218,9 +184,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Animates the drawn line for the specified section on hover.
-   * @param type The type of drawn line ('skillsDrawnLine', 'projectDrawnLine', or 'contactDrawnLine').
+  /** Hover animation for line sections
+   * @param type Drawn line section name
    */
   putHover(type: string) {
     const lineMap: { [key: string]: ElementRef } = {
@@ -228,7 +193,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
       projectDrawnLine: this.projectDrawnLine,
       contactDrawnLine: this.contactDrawnLine,
     };
-
     const element = lineMap[type];
     if (!element) return;
     gsap.to(element.nativeElement, {
@@ -238,9 +202,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Reverses the drawn line animation for the specified section on hover out.
-   * @param type The type of drawn line ('skillsDrawnLine', 'projectDrawnLine', or 'contactDrawnLine').
+  /** Reverse animation for drawn lines
+   * @param type Drawn line section name
    */
   deleteHover(type: string) {
     const lineMap: { [key: string]: ElementRef } = {
@@ -257,9 +220,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Animates the English language icon on hover.
-   */
+  /** Hover effect for English toggle */
   putHoverEnglish() {
     gsap.to('.img-en', {
       clipPath: 'polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%)',
@@ -268,9 +229,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Reverses the English language icon animation on hover out.
-   */
+  /** Unhover effect for English toggle */
   deleteHoverEnglish() {
     gsap.to('.img-en', {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
@@ -278,9 +237,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Reverses the English language icon animation on hover out.
-   */
+  /** Hover effect for German toggle */
   putHoverGerman() {
     gsap.to('.img-de', {
       clipPath: 'polygon(100% 100%, 0% 100%, 0% 0%, 100% 0%)',
@@ -289,9 +246,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Reverses the German language icon animation on hover out.
-   */
+  /** Unhover effect for German toggle */
   deleteHoverGerman() {
     gsap.to('.img-de', {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
@@ -301,44 +256,35 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /**
-   * Switches the language to English and updates local storage and UI.
+   * Switches language and updates UI state
+   * @param lang Language code: 'en' or 'de'
    */
-  switchToEnglish() {
-    gsap.to('.toggle-btn', {
-      x: 0,
-    });
-    this.status = 'english';
-    this.translate.use('en');
-    localStorage.setItem('lang', 'en');
-    localStorage.setItem('status', 'english');
-    localStorage.setItem('toggleX', '0');
+  switchLanguage(lang: 'en' | 'de') {
+    const isEnglish = lang === 'en';
+    const x = isEnglish ? 0 : 30;
+    this.status = isEnglish ? 'english' : 'german';
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+    localStorage.setItem('status', this.status);
+    localStorage.setItem('toggleX', x.toString());
+    gsap.to('.toggle-btn', { x });
   }
 
   /**
-   * Switches the language to German and updates local storage and UI.
+   * Toggles the current language between English and German.
+   * Updates translation service, language status, and persists the change in localStorage.
+   * Also animates the toggle button position using GSAP.
    */
-  switchToGerman() {
-    this.status = 'german';
-    this.translate.use('de');
-    localStorage.setItem('lang', 'de');
-    localStorage.setItem('status', 'german');
-    localStorage.setItem('toggleX', '30');
-    gsap.to('.toggle-btn', {
-      x: 30,
-    });
+  toggleLanguage() {
+    const newLang = this.status === 'german' ? 'en' : 'de';
+    this.switchLanguage(newLang);
   }
 
-  /**
-   * Fills the background of the specified social icon using GSAP animation.
-   * @param type The type of background fill ('bgFillGithub', 'bgFillLinkedin', or 'bgFillEmail').
+  /** Animate background fill for social icon
+   * @param type Element ref name
    */
   fillBackground(type: string) {
-    const lineMap: { [key: string]: ElementRef } = {
-      bgFillGithub: this.bgFillGithub,
-      bgFillLinkedin: this.bgFillLinkedin,
-      bgFillEmail: this.bgFillEmail,
-    };
-    const element = lineMap[type];
+    const element = this[type as keyof HeaderComponent] as ElementRef;
     if (!element) return;
     gsap.to(element.nativeElement, {
       scaleX: 1,
@@ -348,17 +294,11 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  /**
-   * Unfills the background of the specified social icon using GSAP animation.
-   * @param type The type of background fill ('bgFillGithub', 'bgFillLinkedin', or 'bgFillEmail').
+  /** Animate background unfill for social icon
+   * @param type Element ref name
    */
   unfillBackground(type: string) {
-    const lineMap: { [key: string]: ElementRef } = {
-      bgFillGithub: this.bgFillGithub,
-      bgFillLinkedin: this.bgFillLinkedin,
-      bgFillEmail: this.bgFillEmail,
-    };
-    const element = lineMap[type];
+    const element = this[type as keyof HeaderComponent] as ElementRef;
     if (!element) return;
     gsap.to(element.nativeElement, {
       scaleX: 0,

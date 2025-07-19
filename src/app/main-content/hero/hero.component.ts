@@ -47,8 +47,6 @@ export class HeroComponent implements AfterViewInit {
     document.fonts.ready.then(() => {
       this.splitTitleFirstRow();
       this.splitTitleSecondRow();
-
-      // You can keep your setTimeout calls if necessary, or refactor them
       setTimeout(() => this.changeTextTitleFirst(), 50);
       setTimeout(() => this.changeTextTitleSecond(), 50);
     });

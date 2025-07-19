@@ -54,9 +54,9 @@
   }
 }
 
-.btn, 
-.btn-welcome > .world-welc, 
-.btn-welcome > .name-welc, 
+.btn,
+.btn-welcome > .world-welc,
+.btn-welcome > .name-welc,
 .media-icons > .icon-box {
   @include dFlex();
 }
@@ -110,8 +110,10 @@
   &::before {
     content: "";
     position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: #3355ff;
     transform: scaleX(0);
     transform-origin: center;
@@ -137,7 +139,7 @@
     transform: translate(124px);
     height: 40px;
     width: 40px;
-    opacity: 0; 
+    opacity: 0;
   }
 }
 
@@ -187,13 +189,14 @@
     height: 40px;
     border-radius: 50%;
     background-color: transparent;
-    cursor: pointer; // moved from &:hover
+    cursor: pointer;
   }
 
   .bg-fill {
     overflow: hidden;
     position: absolute;
-    bottom: 0; left: 0;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 10%;
     border-radius: 50%;
@@ -206,7 +209,13 @@
   }
 }
 
-// Shared styles for .letter in .t-1 and .t-2 when hover-ready
+::ng-deep {
+  .t-1 .letter {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+
 ::ng-deep {
   .t-1.hover-ready .letter,
   .t-2.hover-ready .letter {
@@ -216,8 +225,10 @@
     &::after {
       content: attr(data-alt);
       position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       color: rgb(247, 197, 24);
       opacity: 0;
       cursor: default;
@@ -226,18 +237,16 @@
 
     &:hover::after {
       opacity: 1;
+      letter-spacing: 10px;
     }
 
     &:hover {
       color: transparent;
+
     }
   }
 
   .t-1.hover-ready .char-0:hover {
-    transform: translateX(6px);
-  }
-  
-  .t-2.hover-ready .char-0:hover {
     transform: translateX(16px);
   }
 }

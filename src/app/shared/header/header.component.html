@@ -71,7 +71,7 @@
     <span
       (mouseenter)="putHoverEnglish()"
       (mouseleave)="deleteHoverEnglish()"
-      (click)="switchToEnglish()"
+      (click)="switchLanguage('en')"
       class="en"
     >
       <p
@@ -80,21 +80,25 @@
       >
         EN
       </p>
-      <img class="img-en" #en src="assets/img/Toggle.png" alt="" />
+      <img class="img-en" #en src="assets/img/Toggle.png" />
     </span>
     <span class="toggle">
       <img
         class="toggle-btn"
         #toggleBtn
         src="assets/img/toggle-btn.png"
-        alt=""
+        alt="Toggle Button"
       />
-      <img src="assets/img/toggle-bar.png" alt="" />
+      <img
+        (click)="toggleLanguage()"
+        src="assets/img/toggle-bar.png"
+        alt="Toggle Bar"
+      />
     </span>
     <span
       (mouseenter)="putHoverGerman()"
       (mouseleave)="deleteHoverGerman()"
-      (click)="switchToGerman()"
+      (click)="switchLanguage('de')"
       class="de"
     >
       <p
@@ -103,7 +107,7 @@
       >
         DE
       </p>
-      <img class="img-de" #de src="assets/img/Toggle.png" alt=""
+      <img class="img-de" #de src="assets/img/Toggle.png"
     /></span>
   </div>
   <div class="media-icons-resp">
@@ -155,7 +159,7 @@
     [ngClass]="respMenuOpened ? 'visibleImg' : 'hiddenImg'"
     (click)="closeRespMenu()"
     class="resp-exit-img"
-    src="assets/img/resp-menu-exit.png"
+    src="assets/img/menu.svg"
     alt="responsive menu exit"
   />
 </div>

@@ -16,8 +16,8 @@
     <a [routerLink]="['/Projects', project.id]">
       <div
         class="btn-wrap"
-        (mouseenter)="hoveredImg = true; onEvent($event)"
-        (mouseleave)="hoveredImg = true; onEvent($event)"
+        (mouseenter)="onEvent($event)"
+        (mouseleave)="onEvent($event)"
       >
         <div class="btn-cont btn">
           {{ "PROJECTS_OVERVIEW.DETAILS" | translate }}

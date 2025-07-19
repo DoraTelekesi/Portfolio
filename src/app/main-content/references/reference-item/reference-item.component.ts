@@ -24,24 +24,32 @@ export class ReferenceItemComponent {
     profession: string;
     refText: string;
     imageUrl: string;
+    link:string;
+    linkIcon:string;
   }[] = [
     {
       name: 'Noah Velickovic',
       profession: 'Frontend Developer',
       refText: 'REFERENCES.TEXT_1',
       imageUrl: 'assets/img/reference-sticker-1.png',
+      link:'https://github.com/OhVenic',
+      linkIcon:'assets/icon/github-logo.png'
     },
     {
       name: 'Abbas Al Mahmoud',
       profession: 'Frontend Developer',
       refText: 'REFERENCES.TEXT_2',
       imageUrl: 'assets/img/reference-sticker-2.png',
+      link:'https://www.linkedin.com/in/abbas-el-mahmoud/',
+      linkIcon:'assets/icon/linkedin-s.png'
     },
     {
-      name: 'David Braun',
+      name: 'Ramon Kunz',
       profession: 'Frontend Developer',
       refText: 'REFERENCES.TEXT_3',
       imageUrl: 'assets/img/reference-sticker-1.png',
+      link:'https://www.linkedin.com/in/ramon-kunz-0565b0137/',
+      linkIcon:'assets/icon/linkedin-s.png'
     },
   ];
   zIndex: number[] = [9, 3, 1];

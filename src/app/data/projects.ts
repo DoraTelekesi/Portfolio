@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
       'assets/icon/CSS.svg',
     ],
     imageUrl: 'assets/img/SpookyTown.png',
-    liveLink: 'https://doratelekesi.github.io/Spooky-Town/',
+    liveLink: 'https://www.dora-telekesi.com/Spooky-Town/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Spooky-Town',
   },
   {
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
       'assets/icon/CSS.svg',
     ],
     imageUrl: 'assets/img/Join-2.jpg',
-    liveLink: 'https://doratelekesi.github.io/Join/',
+    liveLink: 'https://www.dora-telekesi.com/Join/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Join',
   },
 ];

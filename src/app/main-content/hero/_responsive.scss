@@ -66,6 +66,12 @@
   .btn {
     width: 130px;
   }
+
+  ::ng-deep {
+    .t-1.hover-ready .char-0:hover {
+      transform: translateX(10px);
+    }
+  }
 }
 @media (max-width: 550px) {
   .title {
@@ -84,6 +90,11 @@
   }
   .btn {
     font-size: 16px;
+  }
+  ::ng-deep {
+    .t-1.hover-ready .char-0:hover {
+      transform: translateX(8px);
+    }
   }
 }
 @media (max-width: 420px) {

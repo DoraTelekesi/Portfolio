@@ -59,7 +59,6 @@ export class ProjectItemComponent implements AfterViewInit {
     });
     this.floatingAnimation();
     this.setTranslatedDescription();
-    this.floatingAnimation();
   }
 
   constructor(private translate: TranslateService) {}
@@ -84,6 +83,7 @@ export class ProjectItemComponent implements AfterViewInit {
     gsap.killTweensOf(el);
     let scaleValue = 1.1;
     let duration = 0.25;
+    this.stopFloatingAnimation();
     this.animateHover(el, scaleValue, duration);
   }
 
@@ -106,17 +106,22 @@ export class ProjectItemComponent implements AfterViewInit {
    * Animates the image scale down and restarts floating animation for join image.
    */
   onImageLeave() {
-    this.hoveredImg = false;
-    const el = this.imageElement.nativeElement;
-    gsap.killTweensOf(el); // Stop any current scale tweens
-    gsap.to(el, {
-      scale: 1,
-      duration: 0.2,
-      ease: 'power2.inOut',
+    requestAnimationFrame(() => {
+      const el = this.imageElement.nativeElement;
+      const isHovered =
+        el.matches(':hover') || el.parentElement?.matches(':hover');
+      if (isHovered) return;
+      this.hoveredImg = false;
+      gsap.killTweensOf(el);
+      gsap.to(el, {
+        scale: 1,
+        duration: 0.2,
+        ease: 'power2.inOut',
+      });
+      if (this.project.imgId === 'join-img') {
+        this.floatingAnimation();
+      }
     });
-    if (this.project.imgId === 'join-img') {
-      this.floatingAnimation();
-    }
   }
 
   /**
@@ -141,20 +146,27 @@ export class ProjectItemComponent implements AfterViewInit {
     clearInterval(this.floatIntervalId);
     if (this.floatTween) {
       this.floatTween.kill();
+      this.floatTween = null;
     }
-    gsap.to('.join-img', {
-      y: -30,
-      x: 0,
-      duration: 0.1,
-      ease: 'power0.out',
-    });
+    if (this.project.imgId === 'join-img') {
+      gsap.to(this.imageElement.nativeElement, {
+        y: -30,
+        x: 0,
+        duration: 0.1,
+        ease: 'power0.out',
+      });
+    }
   }
 
   /**
    * Animates the join image floating up and down infinitely.
    */
   floatUp() {
-    this.floatTween = gsap.to('.join-img', {
+    if (this.project.imgId !== 'join-img') return;
+    if (this.floatTween) {
+      this.floatTween.kill();
+    }
+    this.floatTween = gsap.to(this.imageElement.nativeElement, {
       y: 40,
       duration: 2,
       ease: 'back.inOut',

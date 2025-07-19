@@ -5,6 +5,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { sharedTranslateImports } from './shared/header/translate.module';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +29,14 @@ export class AppComponent {
   ];
   currentRoute = '';
 
-  constructor(private router: Router, private translate: TranslateService) {
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private location: Location
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
-        console.log(this.currentRoute)
       }
     });
   }
@@ -61,5 +65,6 @@ export class AppComponent {
    */
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.location.replaceState('/');
   }
 }

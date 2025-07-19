@@ -52,10 +52,10 @@
           <span>{{ item.name }}</span>
           <p>{{ item.profession }}</p>
         </div>
-        <div class="ref-footer-link">
-          <img src="assets/icon/linkedin-s.png" alt="" />
+        <a href="{{item.link}}" target="_blank"><div class="ref-footer-link">
+          <img src={{item.linkIcon}} />
           <p>{{ "REFERENCES.LI_PROFILE" | translate }}</p>
-        </div>
+        </div></a>
       </div>
     </div>
   </div>
