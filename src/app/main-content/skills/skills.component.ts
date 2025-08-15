@@ -7,6 +7,7 @@ import {
   ViewChildren,
   ViewChild,
   QueryList,
+  OnDestroy,
 } from '@angular/core';
 import { gsap } from 'gsap';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +20,7 @@ import { sharedTranslateImports } from '../../shared/header/translate.module';
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
-export class SkillsComponent implements AfterViewInit {
+export class SkillsComponent implements AfterViewInit, OnDestroy {
   lineRotated = false;
   currentImage = 0;
   imageCache: { [key: string]: HTMLImageElement } = {};
@@ -27,6 +28,7 @@ export class SkillsComponent implements AfterViewInit {
   showImage1: boolean = true;
   revealed = false;
   width!: number;
+  private rotateInterval?: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -81,7 +83,7 @@ export class SkillsComponent implements AfterViewInit {
    * Uses fadeDrawing and revealDrawing to animate the line.
    */
   rotateDrawnLine() {
-    setInterval(() => {
+    this.rotateInterval = setInterval(() => {
       if (this.lineRotated == false) {
         this.fadeDrawing();
         this.lineRotated = true;
@@ -93,29 +95,45 @@ export class SkillsComponent implements AfterViewInit {
   }
 
   /**
+   * Angular lifecycle hook called when the component is destroyed.
+   * Cleans up the rotation interval to prevent memory leaks and GSAP errors.
+   */
+  ngOnDestroy(): void {
+    if (this.rotateInterval) {
+      clearInterval(this.rotateInterval);
+    }
+  }
+
+  /**
    * Animates the skill title line to a faded, rotated, and scaled-down state.
    */
   fadeDrawing() {
-    gsap.to('.skill-title-line', {
-      rotation: -45,
-      scale: 0.5,
-      opacity: 0,
-      duration: 0.2,
-      transformOrigin: 'right bottom',
-    });
+    const element = document.querySelector('.skill-title-line');
+    if (element) {
+      gsap.to('.skill-title-line', {
+        rotation: -45,
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.2,
+        transformOrigin: 'right bottom',
+      });
+    }
   }
 
   /**
    * Animates the skill title line back to its original, fully visible state.
    */
   revealDrawing() {
-    gsap.to('.skill-title-line', {
-      rotation: 0,
-      duration: 0.2,
-      scale: 1,
-      opacity: 1,
-      transformOrigin: 'right bottom',
-    });
+    const element = document.querySelector('.skill-title-line');
+    if (element) {
+      gsap.to('.skill-title-line', {
+        rotation: 0,
+        duration: 0.2,
+        scale: 1,
+        opacity: 1,
+        transformOrigin: 'right bottom',
+      });
+    }
   }
 
   /**

@@ -57,8 +57,10 @@ export class ProjectDetailComponent implements OnInit {
   /**
    * Angular lifecycle hook called on component initialization.
    * Fetches the project by ID from the route and resets the underline animation.
+   * Ensures the page scrolls to the top on mobile devices.
    */
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       this.project = this.projectService.getProjectById(id || '');
@@ -105,6 +107,10 @@ export class ProjectDetailComponent implements OnInit {
       gsap.killTweensOf(this.underlineRef.nativeElement);
       gsap.set(this.underlineRef.nativeElement, {
         clipPath: 'inset(0% 100% 0% 0%)',
+        willChange: 'clip-path',
+        backfaceVisibility: 'hidden',
+        perspective: 1000,
+        transform: 'translateZ(0)',
       });
       this.animateUnderline();
     }
@@ -122,6 +128,8 @@ export class ProjectDetailComponent implements OnInit {
       ease: 'power2.out',
       repeat: -1,
       yoyo: true,
+      force3D: true,
+      transformOrigin: 'left center',
     });
   }
 

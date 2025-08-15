@@ -40,6 +40,18 @@
     margin: 0;
     display: inline-block;
   }
+  > .img-wrap {
+    .title-underline {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimize-contrast;
+      image-rendering: crisp-edges;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: clip-path;
+    }
+  }
   > .go-back {
     display: flex;
     margin-top: 20px;
