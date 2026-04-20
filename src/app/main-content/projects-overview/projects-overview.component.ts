@@ -29,7 +29,16 @@ export class ProjectsOverviewComponent {
       imgClass: 'join-img',
       imgId: 'join-img',
       path: 'Join',
-    }
+    },
+    {
+      id: 'Dabubble',
+      title: 'Dabubble',
+      description: 'PROJECTS_OVERVIEW.DABUBBLE_TEXT',
+      img: 'assets/img/dabubble.jpg',
+      imgClass: 'dabubble-img',
+      imgId: 'dabubble-img',
+      path: 'Dabubble',
+    },
   ];
   constructor(private translate: TranslateService) {}
   isUnderlined = false;

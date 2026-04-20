@@ -30,6 +30,7 @@ export const PROJECTS: Project[] = [
       { name: 'HTML', img: 'assets/icon/HTML.svg' },
       { name: 'CSS', img: 'assets/icon/CSS.svg' },
       { name: 'Firebase', img: 'assets/icon/Firebase.svg' },
+      { name: 'n8n', img: 'assets/icon/n8n_icon.svg' },
     ],
     toolsImgs: [
       'assets/icon/Js.svg',
@@ -39,5 +40,28 @@ export const PROJECTS: Project[] = [
     imageUrl: 'assets/img/Join-2.jpg',
     liveLink: 'https://www.dora-telekesi.com/Join/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Join',
+  },
+  {
+    id: 'Dabubble',
+    title: 'Dabubble',
+    description: 'PROJECTS.DABUBBLE.TEXT_1',
+    implementation: 'PROJECTS.DABUBBLE.TEXT_2',
+    tools: [
+      { name: 'JavaScript', img: 'assets/icon/Js.svg' },
+      { name: 'HTML', img: 'assets/icon/HTML.svg' },
+      { name: 'CSS', img: 'assets/icon/CSS.svg' },
+      { name: 'Angular', img: 'assets/icon/Angular_2.svg' },
+      { name: 'Firebase', img: 'assets/icon/Firebase.svg' },
+      { name: 'TypeScript', img: 'assets/icon/Ts.svg' },
+      { name: 'Material Design', img: 'assets/icon/Material_Design.svg' },
+    ],
+    toolsImgs: [
+      'assets/icon/Js.svg',
+      'assets/icon/HTML.svg',
+      'assets/icon/CSS.svg',
+    ],
+    imageUrl: 'assets/img/dabubble.jpg',
+    liveLink: 'https://www.dora-telekesi.com/Dabubble/index.html',
+    repoLink: 'https://github.com/DoraTelekesi/Dabubble',
   },
 ];

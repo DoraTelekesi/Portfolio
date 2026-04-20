@@ -39,12 +39,12 @@
     "IN_THEIR_WORDS": "IN IHREN WORTEN:",
     "COLLEAGUES_THOUGHTS": "Feedback von Kollegen",
     "TEXT_1": "Die Zusammenarbeit mit Dora war stets positiv und konstruktiv. Sie kommuniziert klar, arbeitet zuverlässig und qualitätsbewusst und ist offen für Feedback. Durch ihre proaktive, teamorientierte und lösungsorientierte Haltung leistet sie einen wichtigen Beitrag zum Projekterfolg.",
-    "TEXT_2":"Dora passt sich schnell an neue Situationen an und handelt eigeninitiativ, ohne ständige Anleitung zu benötigen. Herausforderungen meistert sie ruhig und liefert auch unter Druck verlässliche Ergebnisse. Es ist eine große Unterstützung, jemanden so selbstständigen und zuverlässigen im Team zu haben.",
+    "TEXT_2": "Dora passt sich schnell an neue Situationen an und handelt eigeninitiativ, ohne ständige Anleitung zu benötigen. Herausforderungen meistert sie ruhig und liefert auch unter Druck verlässliche Ergebnisse. Es ist eine große Unterstützung, jemanden so selbstständigen und zuverlässigen im Team zu haben.",
     "TEXT_3": "Dora ist ein echter Teamplayer. Sie hört aktiv zu, unterstützt andere ohne zu zögern und schafft eine kooperative Atmosphäre, in der sich alle gehört und eingebunden fühlen. Ihre positive Haltung und teamorientierte Denkweise machen die Zusammenarbeit angenehm und effizient.",
     "LI_PROFILE": "Profil"
   },
   "CONTACT": {
-    "CONTACT":"KONTAKTIERE MICH",
+    "CONTACT": "KONTAKTIERE MICH",
     "READY": "Bereit zu arbeiten?",
     "TEXT_1": "Ich freue mich sehr, von Ihnen zu hören! Besonders interessiert mich eine Rolle, in der ich meine Frontend-Kompetenzen für innovative Projekte einsetzen kann. Mit meinem Fachwissen und meiner Begeisterung für kontinuierliches Lernen bin ich überzeugt, einen wertvollen Beitrag leisten zu können.",
     "TEXT_2": "Neben technischem Know-how bringe ich auch Kreativität und Teamgeist mit. Lassen Sie uns gemeinsam spannende Herausforderungen angehen und außergewöhnliche Ergebnisse erzielen!",
@@ -59,7 +59,7 @@
     "MSG_PH": "Hallo Dora, ich bin interessiert an...",
     "MSG_ERROR_1": "Bitte eine Nachricht eingeben!",
     "MSG_ERROR_2": "Bitte mindestens 15 Zeichen schreiben!",
-    "PP-TEXT-1": "Ich habe die",    
+    "PP-TEXT-1": "Ich habe die",
     "PP-TITLE": "Datenschutz",
     "PP-TEXT-2": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
     "LN": "Impressum",
@@ -71,7 +71,7 @@
       "DESC": "Beschreibung",
       "I_D": "Implementierungsdetails",
       "TEXT_1": "Aufgabenmanager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.",
-      "TEXT_2": "Im Projekt Join entwickelte ich eine Plattform zur Verbesserung der Nutzerkommunikation und Zusammenarbeit. Mit JavaScript, React und Node.js entstand eine benutzerfreundliche Oberfläche und ein leistungsstarkes Backend. Besonders wichtig war die Umsetzung von Echtzeit-Kommunikation. Durch agile Teamarbeit konnten wir die Plattform flexibel weiterentwickeln.",
+      "TEXT_2": "Im Projekt Join habe ich eine frontend-fokussierte Kollaborationsplattform mit HTML, CSS, JavaScript und Firebase entwickelt, mit responsiver Benutzeroberfläche und Echtzeit-Datenverarbeitung. Ein zentrales Feature ist ein automatisierter Workflow mit n8n und KI-Agent, der E-Mail-Anfragen in strukturierte Aufgaben umwandelt und automatisch dem Kanban-Board hinzufügt. Agile Entwicklung mit kontinuierlicher Verbesserung im Team.",
       "DUR": "Dauer:",
       "WEEK": "5 Wochen",
       "BACK": "Gehe zurück",
@@ -98,25 +98,25 @@
       "NEXT": "Nächstes Projekt"
     }
   },
-  "IMPRESSUM":{
-    "IMP":"Impressum",
-    "RULE":"Angaben gemäß § 5 DDG",
-    "REPR":"Vertreten durch:",
-    "CONTACT":"Kontakt:",
-    "DISCLAIMER":"Haftungsausschluss:",
-    "LIAB-CONTENT":"Haftung für Inhalte",
-    "LIAB-CONTENT-TEXT":"Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zuforschen, die auf eine rechtswidrige Tätigkeit hinweisen.Verpflichtungen zur Entfernung oder Sperrung der Nutzung vonInformationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt derKenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden vonentsprechenden Rechtsverletzungen werden wir diese Inhalte umgehendentfernen.",
-    "LIAB-LINKS":"Haftung für Links",
-    "LIAB-LINKS-TEXT":"Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.",
-    "COPYRIGHT":"Urheberrecht",
-    "COPYRIGHT-TEXT":"Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.",
-    "DATA-PROTECT":"Datenschutz",
-    "DATA-PROTECT-TEXT":"Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. <br /> Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. <br /> Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.",
+  "IMPRESSUM": {
+    "IMP": "Impressum",
+    "RULE": "Angaben gemäß § 5 DDG",
+    "REPR": "Vertreten durch:",
+    "CONTACT": "Kontakt:",
+    "DISCLAIMER": "Haftungsausschluss:",
+    "LIAB-CONTENT": "Haftung für Inhalte",
+    "LIAB-CONTENT-TEXT": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zuforschen, die auf eine rechtswidrige Tätigkeit hinweisen.Verpflichtungen zur Entfernung oder Sperrung der Nutzung vonInformationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt derKenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden vonentsprechenden Rechtsverletzungen werden wir diese Inhalte umgehendentfernen.",
+    "LIAB-LINKS": "Haftung für Links",
+    "LIAB-LINKS-TEXT": "Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.",
+    "COPYRIGHT": "Urheberrecht",
+    "COPYRIGHT-TEXT": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.",
+    "DATA-PROTECT": "Datenschutz",
+    "DATA-PROTECT-TEXT": "Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. <br /> Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. <br /> Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.",
     "ATTRIBUTION": "Cat icons erstellt von Dave Gandy - Flaticon",
-    "PHOTO":"Foto aufgenommen in einem professionellen Fotostudio: www.people-pictures.de"
+    "PHOTO": "Foto aufgenommen in einem professionellen Fotostudio: www.people-pictures.de"
   },
-  "SCROLL":{
+  "SCROLL": {
     "TO_TOP": "NACH OBEN"
   },
-  "MESSAGE_LOG":"Nachricht gesendet"
+  "MESSAGE_LOG": "Nachricht gesendet"
 }
