@@ -47,12 +47,11 @@ export const PROJECTS: Project[] = [
     description: 'PROJECTS.DABUBBLE.TEXT_1',
     implementation: 'PROJECTS.DABUBBLE.TEXT_2',
     tools: [
-      { name: 'JavaScript', img: 'assets/icon/Js.svg' },
       { name: 'HTML', img: 'assets/icon/HTML.svg' },
       { name: 'CSS', img: 'assets/icon/CSS.svg' },
+      { name: 'TypeScript', img: 'assets/icon/Ts.svg' },
       { name: 'Angular', img: 'assets/icon/Angular_2.svg' },
       { name: 'Firebase', img: 'assets/icon/Firebase.svg' },
-      { name: 'TypeScript', img: 'assets/icon/Ts.svg' },
       { name: 'Material Design', img: 'assets/icon/Material_Design.svg' },
     ],
     toolsImgs: [

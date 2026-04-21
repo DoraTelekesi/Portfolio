@@ -30,9 +30,11 @@
           {{ "PROJECTS.JOIN.WEEK" | translate }}
         </p>
         <div class="tools">
-          @for(tool of project?.tools; track tool){
-          <img src="{{ tool.img }}" alt="" />
-          <p>{{ tool.name }}</p>
+          @for (tool of project?.tools; track tool) {
+            <div class="tool-item">
+              <img src="{{ tool.img }}" alt="" />
+              <p>{{ tool.name }}</p>
+            </div>
           }
         </div>
       </div>
