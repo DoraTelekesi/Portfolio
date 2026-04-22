@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   description: string;
   implementation: string;
+  duration: string;
   tools:Tool[];
   toolsImgs:string[];
   imageUrl: string;

@@ -19,6 +19,7 @@ export const PROJECTS: Project[] = [
     imageUrl: 'assets/img/SpookyTown.png',
     liveLink: 'https://www.dora-telekesi.com/Spooky-Town/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Spooky-Town',
+    duration: 'PROJECTS.SPOOKY.WEEK',
   },
   {
     id: 'Join',
@@ -40,6 +41,7 @@ export const PROJECTS: Project[] = [
     imageUrl: 'assets/img/Join-2.jpg',
     liveLink: 'https://www.dora-telekesi.com/Join/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Join',
+    duration: 'PROJECTS.JOIN.WEEK',
   },
   {
     id: 'Dabubble',
@@ -62,5 +64,6 @@ export const PROJECTS: Project[] = [
     imageUrl: 'assets/img/dabubble.jpg',
     liveLink: 'https://www.dora-telekesi.com/Dabubble/index.html',
     repoLink: 'https://github.com/DoraTelekesi/Dabubble',
+    duration: 'PROJECTS.DABUBBLE.WEEK',
   },
 ];

@@ -27,7 +27,7 @@
         </p>
         <p>
           <span>{{ "PROJECTS.JOIN.DUR" | translate }}</span>
-          {{ "PROJECTS.JOIN.WEEK" | translate }}
+          {{ project?.duration || "" | translate }}
         </p>
         <div class="tools">
           @for (tool of project?.tools; track tool) {

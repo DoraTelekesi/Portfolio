@@ -91,9 +91,9 @@
       "DESC": "Beschreibung",
       "I_D": "Implementierungsdetails",
       "TEXT_1": "Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit einer intuitiven Benutzeroberfläche, Echtzeit-Nachrichten und einer robusten Kanalorganisation.",
-      "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "TEXT_2": "Im DaBubble-Projekt haben wir als Dreierteam einen vollwertigen Slack-Klon mit Angular, TypeScript, SCSS und Firebase entwickelt. Meine Kernaufgaben umfassten die Implementierung des gesamten Authentifizierungsflows, des Direktnachrichtensystems sowie das gleichzeitige Versenden von Nachrichten an mehrere Empfänger. Die Plattform unterstützt zudem Thread-Antworten, Emoji-Reaktionen und Erwähnungen von Nutzern, was meine Erfahrung mit Echtzeit-Datenbanken und komponentenbasierter Architektur vertieft hat.",
       "DUR": "Dauer:",
-      "WEEK": "3 Wochen",
+      "WEEK": "5 Wochen",
       "BACK": "Gehe zurück",
       "NEXT": "Nächstes Projekt"
     }

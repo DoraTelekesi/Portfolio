@@ -73,7 +73,7 @@
       "TEXT_1": "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
       "TEXT_2": "In the Join project, I developed a frontend-focused collaboration platform using HTML, CSS, JavaScript, and Firebase, featuring a responsive UI and real-time data handling. A key feature is an automated workflow powered by n8n and an AI agent, which converts email requests from stakeholders into structured tasks and automatically adds them to the Kanban board. The project was developed in an agile team with continuous iteration and improvements.",
       "DUR": "Duration:",
-      "WEEK": "3 weeks",
+      "WEEK": "5 weeks",
       "BACK": "Go Back",
       "NEXT": "Next Project"
     },
@@ -91,9 +91,9 @@
       "DESC": "Description",
       "I_D": "Implementation Details",
       "TEXT_1": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
-      "TEXT_2": "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "TEXT_2": "In the DaBubble project, our team of three built a fully functional Slack clone using Angular, TypeScript, SCSS, and Firebase. My core responsibilities included implementing the complete authentication flow, direct messaging, and collective message broadcasting to multiple recipients simultaneously. The platform further supports threaded replies, emoji reactions, and user mentions, which deepened my experience with real-time databases and component-based architecture.",
       "DUR": "Duration:",
-      "WEEK": "3 weeks",
+      "WEEK": "5 weeks",
       "BACK": "Go Back",
       "NEXT": "Next Project"
     }
