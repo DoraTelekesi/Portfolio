@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
       'assets/icon/CSS.svg',
     ],
     imageUrl: 'assets/img/dabubble.jpg',
-    liveLink: 'https://www.dora-telekesi.com/Dabubble/index.html',
+    liveLink: 'https://www.dora-telekesi.com/Dabubble',
     repoLink: 'https://github.com/DoraTelekesi/Dabubble',
     duration: 'PROJECTS.DABUBBLE.WEEK',
   },
